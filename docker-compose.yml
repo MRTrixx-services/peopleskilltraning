@@ -1,21 +1,33 @@
-services:
 
+services:
   db:
     image: postgres:17
     container_name: uw_postgres
     restart: unless-stopped
     environment:
-      POSTGRES_DB: webinar_db
-      POSTGRES_USER: webinar_user
+      POSTGRES_DB: ${DB_NAME:-webinar_db}
+      POSTGRES_USER: ${DB_USER:-webinar_user}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-webinar_user} -d ${DB_NAME:-webinar_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   redis:
     image: redis:7-alpine
     container_name: uw_redis
     restart: unless-stopped
     command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   web:
     build: .
@@ -23,16 +35,17 @@ services:
     restart: unless-stopped
     command: gunicorn universalwebinars.wsgi:application --bind 0.0.0.0:8000 --workers 3 --threads 2 --worker-class gthread --timeout 120 --keep-alive 5 --max-requests 2000 --max-requests-jitter 200
     volumes:
-      - .:/app
-      - ./media:/app/media
-      - ./staticfiles:/app/staticfiles
+      - media_data:/app/media
+      - static_data:/app/staticfiles
     env_file:
       - .env
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
 
   celery:
     build: .
@@ -42,8 +55,10 @@ services:
     env_file:
       - .env
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
 
   celery-beat:
     build: .
@@ -53,8 +68,13 @@ services:
     env_file:
       - .env
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
 
 volumes:
   postgres_data:
+  redis_data:
+  media_data:
+  static_data:

@@ -37,8 +37,8 @@ ALLOWED_HOSTS = [
 
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://hrtrusts.com",
-    "https://www.hrtrusts.com",
+    "https://peopleskilltraning.com",
+    "https://www.peopleskilltraing.com",
 ]
 
 
@@ -130,9 +130,14 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 # }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("DB_NAME", "webinar_db"),
+        "USER": os.getenv("DB_USER", "webinar_user"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "HOST": os.getenv("DB_HOST", "db"),
+        "PORT": os.getenv("DB_PORT", "5432"),
+        "CONN_MAX_AGE": 60,
     }
 }
 
@@ -338,12 +343,12 @@ else:
     SESSION_COOKIE_HTTPONLY = True
     SESSION_COOKIE_SECURE = True
     SESSION_COOKIE_SAMESITE = "Lax"
-    SESSION_COOKIE_DOMAIN = ".hrtrusts.com"
+    SESSION_COOKIE_DOMAIN = ".peopleskilltraining.com"
 
     CSRF_COOKIE_SECURE = True
     CSRF_COOKIE_HTTPONLY = False
     CSRF_COOKIE_SAMESITE = "Lax"
-    CSRF_COOKIE_DOMAIN = ".hrtrusts.com"
+    CSRF_COOKIE_DOMAIN = ".propleskilltraning.com"
 
     # HTTPS is enforced by Nginx/Cloudflare.
     # Keep Django redirect disabled to avoid proxy redirect loops.
