@@ -1,0 +1,1432 @@
+
+/* ==========================================================
+   LIVE WEBINAR DETAILS PAGE
+   Premium Green Theme
+   Reference Design Implementation
+========================================================== */
+
+.live-detail-page.ldp-page {
+    --ldp-primary: #078b4c;
+    --ldp-primary-dark: #006b3c;
+    --ldp-primary-deep: #004d32;
+    --ldp-green-light: #e8f8ec;
+    --ldp-green-soft: #f1faf3;
+    --ldp-text: #101828;
+    --ldp-muted: #64748b;
+    --ldp-border: #e5e7eb;
+    --ldp-white: #ffffff;
+
+    background: #ffffff;
+    color: var(--ldp-text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.live-detail-page.ldp-page *,
+.live-detail-page.ldp-page *::before,
+.live-detail-page.ldp-page *::after {
+    box-sizing: border-box;
+}
+
+.live-detail-page.ldp-page h1,
+.live-detail-page.ldp-page h2,
+.live-detail-page.ldp-page h3,
+.live-detail-page.ldp-page h4,
+.live-detail-page.ldp-page h5 {
+    font-family: 'Sora', sans-serif;
+    color: var(--ldp-text);
+}
+
+.live-detail-page.ldp-page button {
+    font-family: inherit;
+}
+
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.ldp-container {
+    width: min(1200px, calc(100% - 48px));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ==========================================================
+   BREADCRUMB
+========================================================== */
+
+.ldp-breadcrumb {
+    width: 100%;
+    background: #f0faf3;
+    border-bottom: 1px solid #e6f2e9;
+}
+
+.ldp-breadcrumb .ldp-container {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--ldp-primary-dark);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.ldp-breadcrumb i {
+    font-size: 13px;
+}
+
+.ldp-breadcrumb .bi-chevron-right {
+    font-size: 10px;
+    color: #92b5a0;
+}
+
+.ldp-breadcrumb-current {
+    color: #344054;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/* ==========================================================
+   MAIN TWO COLUMN LAYOUT
+========================================================== */
+
+.ldp-main-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    align-items: start;
+    gap: 30px;
+    padding-top: 30px;
+    padding-bottom: 75px;
+}
+
+.ldp-left {
+    min-width: 0;
+}
+
+.ldp-right {
+    min-width: 0;
+    position: sticky;
+    top: 24px;
+    z-index: 5;
+}
+
+
+/* ==========================================================
+   WEBINAR INTRO
+========================================================== */
+
+.ldp-intro {
+    padding: 0 4px 22px;
+}
+
+.ldp-status-row {
+    margin-bottom: 12px;
+}
+
+.ldp-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    background: #075a3b;
+    color: #ffffff;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .35px;
+}
+
+.ldp-status-dot {
+    width: 9px;
+    height: 9px;
+    display: inline-block;
+    background: #ff6b35;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(255,255,255,.12);
+}
+
+.ldp-title {
+    max-width: 760px;
+    margin: 0 0 12px;
+    color: #111827;
+    font-size: clamp(27px, 3.2vw, 40px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -1.4px;
+}
+
+.ldp-description {
+    max-width: 700px;
+    margin: 0 0 22px;
+    color: #475467;
+    font-size: 15px;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+
+/* ==========================================================
+   SESSION INFORMATION
+========================================================== */
+
+.ldp-session-info {
+    display: grid;
+    grid-template-columns: 1.1fr 1.25fr 1fr auto;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.ldp-session-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+}
+
+.ldp-session-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--ldp-primary);
+    font-size: 24px;
+}
+
+.ldp-session-item > div:last-child {
+    min-width: 0;
+}
+
+.ldp-session-label {
+    display: block;
+    margin-bottom: 4px;
+    color: #7b8794;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .7px;
+}
+
+.ldp-session-item strong {
+    display: block;
+    color: #202939;
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.ldp-webinar-id {
+    padding: 11px 17px;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--ldp-green-light);
+    text-align: center;
+}
+
+.ldp-webinar-id strong {
+    color: var(--ldp-primary-dark);
+    font-size: 13px;
+}
+
+
+/* ==========================================================
+   SECTION HEADINGS
+========================================================== */
+
+.ldp-details-section,
+.ldp-instructor-section {
+    margin-top: 26px;
+}
+
+.ldp-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.ldp-heading-icon {
+    width: 29px;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background: var(--ldp-primary);
+    border-radius: 6px;
+    font-size: 17px;
+}
+
+.ldp-section-heading h2 {
+    margin: 0;
+    color: #111827;
+    font-size: 19px;
+    line-height: 1.3;
+    font-weight: 700;
+    letter-spacing: -.4px;
+}
+
+.ldp-instructor-heading-icon {
+    background: transparent;
+    color: var(--ldp-primary);
+    font-size: 25px;
+}
+
+
+/* ==========================================================
+   WEBINAR DETAILS CARD
+========================================================== */
+
+.ldp-details-card {
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 17px;
+    box-shadow: 0 3px 14px rgba(16,24,40,.045);
+}
+
+.ldp-details-tabs {
+    display: flex;
+    align-items: stretch;
+    gap: 5px;
+    padding: 7px;
+    background: #fbfcfb;
+    border-bottom: 1px solid #edf0ed;
+}
+
+.ldp-detail-tab {
+    display: inline-flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 9px 12px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: #344054;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: default;
+}
+
+.ldp-detail-tab.active {
+    color: #ffffff;
+    background: linear-gradient(135deg, #07964f, #00783e);
+    box-shadow: 0 4px 10px rgba(0,130,69,.18);
+}
+
+.ldp-detail-tab i {
+    font-size: 16px;
+}
+
+.ldp-overview-content {
+    padding: 20px;
+}
+
+.ldp-overview-content h3 {
+    margin: 0 0 10px;
+    color: #101828;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.ldp-overview-content .description-content {
+    color: #344054;
+    font-size: 14px;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+}
+
+.ldp-overview-content .description-content p {
+    margin: 0 0 12px;
+}
+
+.ldp-overview-content .description-content p:last-child {
+    margin-bottom: 0;
+}
+
+.ldp-overview-content .description-content h1,
+.ldp-overview-content .description-content h2,
+.ldp-overview-content .description-content h3,
+.ldp-overview-content .description-content h4,
+.ldp-overview-content .description-content h5 {
+    margin: 15px 0 9px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.ldp-overview-content .description-content ul,
+.ldp-overview-content .description-content ol {
+    padding-left: 22px;
+    margin: 10px 0;
+}
+
+.ldp-overview-content .description-content li {
+    margin-bottom: 6px;
+}
+
+.ldp-overview-content .description-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+/* ==========================================================
+   INSTRUCTOR CARD
+========================================================== */
+
+.ldp-instructor-section {
+    margin-top: 25px;
+}
+
+.ldp-instructor-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 18px 22px;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 3px 14px rgba(16,24,40,.045);
+}
+
+.ldp-instructor-image-wrap {
+    width: 145px;
+    height: 145px;
+    flex-shrink: 0;
+    padding: 4px;
+    border: 2px solid #079b4c;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.ldp-instructor-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.ldp-instructor-info {
+    min-width: 0;
+}
+
+.ldp-instructor-info h3 {
+    margin: 0 0 7px;
+    color: #101828;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.ldp-instructor-designation {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 7px;
+    color: var(--ldp-primary-dark);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.ldp-instructor-organization {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 9px;
+    color: #667085;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.ldp-instructor-bio {
+    color: #344054;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.ldp-instructor-bio p {
+    margin: 0 0 8px;
+}
+
+
+/* ==========================================================
+   PRICING CARD
+========================================================== */
+
+.ldp-pricing-card {
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    border-radius: 19px;
+    background: #ffffff;
+    box-shadow: 0 5px 22px rgba(16,24,40,.07);
+}
+
+.ldp-pricing-header {
+    padding: 18px 20px;
+    background: linear-gradient(120deg, #e3f8e7, #f0fbf1);
+}
+
+.ldp-pricing-header h2 {
+    margin: 0;
+    color: #07552f;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -.45px;
+}
+
+.ldp-pricing-body {
+    padding: 17px 18px 20px;
+}
+
+.ldp-access-heading {
+    margin: 0 0 12px;
+    color: #101828;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   PRICING TABS
+========================================================== */
+
+.ldp-pricing-form .pricing-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 13px;
+    padding: 4px;
+    border-radius: 10px;
+    background: #f3f7f4;
+}
+
+.ldp-pricing-form .tab-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 0;
+    padding: 10px 5px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: #526358;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.ldp-pricing-form .tab-btn i {
+    font-size: 14px;
+}
+
+.ldp-pricing-form .tab-btn:hover {
+    color: var(--ldp-primary);
+    background: #e7f6eb;
+}
+
+.ldp-pricing-form .tab-btn.active {
+    color: #ffffff;
+    background: var(--ldp-primary);
+    box-shadow: 0 3px 9px rgba(0,139,76,.2);
+}
+
+
+/* ==========================================================
+   PRICING TAB PANELS
+========================================================== */
+
+.ldp-pricing-form .tab-panel {
+    display: none;
+}
+
+.ldp-pricing-form .tab-panel.active {
+    display: block;
+}
+
+.ldp-options-row {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+
+/* ==========================================================
+   PRICING OPTION CARD
+========================================================== */
+
+.ldp-pricing-form .option-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-height: 70px;
+    padding: 11px 12px;
+    border: 1px solid #e1e5e2;
+    border-radius: 12px;
+    background: #ffffff;
+    cursor: pointer;
+    transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.ldp-pricing-form .option-card:hover {
+    border-color: #8bcba5;
+    background: #f8fdf9;
+}
+
+.ldp-pricing-form .option-card:has(.pricing-option:checked) {
+    border: 1.5px solid var(--ldp-primary);
+    background: #effaf1;
+    box-shadow: 0 0 0 2px rgba(7,139,76,.07);
+}
+
+.ldp-pricing-form .pricing-option {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin: 0;
+    accent-color: var(--ldp-primary);
+    cursor: pointer;
+}
+
+.ldp-pricing-form .option-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.ldp-pricing-form .option-title {
+    display: block;
+    color: #101828;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.ldp-pricing-form .option-sub {
+    display: block;
+    color: #667085;
+    font-size: 10px;
+    line-height: 1.45;
+    font-weight: 400;
+}
+
+.ldp-pricing-form .option-price {
+    flex-shrink: 0;
+    color: #101828;
+    font-size: 14px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.ldp-pricing-form .option-disabled-card {
+    opacity: .55;
+    cursor: not-allowed;
+}
+
+.ldp-pricing-form .option-disabled-card .pricing-option {
+    cursor: not-allowed;
+}
+
+
+/* ==========================================================
+   TOTAL PRICE
+========================================================== */
+
+.ldp-total-box {
+    margin-top: 17px;
+    padding: 13px 15px;
+    border-radius: 12px;
+    background: linear-gradient(120deg, #eaf9ed, #f1fbf2);
+}
+
+.ldp-total-label {
+    display: block;
+    margin-bottom: 3px;
+    color: #344054;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.ldp-pricing-form .total-value {
+    color: #075b35;
+    font-family: 'Sora', sans-serif;
+    font-size: 29px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -.8px;
+}
+
+.ldp-pricing-form .total-value small {
+    color: #176b43;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+
+/* ==========================================================
+   CTA BUTTONS
+========================================================== */
+
+.ldp-pricing-form .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.ldp-pricing-form .btn-cta {
+    width: 100%;
+    min-height: 43px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 11px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.ldp-pricing-form .btn-primary {
+    border: 1px solid var(--ldp-primary);
+    color: #ffffff;
+    background: linear-gradient(110deg, #07974f, #00723f);
+    box-shadow: 0 4px 10px rgba(0,123,65,.13);
+}
+
+.ldp-pricing-form .btn-primary:hover:not(:disabled) {
+    color: #ffffff;
+    background: #006b3c;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(0,123,65,.2);
+}
+
+.ldp-pricing-form .btn-outline {
+    border: 1.5px solid var(--ldp-primary);
+    color: #07552f;
+    background: #ffffff;
+}
+
+.ldp-pricing-form .btn-outline:hover {
+    color: #ffffff;
+    background: var(--ldp-primary);
+}
+
+.ldp-pricing-form .btn-cta:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+
+/* ==========================================================
+   PRICING BENEFITS
+========================================================== */
+
+.ldp-pricing-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 17px;
+    border-top: 1px solid #edf0ed;
+}
+
+.ldp-benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: #344054;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.ldp-benefit-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    color: var(--ldp-primary);
+    background: #e9f8ed;
+    font-size: 15px;
+}
+
+
+/* ==========================================================
+   ENDED TOAST
+========================================================== */
+
+.live-detail-page.ldp-page ~ .webinar-ended-toast,
+.webinar-ended-toast {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 99999;
+    max-width: 380px;
+    padding: 14px 20px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px;
+    color: #ffffff;
+    background: #075b3a;
+    box-shadow: 0 10px 30px rgba(0,0,0,.18);
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(30px);
+    pointer-events: none;
+    transition: all .3s ease;
+}
+
+.webinar-ended-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================
+   TABLET RESPONSIVE
+========================================================== */
+
+@media (max-width: 1050px) {
+
+    .ldp-main-layout {
+        grid-template-columns: minmax(0, 1fr) 340px;
+        gap: 22px;
+    }
+
+    .ldp-session-info {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 17px;
+    }
+
+    .ldp-webinar-id {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .ldp-pricing-body {
+        padding: 15px;
+    }
+
+    .ldp-pricing-form .option-card {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .ldp-pricing-form .option-price {
+        font-size: 13px;
+    }
+
+}
+
+
+/* ==========================================================
+   TABLET / MOBILE LAYOUT
+========================================================== */
+
+@media (max-width: 850px) {
+
+    .ldp-main-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding-top: 24px;
+        padding-bottom: 50px;
+    }
+
+    .ldp-right {
+        position: static;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .ldp-pricing-card {
+        width: 100%;
+    }
+
+    .ldp-pricing-form .option-card {
+        min-height: 72px;
+    }
+
+    .ldp-instructor-card {
+        gap: 20px;
+    }
+
+}
+
+
+/* ==========================================================
+   MOBILE RESPONSIVE
+========================================================== */
+
+@media (max-width: 600px) {
+
+    .ldp-container {
+        width: calc(100% - 30px);
+    }
+
+    .ldp-breadcrumb .ldp-container {
+        min-height: 40px;
+        gap: 7px;
+        font-size: 10px;
+    }
+
+    .ldp-main-layout {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        gap: 23px;
+    }
+
+    .ldp-intro {
+        padding: 0 0 15px;
+    }
+
+    .ldp-status-badge {
+        font-size: 10px;
+        padding: 6px 11px;
+    }
+
+    .ldp-title {
+        font-size: 27px;
+        line-height: 1.25;
+        letter-spacing: -.8px;
+    }
+
+    .ldp-description {
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    .ldp-session-info {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px 10px;
+    }
+
+    .ldp-session-icon {
+        width: 29px;
+        height: 29px;
+        font-size: 20px;
+    }
+
+    .ldp-session-item {
+        gap: 7px;
+    }
+
+    .ldp-session-item strong {
+        font-size: 11px;
+    }
+
+    .ldp-session-label {
+        font-size: 9px;
+    }
+
+    .ldp-webinar-id {
+        padding: 8px 10px;
+    }
+
+    .ldp-section-heading {
+        gap: 9px;
+        margin-bottom: 11px;
+    }
+
+    .ldp-section-heading h2 {
+        font-size: 17px;
+    }
+
+    .ldp-details-card {
+        border-radius: 13px;
+    }
+
+    .ldp-details-tabs {
+        padding: 5px;
+    }
+
+    .ldp-detail-tab {
+        min-height: 38px;
+        padding: 8px;
+        font-size: 11px;
+    }
+
+    .ldp-overview-content {
+        padding: 16px;
+    }
+
+    .ldp-overview-content h3 {
+        font-size: 17px;
+    }
+
+    .ldp-overview-content .description-content {
+        font-size: 13px;
+    }
+
+    .ldp-instructor-card {
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        padding: 20px 17px;
+        text-align: center;
+    }
+
+    .ldp-instructor-image-wrap {
+        width: 120px;
+        height: 120px;
+    }
+
+    .ldp-instructor-info h3 {
+        font-size: 18px;
+    }
+
+    .ldp-instructor-designation,
+    .ldp-instructor-organization {
+        justify-content: center;
+    }
+
+    .ldp-instructor-bio {
+        font-size: 12px;
+    }
+
+    .ldp-pricing-header {
+        padding: 16px;
+    }
+
+    .ldp-pricing-header h2 {
+        font-size: 17px;
+    }
+
+    .ldp-pricing-body {
+        padding: 15px;
+    }
+
+    .ldp-pricing-form .tab-btn {
+        font-size: 10px;
+        padding: 9px 3px;
+    }
+
+    .ldp-pricing-form .tab-btn i {
+        font-size: 13px;
+    }
+
+    .ldp-pricing-form .option-card {
+        min-height: 68px;
+        padding: 10px;
+    }
+
+    .ldp-pricing-form .option-title {
+        font-size: 12px;
+    }
+
+    .ldp-pricing-form .option-sub {
+        font-size: 10px;
+    }
+
+    .ldp-pricing-form .option-price {
+        font-size: 13px;
+    }
+
+    .ldp-pricing-form .total-value {
+        font-size: 26px;
+    }
+
+    .ldp-pricing-form .btn-cta {
+        min-height: 45px;
+        font-size: 13px;
+    }
+
+    .webinar-ended-toast {
+        left: 50%;
+        right: auto;
+        bottom: 15px;
+        width: calc(100% - 30px);
+        max-width: none;
+        text-align: center;
+        transform: translate(-50%, 30px);
+    }
+
+    .webinar-ended-toast.show {
+        transform: translate(-50%, 0);
+    }
+
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width: 380px) {
+
+    .ldp-title {
+        font-size: 24px;
+    }
+
+    .ldp-session-info {
+        grid-template-columns: 1fr;
+    }
+
+    .ldp-pricing-form .option-card {
+        gap: 7px;
+        padding: 9px;
+    }
+
+    .ldp-pricing-form .option-price {
+        font-size: 12px;
+    }
+
+    .ldp-pricing-form .option-sub {
+        font-size: 9px;
+    }
+
+    .ldp-pricing-form .tab-btn {
+        gap: 3px;
+        font-size: 9px;
+    }
+
+}
+
+
+/* ==========================================================
+   ACCESSIBILITY
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .live-detail-page.ldp-page *,
+    .live-detail-page.ldp-page *::before,
+    .live-detail-page.ldp-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+
+}
+
+/* ==========================================
+   FULL WIDTH – ALL SCREEN SIZES
+========================================== */
+
+.live-detail-page.ldp-page {
+    width: 100%;
+    max-width: 100%;
+}
+
+.live-detail-page.ldp-page .ldp-container {
+    width: 100%;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(16px, 4vw, 65px);
+    padding-right: clamp(16px, 4vw, 65px);
+}
+
+/* Main layout */
+.live-detail-page.ldp-page .ldp-main-layout {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
+    gap: clamp(20px, 2.5vw, 40px);
+}
+
+/* Large desktop */
+@media (min-width: 1600px) {
+    .live-detail-page.ldp-page .ldp-main-layout {
+        grid-template-columns: minmax(0, 1fr) 420px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 850px) {
+    .live-detail-page.ldp-page .ldp-main-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .live-detail-page.ldp-page .ldp-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Prevent horizontal overflow */
+.live-detail-page.ldp-page {
+    overflow-x: clip;
+}
+
+.live-detail-page.ldp-page img {
+    max-width: 100%;
+}
+
+/* =====================================================
+   1. IMPROVE OVERALL TYPOGRAPHY
+===================================================== */
+
+/* Main webinar title */
+.ldp-title {
+    font-size: clamp(30px, 3.2vw, 43px);
+    line-height: 1.25;
+    letter-spacing: -1.2px;
+}
+
+/* Intro description */
+.ldp-description {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Session information */
+.ldp-session-item strong {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.ldp-session-label {
+    font-size: 11px;
+}
+
+/* Section headings */
+.ldp-section-heading h2 {
+    font-size: 21px;
+}
+
+/* Pricing heading */
+.ldp-pricing-header h2 {
+    font-size: 20px;
+}
+
+/* Pricing labels */
+.ldp-access-heading {
+    font-size: 15px;
+}
+
+.ldp-pricing-form .option-title {
+    font-size: 13px;
+}
+
+.ldp-pricing-form .option-sub {
+    font-size: 11px;
+}
+
+.ldp-pricing-form .option-price {
+    font-size: 15px;
+}
+
+/* Buttons */
+.ldp-pricing-form .btn-cta {
+    font-size: 14px;
+}
+
+/* Instructor */
+.ldp-instructor-info h3 {
+    font-size: 22px;
+}
+
+.ldp-instructor-designation {
+    font-size: 13px;
+}
+
+.ldp-instructor-bio {
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+
+/* =====================================================
+   2. PROFESSIONAL DESCRIPTION CONTENT DESIGN
+===================================================== */
+
+.ldp-overview-content {
+    padding: 25px;
+}
+
+/* Description headings */
+.ldp-overview-content .description-content h1 {
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: #075b35;
+    margin: 0 0 17px;
+    letter-spacing: -.6px;
+}
+
+.ldp-overview-content .description-content h2 {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.4;
+    color: #075b35;
+    margin: 30px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid #07964f;
+}
+
+.ldp-overview-content .description-content h3 {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #173d2a;
+    margin: 22px 0 12px;
+}
+
+/* Bold text inside description */
+.ldp-overview-content .description-content strong {
+    color: #153d2a;
+    font-weight: 750;
+}
+
+/* Paragraphs */
+.ldp-overview-content .description-content p {
+    color: #475467;
+    font-size: 15px;
+    line-height: 1.85;
+    margin: 0 0 16px;
+}
+
+/* Lists */
+.ldp-overview-content .description-content ul,
+.ldp-overview-content .description-content ol {
+    margin: 12px 0 22px;
+    padding-left: 25px;
+}
+
+/* List items */
+.ldp-overview-content .description-content li {
+    color: #344054;
+    font-size: 14px;
+    line-height: 1.8;
+    padding-left: 5px;
+    margin-bottom: 8px;
+}
+
+/* Green list bullets */
+.ldp-overview-content .description-content ul li::marker {
+    color: #07964f;
+    font-size: 17px;
+}
+
+/* Numbered list */
+.ldp-overview-content .description-content ol li::marker {
+    color: #078b4c;
+    font-weight: 700;
+}
+
+/* Remove extra spacing from nested paragraphs */
+.ldp-overview-content .description-content li p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* Links */
+.ldp-overview-content .description-content a {
+    color: #078b4c;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.ldp-overview-content .description-content a:hover {
+    color: #005c35;
+}
+
+/* Tables inside description */
+.ldp-overview-content .description-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 14px;
+}
+
+.ldp-overview-content .description-content th,
+.ldp-overview-content .description-content td {
+    padding: 11px 13px;
+    border: 1px solid #e1e9e3;
+    text-align: left;
+}
+
+.ldp-overview-content .description-content th {
+    background: #eaf8ee;
+    color: #075b35;
+    font-weight: 700;
+}
+
+/* Blockquotes */
+.ldp-overview-content .description-content blockquote {
+    margin: 18px 0;
+    padding: 15px 18px;
+    border-left: 4px solid #07964f;
+    border-radius: 0 10px 10px 0;
+    background: #f0faf3;
+    color: #344054;
+}
+
+
+/* =====================================================
+   3. MOBILE TYPOGRAPHY
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .ldp-title {
+        font-size: 28px;
+    }
+
+    .ldp-description {
+        font-size: 14px;
+    }
+
+    .ldp-section-heading h2 {
+        font-size: 18px;
+    }
+
+    .ldp-overview-content {
+        padding: 17px;
+    }
+
+    .ldp-overview-content .description-content h1 {
+        font-size: 22px;
+    }
+
+    .ldp-overview-content .description-content h2 {
+        font-size: 18px;
+        margin-top: 24px;
+    }
+
+    .ldp-overview-content .description-content h3 {
+        font-size: 16px;
+    }
+
+    .ldp-overview-content .description-content p {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .ldp-overview-content .description-content li {
+        font-size: 13px;
+        line-height: 1.75;
+    }
+
+    .ldp-instructor-info h3 {
+        font-size: 19px;
+    }
+
+}

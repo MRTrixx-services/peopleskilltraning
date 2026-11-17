@@ -1,0 +1,566 @@
+
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}Terms & Conditions - PeopleSkill Training{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/legal.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="legal-page">
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="legal-hero">
+        <div class="legal-hero-inner">
+
+            <!-- Breadcrumb -->
+            <div class="legal-breadcrumb">
+                <i class="fas fa-house"></i>
+                <span>Home</span>
+                <i class="fas fa-chevron-right"></i>
+                <span>Legal</span>
+                <i class="fas fa-chevron-right"></i>
+                <strong>Terms & Conditions</strong>
+            </div>
+
+            <div class="legal-hero-content">
+
+                <!-- Hero Text -->
+                <div class="legal-hero-text">
+
+                    <span class="legal-badge">
+                        <i class="fas fa-shield-halved"></i>
+                        Legal Document
+                    </span>
+
+                    <h1>
+                        Terms & <span>Conditions</span>
+                    </h1>
+
+                    <p>
+                        Please read these terms carefully before using
+                        PeopleSkill Training. By accessing or using our
+                        platform, you agree to these terms and conditions.
+                    </p>
+
+                    <div class="legal-meta">
+
+                        <div>
+                            <i class="far fa-calendar"></i>
+                            <span>
+                                <strong>Last Updated:</strong> January, 2026
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="far fa-file-lines"></i>
+                            <span>
+                                <strong>Version:</strong> v1.0
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Hero Illustration -->
+                <div class="legal-hero-art">
+
+                    <div class="legal-art-circle"></div>
+
+                    <div class="legal-art-plant">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+
+                    <div class="legal-art-paper">
+
+                        <div class="legal-art-paper-title">T&C</div>
+
+                        <div class="legal-art-row">
+                            <i class="fas fa-check"></i>
+                            <span></span>
+                        </div>
+
+                        <div class="legal-art-row">
+                            <i class="fas fa-check"></i>
+                            <span></span>
+                        </div>
+
+                        <div class="legal-art-row">
+                            <i class="fas fa-check"></i>
+                            <span></span>
+                        </div>
+
+                        <div class="legal-art-row">
+                            <i class="fas fa-check"></i>
+                            <span></span>
+                        </div>
+
+                    </div>
+
+                    <div class="legal-art-shield">
+                        <i class="fas fa-check"></i>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="legal-main">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="legal-sidebar">
+
+            <div class="legal-sidebar-title">
+                <i class="fas fa-layer-group"></i>
+                <h3>On This Page</h3>
+            </div>
+
+            <nav class="legal-sidebar-nav">
+
+                <a href="#section-1" class="active">
+                    <span>1.</span> Acceptance of Terms
+                </a>
+
+                <a href="#section-2">
+                    <span>2.</span> Services
+                </a>
+
+                <a href="#section-3">
+                    <span>3.</span> Account Registration
+                </a>
+
+                <a href="#section-4">
+                    <span>4.</span> Use of Services
+                </a>
+
+                <a href="#section-5">
+                    <span>5.</span> Payments & Subscriptions
+                </a>
+
+                <a href="#section-6">
+                    <span>6.</span> Intellectual Property
+                </a>
+
+                <a href="#section-7">
+                    <span>7.</span> Privacy
+                </a>
+
+                <a href="#section-8">
+                    <span>8.</span> Limitation of Liability
+                </a>
+
+                <a href="#section-9">
+                    <span>9.</span> Termination
+                </a>
+
+                <a href="#section-10">
+                    <span>10.</span> Amendments
+                </a>
+
+                <a href="#section-11">
+                    <span>11.</span> Governing Law
+                </a>
+
+                <a href="#section-12">
+                    <span>12.</span> Contact Information
+                </a>
+
+            </nav>
+
+            <!-- SUPPORT CARD -->
+            <div class="legal-help-card">
+
+                <div class="legal-help-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+
+                <h3>Need Help?</h3>
+
+                <p>
+                    Our support team is here to assist you with
+                    any questions.
+                </p>
+
+                <a href="{% url 'home:contact' %}">
+                    Contact Support
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- RIGHT LEGAL CONTENT -->
+        <div class="legal-content-card">
+
+            <!-- INTRODUCTION -->
+            <div class="legal-intro">
+                These terms constitute a binding legal agreement
+                governing the use of the PeopleSkillTraining platform.
+            </div>
+
+
+            <!-- SECTION 1 -->
+            <section class="legal-section" id="section-1">
+
+                <div class="legal-section-heading">
+                    <span class="legal-number">1</span>
+                    <h2>Acceptance of Terms</h2>
+                </div>
+
+                <p>
+                    By accessing or using the services provided by
+                    PeopleSkillTraining, you explicitly acknowledge
+                    and agree to be legally bound by these Terms & Conditions.
+                </p>
+
+                <div class="legal-info-box">
+                    <i class="fas fa-circle-info"></i>
+                    <span>
+                        <strong>In Simple Terms:</strong>
+                        Using our website means you accept and agree
+                        to follow these rules.
+                    </span>
+                </div>
+
+                <ul class="legal-check-list">
+                    <li>Continuing to browse or use our services constitutes acceptance</li>
+                    <li>These terms apply to all users, visitors, and customers</li>
+                    <li>Supplemental terms may apply to specific services</li>
+                </ul>
+
+            </section>
+
+
+            <!-- SECTION 2 -->
+            <section class="legal-section" id="section-2">
+
+                <div class="legal-section-heading">
+                    <span class="legal-number">2</span>
+                    <h2>Services</h2>
+                </div>
+
+                <p>
+                    PeopleSkillTraining delivers enterprise-grade online
+                    training, compliance webinars, professional development
+                    programs, and PeopleSkillTraining training services.
+                </p>
+
+                <ul class="legal-check-list">
+                    <li>Customizable corporate training solutions</li>
+                    <li>Live and recorded expert-led webinars</li>
+                    <li>Compliance monitoring and reporting tools</li>
+                    <li>Dedicated account management for enterprise clients</li>
+                </ul>
+
+            </section>
+
+
+            <!-- SECTION 3 -->
+            <section class="legal-section" id="section-3">
+
+                <div class="legal-section-heading">
+                    <span class="legal-number">3</span>
+                    <h2>Account Registration</h2>
+                </div>
+
+                <p>
+                    Access to premium features requires account registration.
+                    You warrant that all provided information is accurate,
+                    current, and complete.
+                </p>
+
+                <ul class="legal-check-list">
+                    <li>Minimum age requirement: 18 years</li>
+                    <li>One account per individual user</li>
+                    <li>Enterprise accounts may have multiple sub-users</li>
+                    <li>Immediate notification required for security breaches</li>
+                </ul>
+
+            </section>
+
+
+            <!-- SECTION 4 -->
+            <section class="legal-section" id="section-4">
+
+                <div class="legal-section-heading">
+                    <span class="legal-number">4</span>
+                    <h2>Use of Services</h2>
+                </div>
+
+                <p>
+                    You expressly agree not to engage in prohibited
+                    activities, including but not limited to:
+                </p>
+
+                <ul class="legal-check-list">
+                    <li>Utilizing services for unlawful or fraudulent purposes</li>
+                    <li>Attempting unauthorized access to systems or data</li>
+                    <li>Distributing harmful or disruptive content</li>
+                    <li>Reproducing content without written authorization</li>
+                </ul>
+
+                <h3>Prohibited Activities</h3>
+
+                <ul class="legal-check-list">
+                    <li>Commercial resale of platform content</li>
+                    <li>Reverse engineering of platform systems</li>
+                    <li>Automated scraping or data extraction</li>
+                    <li>Intentional service disruption</li>
+                </ul>
+
+            </section>
+
+
+            <!-- SECTION 5 -->
+            <section class="legal-section" id="section-5">
+
+                <div class="legal-section-heading">
+                    <span class="legal-number">5</span>
+                    <h2>Payments & Subscriptions</h2>
+                </div>
+
+                <p>
+                    Selected services require payment processing.
+                    Subscription services automatically renew according
+                    to billing cycles until formally cancelled.
+                </p>
+
+                <ul class="legal-check-list">
+                    <li>Annual, quarterly, and monthly billing options available</li>
+                    <li>Enterprise contracts may have custom payment terms</li>
+                    <li>Failed payments may result in service suspension</li>
+                    <li>Price changes communicated 30 days in advance</li>
+                </ul>
+
+            </section>
+
+
+            <!-- SECTION 6 -->
+            <section class="legal-section" id="section-6">
+
+                <div class="legal-section-heading">
+                    <span class="legal-number">6</span>
+                    <h2>Intellectual Property</h2>
+                </div>
+
+                <p>
+                    All proprietary content constitutes intellectual
+                    property owned by PeopleSkillTraining and its licensors,
+                    protected under applicable laws.
+                </p>
+
+                <ul class="legal-check-list">
+                    <li>Limited license granted for personal/non-commercial use</li>
+                    <li>No derivative works permitted without express consent</li>
+                    <li>User-generated content licenses granted to PeopleSkillTraining</li>
+                    <li>Infringement claims handled per DMCA procedures</li>
+                </ul>
+
+            </section>
+
+
+            <!-- SECTION 7 -->
+            <section class="legal-section" id="section-7">
+
+                <div class="legal-section-heading">
+                    <span class="legal-number">7</span>
+                    <h2>Privacy</h2>
+                </div>
+
+                <p>
+                    Data collection, processing, and protection practices
+                    are detailed in our Privacy Policy, which is
+                    incorporated by reference.
+                </p>
+
+                <ul class="legal-check-list">
+                    <li>GDPR and CCPA compliance frameworks implemented</li>
+                    <li>Data processing agreements available for review</li>
+                    <li>User data rights clearly defined and accessible</li>
+                    <li>Third-party data sharing disclosures provided</li>
+                </ul>
+
+            </section>
+
+
+            <!-- SECTION 8 -->
+            <section class="legal-section" id="section-8">
+
+                <div class="legal-section-heading">
+                    <span class="legal-number">8</span>
+                    <h2>Limitation of Liability</h2>
+                </div>
+
+                <p>
+                    To the maximum extent permitted by law,
+                    PeopleSkillTraining shall not be liable for indirect,
+                    incidental, or consequential damages.
+                </p>
+
+                <ul class="legal-check-list">
+                    <li>No warranty of uninterrupted or error-free service</li>
+                    <li>Service modifications may occur without liability</li>
+                    <li>Third-party content and links disclaimed</li>
+                    <li>Force majeure events excluded from liability</li>
+                </ul>
+
+            </section>
+
+
+            <!-- SECTION 9 -->
+            <section class="legal-section" id="section-9">
+
+                <div class="legal-section-heading">
+                    <span class="legal-number">9</span>
+                    <h2>Termination</h2>
+                </div>
+
+                <p>
+                    We reserve the right to suspend or terminate accounts
+                    for violations of these terms or operational necessities.
+                </p>
+
+                <ul class="legal-check-list">
+                    <li>30-day cure period for minor violations</li>
+                    <li>Immediate termination for severe breaches</li>
+                    <li>Data export options available upon termination</li>
+                    <li>Post-termination obligations may apply</li>
+                </ul>
+
+            </section>
+
+
+            <!-- SECTION 10 -->
+            <section class="legal-section" id="section-10">
+
+                <div class="legal-section-heading">
+                    <span class="legal-number">10</span>
+                    <h2>Amendments</h2>
+                </div>
+
+                <p>
+                    PeopleSkillTraining may modify these terms to reflect
+                    evolving services or legal requirements.
+                </p>
+
+                <ul class="legal-check-list">
+                    <li>Major changes communicated 30 days in advance</li>
+                    <li>Enterprise clients receive personalized notifications</li>
+                    <li>Archived versions maintained for compliance</li>
+                </ul>
+
+            </section>
+
+
+            <!-- SECTION 11 -->
+            <section class="legal-section" id="section-11">
+
+                <div class="legal-section-heading">
+                    <span class="legal-number">11</span>
+                    <h2>Governing Law</h2>
+                </div>
+
+                <p>
+                    These Terms & Conditions are governed by the laws
+                    of the State of California, United States.
+                </p>
+
+                <ul class="legal-check-list">
+                    <li>Arbitration provisions for certain dispute types</li>
+                    <li>Class action waivers included</li>
+                    <li>Severability of provisions maintained</li>
+                    <li>English language version controls</li>
+                </ul>
+
+            </section>
+
+
+            <!-- SECTION 12 -->
+            <section class="legal-section" id="section-12">
+
+                <div class="legal-section-heading">
+                    <span class="legal-number">12</span>
+                    <h2>Contact Information</h2>
+                </div>
+
+                <p>
+                    For inquiries regarding these terms, legal notices,
+                    or compliance matters:
+                </p>
+
+                <ul class="legal-check-list">
+                    <li>Email: support@PeopleSkillTraining.com</li>
+                    <li>Address: 8506 Madison Ave, Suite A, Fair Oaks, CA 95628, United States</li>
+                    <li>Support hours: Mon–Fri, 9AM–6PM EST</li>
+                </ul>
+
+            </section>
+
+
+            <!-- DOCUMENT FOOTER -->
+            <div class="legal-document-footer">
+                <i class="fas fa-shield-halved"></i>
+                Terms & Conditions last updated: January, 2026
+                &bull; PeopleSkillTraining &bull; All rights reserved
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= BOTTOM CONTACT BANNER ================= -->
+    <section class="legal-bottom-contact">
+
+        <div class="legal-bottom-icon">
+            <i class="fas fa-shield-halved"></i>
+        </div>
+
+        <div class="legal-bottom-text">
+
+            <h3>Questions about our terms?</h3>
+
+            <p>
+                If you have any questions about these Terms & Conditions,
+                please contact our support team.
+            </p>
+
+        </div>
+
+        <div class="legal-bottom-actions">
+
+            <a href="mailto:support@PeopleSkillTraining.com"
+               class="legal-email-btn">
+
+                <i class="far fa-envelope"></i>
+                support@PeopleSkillTraining.com
+
+            </a>
+
+            <a href="{% url 'home:contact' %}"
+               class="legal-contact-btn">
+
+                Contact Us
+                <i class="fas fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

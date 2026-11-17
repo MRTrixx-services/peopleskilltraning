@@ -1,0 +1,186 @@
+
+{% load static %}
+
+<footer class="ft-footer">
+
+    <div class="ft-top-bar"></div>
+
+    <div class="ft-inner">
+
+        <div class="ft-main-grid">
+
+            <!-- BRAND -->
+            <div class="ft-brand-col">
+
+                <div class="ft-brand">
+                    <img
+                        src="{% static 'home/images/people-skill-logo.png' %}"
+                        alt="PeopleSkillTraining Logo"
+                        class="ft-logo"
+                    >
+
+                    <div>
+                        <h5 class="ft-brand-name">
+                            PeopleSkill<span>Training</span>
+                        </h5>
+                        <small>Compliance &amp; Professional Training</small>
+                    </div>
+                </div>
+
+                <p class="ft-description">
+                    Expert-led live and on-demand webinars to help
+                    professionals stay compliant, upskill, and grow
+                    their careers.
+                </p>
+
+                <div class="ft-social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+                </div>
+
+            </div>
+
+
+            <!-- QUICK LINKS -->
+            <div class="ft-links-col">
+
+                <h6 class="ft-heading">Quick Links</h6>
+
+                <ul class="ft-links">
+                    <li>
+                        <a href="{% url 'home:home' %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'live_webinars:list' %}">Live Webinars</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'recorded_webinars:list' %}">Recorded Webinars</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'home:about' %}">About Us</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'home:contact' %}">Contact Us</a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <!-- TRAINING CATEGORIES -->
+            
+<!-- TRAINING CATEGORIES -->
+<div class="ft-links-col">
+
+    <h6 class="ft-heading">Training Categories</h6>
+
+    <ul class="ft-category-links">
+        <li>
+            <a href="{% url 'live_webinars:list' %}">
+                <span class="ft-category-icon">
+                    <i class="bi bi-people-fill"></i>
+                </span>
+                <span>HR Compliance</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'live_webinars:list' %}">
+                <span class="ft-category-icon">
+                    <i class="bi bi-layers-fill"></i>
+                </span>
+                <span>Workplace Regulations</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'live_webinars:list' %}">
+                <span class="ft-category-icon">
+                    <i class="bi bi-shield-fill"></i>
+                </span>
+                <span>Health &amp; Safety</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'live_webinars:list' %}">
+                <span class="ft-category-icon">
+                    <i class="bi bi-bar-chart-fill"></i>
+                </span>
+                <span>Employee Management</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'live_webinars:list' %}">
+                <span class="ft-category-icon">
+                    <i class="bi bi-award-fill"></i>
+                </span>
+                <span>Leadership &amp; Management</span>
+            </a>
+        </li>
+    </ul>
+
+</div>
+
+
+
+            <!-- GET IN TOUCH -->
+            <div class="ft-contact-col">
+
+                <h6 class="ft-heading">Get in Touch</h6>
+
+                <div class="ft-contact-item">
+                    <div class="ft-contact-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+
+                    <p>
+                        8506 Madison Ave, Suite A<br>
+                        Fair Oaks, CA 95628,<br>
+                        United States
+                    </p>
+                </div>
+
+                <div class="ft-contact-item">
+                    <div class="ft-contact-icon">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+
+                    <a href="mailto:support@peopleskilltraining.com">
+                        support@peopleskilltraining.com
+                    </a>
+                </div>
+
+                <a href="{% url 'home:contact' %}" class="ft-contact-btn">
+                    Contact Us <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTTOM FOOTER -->
+        <div class="ft-bottom">
+
+            <div class="ft-copyright">
+                &copy; {{ year|default:2026 }} PeopleSkillTraining.
+                All rights reserved.
+            </div>
+
+            <div class="ft-legal-links">
+                <a href="{% url 'home:privacy' %}">Privacy Policy</a>
+                <a href="{% url 'home:terms' %}">Terms &amp; Conditions</a>
+                <a href="{% url 'home:refund' %}">Refund Policy</a>
+                <a href="{% url 'home:shipping' %}">Shipping &amp; Return</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>

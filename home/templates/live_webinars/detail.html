@@ -1,0 +1,513 @@
+
+{% extends "home/base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block title %}{{ webinar.title }}{% endblock %}
+
+{% block extra_css %}
+<meta name="description" content="{{ webinar.title }} webinar for professionals in the USA. Learn practical industry skills, improve productivity, and advance your career with expert training.">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<link rel="stylesheet" href="{% static 'home/css/live-detail.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="live-detail-page ldp-page">
+
+    <!-- BREADCRUMB -->
+    <div class="ldp-breadcrumb">
+        <div class="ldp-container">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Live Webinars</span>
+            <i class="bi bi-chevron-right"></i>
+            <span class="ldp-breadcrumb-current">{{ webinar.title }}</span>
+        </div>
+    </div>
+
+    <!-- MAIN TWO COLUMN LAYOUT -->
+    <div class="ldp-container ldp-main-layout">
+
+        <!-- LEFT CONTENT -->
+        <main class="ldp-left">
+
+            <!-- WEBINAR INTRO -->
+            <section class="ldp-intro">
+
+                <div class="ldp-status-row">
+                    <span class="ldp-status-badge">
+                        <span class="ldp-status-dot"></span>
+
+                        {% if webinar.dynamic_status == "UPCOMING" %}
+                            UPCOMING WEBINAR
+                        {% elif webinar.dynamic_status == "LIVE" %}
+                            LIVE NOW
+                        {% elif webinar.recently_ended %}
+                            WEBINAR ENDED
+                        {% endif %}
+                    </span>
+                </div>
+
+                <h1 class="ldp-title">{{ webinar.title }}</h1>
+
+                <p class="ldp-description">
+                    Learn practical skills and gain valuable insights from our expert-led webinar.
+                </p>
+
+                <!-- SESSION INFORMATION -->
+                <div class="ldp-session-info">
+
+                    <div class="ldp-session-item">
+                        <div class="ldp-session-icon">
+                            <i class="bi bi-calendar-event"></i>
+                        </div>
+                        <div>
+                            <span class="ldp-session-label">DATE</span>
+                            <strong>{{ webinar.est_time|date:"D, M d, Y" }}</strong>
+                        </div>
+                    </div>
+
+                    <div class="ldp-session-item">
+                        <div class="ldp-session-icon">
+                            <i class="bi bi-clock"></i>
+                        </div>
+                        <div>
+                            <span class="ldp-session-label">TIME</span>
+                            <strong>
+                                {% timezone "America/Los_Angeles" %}
+                                    {{ webinar.start_datetime|date:"h:i A T" }}
+                                {% endtimezone %}
+                                <br>
+                                ({% timezone "America/New_York" %}
+                                    {{ webinar.start_datetime|date:"h:i A T" }}
+                                {% endtimezone %})
+                            </strong>
+                        </div>
+                    </div>
+
+                    <div class="ldp-session-item">
+                        <div class="ldp-session-icon">
+                            <i class="bi bi-hourglass-split"></i>
+                        </div>
+                        <div>
+                            <span class="ldp-session-label">DURATION</span>
+                            <strong>{{ webinar.duration_minutes }} Minutes</strong>
+                        </div>
+                    </div>
+
+                    <div class="ldp-session-item ldp-webinar-id">
+                        <div>
+                            <span class="ldp-session-label">WEBINAR ID</span>
+                            <strong>{{ webinar.webinar_id }}</strong>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- WEBINAR DETAILS -->
+            <section class="ldp-details-section">
+
+                <div class="ldp-section-heading">
+                    <span class="ldp-heading-icon">
+                        <i class="bi bi-book-half"></i>
+                    </span>
+                    <h2>Webinar Details</h2>
+                </div>
+
+                <div class="ldp-details-card">
+                    <div class="ldp-overview-content">
+                        <div class="description-content">
+                            {{ webinar.description|safe }}
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- INSTRUCTOR -->
+            <section class="ldp-instructor-section">
+
+                <div class="ldp-section-heading">
+                    <span class="ldp-heading-icon ldp-instructor-heading-icon">
+                        <i class="bi bi-person-fill"></i>
+                    </span>
+                    <h2>Meet Your Instructor</h2>
+                </div>
+
+                <div class="ldp-instructor-card">
+
+                    <div class="ldp-instructor-image-wrap">
+                        <img
+                            src="{% if webinar.instructor.photo %}{{ webinar.instructor.photo.url }}{% else %}{% static 'home/images/default-avatar.png' %}{% endif %}"
+                            alt="{{ webinar.instructor.name }}"
+                            class="ldp-instructor-image"
+                        >
+                    </div>
+
+                    <div class="ldp-instructor-info">
+
+                        <h3>{{ webinar.instructor.name }}</h3>
+
+                        {% if webinar.instructor.designation %}
+                        <div class="ldp-instructor-designation">
+                            <i class="bi bi-patch-check-fill"></i>
+                            {{ webinar.instructor.designation }}
+                        </div>
+                        {% endif %}
+
+                        {% if webinar.instructor.organization %}
+                        <div class="ldp-instructor-organization">
+                            <i class="bi bi-building"></i>
+                            {{ webinar.instructor.organization }}
+                        </div>
+                        {% endif %}
+
+                        {% if webinar.instructor.bio %}
+                        <div class="ldp-instructor-bio">
+                            {{ webinar.instructor.bio|linebreaks }}
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- RIGHT PRICING SIDEBAR -->
+        <aside class="ldp-right">
+
+            <div class="ldp-pricing-card">
+
+                <div class="ldp-pricing-header">
+                    <h2>Register for This Webinar</h2>
+                </div>
+
+                <div class="ldp-pricing-body">
+
+                    <form method="post"
+                          class="pricing-form ldp-pricing-form"
+                          data-webinar-id="{{ webinar.id }}"
+                          data-recently-ended="{{ webinar.recently_ended|yesno:'true,false' }}"
+                          data-is-authenticated="{% if user.is_authenticated %}true{% else %}false{% endif %}"
+                          data-login-url="/accounts/login/?next={{ request.path }}">
+
+                        {% csrf_token %}
+
+                        <h3 class="ldp-access-heading">Choose Your Access</h3>
+
+                        <!-- ACCESS TABS -->
+                        <div class="pricing-tabs ldp-access-tabs" role="tablist">
+
+                            <button type="button"
+                                    class="tab-btn active"
+                                    data-tab="live">
+                                <i class="bi bi-broadcast"></i>
+                                Live
+                            </button>
+
+                            <button type="button"
+                                    class="tab-btn"
+                                    data-tab="recorded">
+                                <i class="bi bi-camera-video"></i>
+                                Recorded
+                            </button>
+
+                            <button type="button"
+                                    class="tab-btn"
+                                    data-tab="combo">
+                                <i class="bi bi-layers"></i>
+                                Combo
+                            </button>
+
+                        </div>
+
+                        <!-- LIVE OPTIONS -->
+                        <div class="tab-panel active" data-panel="live">
+
+                            <div class="options-row ldp-options-row">
+
+                                <label class="option-card ldp-option-card {% if webinar.recently_ended %}option-disabled-card{% endif %}">
+
+                                    <input type="radio"
+                                           id="defaultLiveSingle"
+                                           name="pricing"
+                                           class="pricing-option live-option {% if webinar.recently_ended %}option-disabled{% endif %}"
+                                           value="live_single"
+                                           data-variant="LIVE_SINGLE"
+                                           data-price="{% if is_subscribed %}0{% else %}{{ webinar.pricing.live_single_price }}{% endif %}"
+                                           checked>
+
+                                    <div class="option-info">
+                                        <span class="option-title">Single Attendee</span>
+                                        <span class="option-sub">1 participant, live session</span>
+                                    </div>
+
+                                    <span class="option-price">
+                                        {% if is_subscribed %}$0{% else %}${{ webinar.pricing.live_single_price }}{% endif %}
+                                    </span>
+
+                                </label>
+
+                                <label class="option-card ldp-option-card {% if webinar.recently_ended %}option-disabled-card{% endif %}">
+
+                                    <input type="radio"
+                                           name="pricing"
+                                           class="pricing-option live-option {% if webinar.recently_ended %}option-disabled{% endif %}"
+                                           value="live_multi"
+                                           data-variant="LIVE_MULTI"
+                                           data-price="{% if is_subscribed %}0{% else %}{{ webinar.pricing.live_multi_price }}{% endif %}">
+
+                                    <div class="option-info">
+                                        <span class="option-title">Multi Attendees</span>
+                                        <span class="option-sub">Unlimited participants, live session</span>
+                                    </div>
+
+                                    <span class="option-price">
+                                        {% if is_subscribed %}$0{% else %}${{ webinar.pricing.live_multi_price }}{% endif %}
+                                    </span>
+
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <!-- RECORDED OPTIONS -->
+                        <div class="tab-panel" data-panel="recorded">
+
+                            <div class="options-row ldp-options-row">
+
+                                <label class="option-card ldp-option-card">
+
+                                    <input type="radio"
+                                           name="pricing"
+                                           class="pricing-option recorded-option"
+                                           value="recorded_single"
+                                           data-variant="REC_SINGLE"
+                                           data-price="{{ webinar.pricing.recorded_single_price }}">
+
+                                    <div class="option-info">
+                                        <span class="option-title">Single Recorded</span>
+                                        <span class="option-sub">1 participant, on-demand access</span>
+                                    </div>
+
+                                    <span class="option-price">
+                                        ${{ webinar.pricing.recorded_single_price }}
+                                    </span>
+
+                                </label>
+
+                                <label class="option-card ldp-option-card">
+
+                                    <input type="radio"
+                                           name="pricing"
+                                           class="pricing-option recorded-option"
+                                           value="recorded_multi"
+                                           data-variant="REC_MULTI"
+                                           data-price="{{ webinar.pricing.recorded_multi_price }}">
+
+                                    <div class="option-info">
+                                        <span class="option-title">Group Recorded</span>
+                                        <span class="option-sub">Unlimited participants, on-demand</span>
+                                    </div>
+
+                                    <span class="option-price">
+                                        ${{ webinar.pricing.recorded_multi_price }}
+                                    </span>
+
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <!-- COMBO OPTIONS -->
+                        <div class="tab-panel" data-panel="combo">
+
+                            <div class="options-row ldp-options-row">
+
+                                <label class="option-card ldp-option-card {% if webinar.recently_ended %}option-disabled-card{% endif %}">
+
+                                    <input type="radio"
+                                           name="pricing"
+                                           class="pricing-option combo-option {% if webinar.recently_ended %}option-disabled{% endif %}"
+                                           value="combo_single"
+                                           data-variant="COMBO_SINGLE"
+                                           data-price="{{ webinar.pricing.combo_single_price }}">
+
+                                    <div class="option-info">
+                                        <span class="option-title">Live + Recorded</span>
+                                        <span class="option-sub">1 participant, both formats</span>
+                                    </div>
+
+                                    <span class="option-price">
+                                        ${{ webinar.pricing.combo_single_price }}
+                                    </span>
+
+                                </label>
+
+                                <label class="option-card ldp-option-card {% if webinar.recently_ended %}option-disabled-card{% endif %}">
+
+                                    <input type="radio"
+                                           name="pricing"
+                                           class="pricing-option combo-option {% if webinar.recently_ended %}option-disabled{% endif %}"
+                                           value="combo_multi"
+                                           data-variant="COMBO_MULTI"
+                                           data-price="{{ webinar.pricing.combo_multi_price }}">
+
+                                    <div class="option-info">
+                                        <span class="option-title">Group + Recorded</span>
+                                        <span class="option-sub">Unlimited participants, both formats</span>
+                                    </div>
+
+                                    <span class="option-price">
+                                        ${{ webinar.pricing.combo_multi_price }}
+                                    </span>
+
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <!-- TOTAL PRICE -->
+                        <div class="ldp-total-box">
+
+                            <span class="ldp-total-label">Total Price</span>
+
+                            <div class="total-value ldp-total-value">
+                                $<span id="totalAmount">0</span>
+                                <small>USD</small>
+                            </div>
+
+                        </div>
+
+                        <!-- CTA BUTTONS -->
+                        <div class="cta-buttons ldp-cta-buttons">
+
+                            {% if is_subscribed and webinar.dynamic_status == "LIVE" %}
+
+                            <a href="{% url 'live_webinars:join_live' webinar.webinar_id %}"
+                               class="btn-cta btn-primary ldp-btn-primary">
+                                <i class="bi bi-camera-video-fill"></i>
+                                Join Live Webinar
+                            </a>
+
+                            {% elif is_subscribed and webinar.dynamic_status == "UPCOMING" %}
+
+                            <button type="button"
+                                    class="btn-cta btn-primary ldp-btn-primary"
+                                    disabled>
+                                Starts Soon
+                            </button>
+
+                            {% endif %}
+
+                            <!-- ADD TO CART: ORIGINAL SELECTOR -->
+                            <button type="button"
+                                    class="btn-cta btn-outline ldp-btn-outline">
+                                <i class="bi bi-cart3"></i>
+                                Add to Cart
+                            </button>
+
+                            <!-- BUY NOW: ORIGINAL SELECTOR -->
+                            <button type="button"
+                                    class="btn-cta btn-primary-custom ldp-btn-primary buy-now">
+                                Buy Now
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                    <!-- INFORMATION BELOW PRICING -->
+                    <div class="ldp-pricing-benefits">
+
+                        <div class="ldp-benefit-item">
+                            <span class="ldp-benefit-icon">
+                                <i class="bi bi-patch-check"></i>
+                            </span>
+                            <span>Expert Instructor</span>
+                        </div>
+
+                        <div class="ldp-benefit-item">
+                            <span class="ldp-benefit-icon">
+                                <i class="bi bi-camera-video"></i>
+                            </span>
+                            <span>Professional Training</span>
+                        </div>
+
+                        <div class="ldp-benefit-item">
+                            <span class="ldp-benefit-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </span>
+                            <span>Secure Payment</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </aside>
+
+    </div>
+</div>
+
+<!-- WEBINAR ENDED TOAST -->
+<div id="webinarEndedToast" class="webinar-ended-toast">
+    This live session has ended. You can still purchase the recording.
+</div>
+
+<!-- EXISTING JAVASCRIPT -->
+<script src="{% static 'home/js/live_detail.js' %}"></script>
+
+<!-- EXISTING PRICING TAB SWITCHER -->
+<script>
+(function () {
+
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    tabs.forEach(btn => {
+
+        btn.addEventListener('click', () => {
+
+            const target = btn.dataset.tab;
+
+            tabs.forEach(t => t.classList.remove('active'));
+            panels.forEach(p => p.classList.remove('active'));
+
+            btn.classList.add('active');
+
+            const targetPanel = document.querySelector(
+                `.tab-panel[data-panel="${target}"]`
+            );
+
+            if (targetPanel) {
+
+                targetPanel.classList.add('active');
+
+                const firstRadio = targetPanel.querySelector(
+                    '.pricing-option:not(.option-disabled)'
+                );
+
+                if (firstRadio) {
+                    firstRadio.checked = true;
+                    firstRadio.dispatchEvent(
+                        new Event('change', { bubbles: true })
+                    );
+                }
+            }
+
+        });
+
+    });
+
+})();
+</script>
+
+{% endblock %}

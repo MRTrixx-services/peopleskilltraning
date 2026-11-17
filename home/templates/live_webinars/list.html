@@ -1,0 +1,812 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block title %}Live Webinars{% endblock %}
+
+{% block extra_css %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'home/css/live-webinars.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="lw-page">
+
+    <!-- HERO -->
+
+
+<section class="lw-hero">
+    <div class="lw-hero-inner">
+
+        <!-- LEFT CONTENT -->
+        <div class="lw-hero-content">
+
+            <div class="lw-hero-badge">
+                <span class="lw-hero-live-dot"></span>
+                Live Webinars
+            </div>
+
+            <h1 class="lw-hero-title">
+                Join Our <span>Live Webinars</span>
+            </h1>
+
+            <p class="lw-hero-description">
+                Learn from industry experts, gain practical skills, and stay compliant
+                with the latest workplace standards.
+            </p>
+
+            <div class="lw-hero-features">
+
+                <div class="lw-hero-feature">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Live &amp; Interactive</span>
+                </div>
+
+                <span class="lw-hero-divider"></span>
+
+                <div class="lw-hero-feature">
+                    <i class="fas fa-users"></i>
+                    <span>Expert Instructors</span>
+                </div>
+
+                <span class="lw-hero-divider"></span>
+
+                <div class="lw-hero-feature">
+                    <i class="fas fa-award"></i>
+                    <span>Completion Certificate</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RIGHT VISUAL -->
+        <div class="lw-hero-visual">
+
+            <div class="lw-hero-circle"></div>
+
+            <img
+                src="/static/home/images/live.png"
+                alt="Live Webinar Instructor"
+                class="lw-hero-instructor"
+            >
+
+            <div class="lw-hero-session">
+                <i class="far fa-calendar-alt"></i>
+                <span>Live Session</span>
+            </div>
+
+            <div class="lw-hero-play">
+                <i class="fas fa-play"></i>
+            </div>
+
+            <div class="lw-hero-dots"></div>
+
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="lw-main">
+        <div class="lw-layout">
+
+            <!-- WEBINAR RESULTS -->
+            <section class="lw-results-column">
+
+                <div class="lw-results-toolbar">
+                    <div class="lw-results-info">
+                        <span class="lw-count">
+                            {{ page_obj.paginator.count }} Webinar{{ page_obj.paginator.count|pluralize }}
+                        </span>
+
+                        {% if filters_active %}
+                        <div class="lw-active-tags">
+
+                            {% if selected_month %}
+                                {% for date in available_months %}
+                                    {% if selected_month == date.month|stringformat:"s" %}
+                                    <span class="lw-tag">
+                                        <i class="fas fa-calendar"></i>
+                                        {{ date|date:"F Y" }}
+                                    </span>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+
+                            {% for inst_id in selected_instructors %}
+                                {% for instructor in instructors %}
+                                    {% if instructor.id|stringformat:"s" == inst_id %}
+                                    <span class="lw-tag">
+                                        <i class="fas fa-user"></i>
+                                        {{ instructor.name }}
+                                    </span>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+
+                            {% for cat_id in selected_categories %}
+                                {% for category in categories %}
+                                    {% if category.id|stringformat:"s" == cat_id %}
+                                    <span class="lw-tag">
+                                        <i class="fas fa-tag"></i>
+                                        {{ category.name }}
+                                    </span>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+
+                            <a href="{% url 'live_webinars:list' %}" class="lw-tag-clear">
+                                Clear all
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="lw-toolbar-center">
+
+                        {% if page_obj.has_previous %}
+                            <a class="lw-pag-btn" href="?page=1&per_page={{ per_page }}{% if search_query %}&search={{ search_query }}{% endif %}{% for cat in selected_categories %}&category={{ cat }}{% endfor %}{% for inst in selected_instructors %}&instructor={{ inst }}{% endfor %}{% if selected_month %}&month={{ selected_month }}{% endif %}" aria-label="First page">
+                                <i class="fas fa-angle-double-left"></i>
+                            </a>
+
+                            <a class="lw-pag-btn" href="?page={{ page_obj.previous_page_number }}&per_page={{ per_page }}{% if search_query %}&search={{ search_query }}{% endif %}{% for cat in selected_categories %}&category={{ cat }}{% endfor %}{% for inst in selected_instructors %}&instructor={{ inst }}{% endfor %}{% if selected_month %}&month={{ selected_month }}{% endif %}" aria-label="Previous page">
+                                <i class="fas fa-angle-left"></i>
+                            </a>
+                        {% else %}
+                            <span class="lw-pag-btn disabled">
+                                <i class="fas fa-angle-double-left"></i>
+                            </span>
+                            <span class="lw-pag-btn disabled">
+                                <i class="fas fa-angle-left"></i>
+                            </span>
+                        {% endif %}
+
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if num >= page_obj.number|add:"-2" and num <= page_obj.number|add:"2" %}
+                                {% if page_obj.number == num %}
+                                    <span class="lw-pag-btn active">{{ num }}</span>
+                                {% else %}
+                                    <a class="lw-pag-btn" href="?page={{ num }}&per_page={{ per_page }}{% if search_query %}&search={{ search_query }}{% endif %}{% for cat in selected_categories %}&category={{ cat }}{% endfor %}{% for inst in selected_instructors %}&instructor={{ inst }}{% endfor %}{% if selected_month %}&month={{ selected_month }}{% endif %}">
+                                        {{ num }}
+                                    </a>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if page_obj.has_next %}
+                            <a class="lw-pag-btn" href="?page={{ page_obj.next_page_number }}&per_page={{ per_page }}{% if search_query %}&search={{ search_query }}{% endif %}{% for cat in selected_categories %}&category={{ cat }}{% endfor %}{% for inst in selected_instructors %}&instructor={{ inst }}{% endfor %}{% if selected_month %}&month={{ selected_month }}{% endif %}" aria-label="Next page">
+                                <i class="fas fa-angle-right"></i>
+                            </a>
+
+                            <a class="lw-pag-btn" href="?page={{ page_obj.paginator.num_pages }}&per_page={{ per_page }}{% if search_query %}&search={{ search_query }}{% endif %}{% for cat in selected_categories %}&category={{ cat }}{% endfor %}{% for inst in selected_instructors %}&instructor={{ inst }}{% endfor %}{% if selected_month %}&month={{ selected_month }}{% endif %}" aria-label="Last page">
+                                <i class="fas fa-angle-double-right"></i>
+                            </a>
+                        {% else %}
+                            <span class="lw-pag-btn disabled">
+                                <i class="fas fa-angle-right"></i>
+                            </span>
+                            <span class="lw-pag-btn disabled">
+                                <i class="fas fa-angle-double-right"></i>
+                            </span>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+                <!-- WEBINAR CARDS -->
+                <div class="webinar-list" id="webinarList">
+
+                    {% for webinar in webinars %}
+
+                    <article class="webinar-item">
+
+                        <!-- IMAGE -->
+                        <div class="webinar-visual">
+
+                            {% if webinar.instructor.photo %}
+                                <img
+                                    src="{{ webinar.instructor.photo.url }}"
+                                    alt="{{ webinar.instructor.name }}"
+                                    class="webinar-image"
+                                >
+                            {% else %}
+                                <div class="webinar-image-placeholder">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                            {% endif %}
+
+                            {% if webinar.status == "LIVE" or webinar.dynamic_status == "LIVE" %}
+                                <span class="status-pill live-now">
+                                    <span class="live-dot"></span>
+                                    LIVE WEBINAR
+                                </span>
+
+                            {% elif webinar.recently_ended %}
+                                <span class="status-pill ended">
+                                    ENDED
+                                </span>
+
+                            {% elif webinar.status == "UPCOMING" %}
+                                <span class="status-pill upcoming">
+                                    UPCOMING
+                                </span>
+                            {% endif %}
+
+                        </div>
+
+                        <!-- CONTENT -->
+                        <div class="webinar-content">
+
+                            <!-- DATE -->
+                            <div class="webinar-date-line">
+                                <i class="far fa-calendar-alt"></i>
+
+                                <span>
+                                    {{ webinar.start_datetime|date:"F j, Y" }}
+                                </span>
+
+                                <span class="date-separator">|</span>
+
+                                <span class="webinar-time">
+                                    {% timezone "America/Los_Angeles" %}
+                                        {{ webinar.start_datetime|date:"g:i A T" }}
+                                    {% endtimezone %}
+                                </span>
+                            </div>
+
+                            <!-- TITLE -->
+                            <h2 class="webinar-title">
+                                {{ webinar.title }}
+
+                                {% if webinar.is_test %}
+                                    <span class="badge-test">Test</span>
+                                {% endif %}
+                            </h2>
+
+                            <!-- DETAILS -->
+                            <div class="webinar-details">
+
+                                <div class="detail-item instructor-detail">
+
+                                    {% if webinar.instructor.photo %}
+                                        <img
+                                            src="{{ webinar.instructor.photo.url }}"
+                                            alt=""
+                                            class="instructor-avatar"
+                                        >
+                                    {% endif %}
+
+                                    <span>
+                                        <strong>Instructor:</strong>
+                                        {{ webinar.instructor.name }}
+                                    </span>
+
+                                </div>
+
+                                <div class="detail-item">
+                                    <i class="far fa-clock"></i>
+                                    <span>
+                                        <strong>Duration:</strong>
+                                        {{ webinar.duration_minutes }} Min
+                                    </span>
+                                </div>
+
+                                {% if webinar.status == "UPCOMING" %}
+
+                                <div class="detail-item time-left-item">
+                                    <i class="far fa-hourglass"></i>
+                                    <span>
+                                        <strong>Time left:</strong>
+                                        <span
+                                            class="countdown"
+                                            data-start="{{ webinar.start_datetime|date:'c' }}"
+                                        ></span>
+                                    </span>
+                                </div>
+
+                                {% elif webinar.dynamic_status == "LIVE" or webinar.status == "LIVE" %}
+
+                                <div class="detail-item time-left-item">
+                                    <i class="fas fa-broadcast-tower"></i>
+                                    <span>
+                                        <strong>Session is live</strong>
+                                    </span>
+                                </div>
+
+                                {% elif webinar.recently_ended %}
+
+                                <div class="detail-item time-left-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>
+                                        <strong>Session ended</strong>
+                                    </span>
+                                </div>
+
+                                {% endif %}
+
+                            </div>
+
+                            <!-- PRICE AND BUTTON -->
+                            <div class="webinar-card-footer">
+
+                                {% if is_subscribed %}
+                                    <span class="price-tag free">FREE</span>
+                                {% else %}
+                                    <span class="price-tag">
+                                        $ {{ webinar.pricing.live_single_price }}
+                                    </span>
+                                {% endif %}
+
+                                {% if is_subscribed %}
+
+                                    {% if webinar.dynamic_status == "LIVE" %}
+                                        <a
+                                            href="{% url 'live_webinars:detail' webinar.webinar_id webinar.slug %}"
+                                            class="enroll-btn"
+                                        >
+                                            Join Live
+                                            <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    {% else %}
+                                        <a
+                                            href="{% url 'live_webinars:detail' webinar.webinar_id webinar.slug %}"
+                                            class="enroll-btn"
+                                        >
+                                            View Details
+                                            <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    {% endif %}
+
+                                {% else %}
+
+                                    <a
+                                        href="{% url 'live_webinars:detail' webinar.webinar_id webinar.slug %}"
+                                        class="enroll-btn"
+                                    >
+                                        Enroll Now
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    {% empty %}
+
+                    <div class="empty-state">
+                        <div class="empty-icon">
+                            <i class="fas fa-calendar-xmark"></i>
+                        </div>
+
+                        <h3>No webinars found</h3>
+
+                        <p>
+                            Try changing your search or filters to find a webinar.
+                        </p>
+
+                        <a
+                            href="{% url 'live_webinars:list' %}"
+                            class="empty-reset"
+                        >
+                            Clear Filters
+                        </a>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+                <!-- BOTTOM PAGINATION -->
+                <div class="lw-pagination">
+
+                    <div class="lw-pag-left">
+
+                        <form method="get" class="lw-perpage-form">
+
+                            <input
+                                type="hidden"
+                                name="search"
+                                value="{{ search_query|default:'' }}"
+                            >
+
+                            {% for cat in selected_categories %}
+                                <input type="hidden" name="category" value="{{ cat }}">
+                            {% endfor %}
+
+                            {% for inst in selected_instructors %}
+                                <input type="hidden" name="instructor" value="{{ inst }}">
+                            {% endfor %}
+
+                            {% if selected_month %}
+                                <input type="hidden" name="month" value="{{ selected_month }}">
+                            {% endif %}
+
+                            <input type="hidden" name="page" value="1">
+
+                            <label for="lwPerPage">Show</label>
+
+                            <select
+                                name="per_page"
+                                id="lwPerPage"
+                                onchange="this.form.submit()"
+                            >
+                                <option value="12" {% if per_page == 12 %}selected{% endif %}>12</option>
+                                <option value="24" {% if per_page == 24 %}selected{% endif %}>24</option>
+                                <option value="36" {% if per_page == 36 %}selected{% endif %}>36</option>
+                                <option value="100" {% if per_page == 100 %}selected{% endif %}>100</option>
+                            </select>
+
+                            <label>per page</label>
+
+                        </form>
+
+                    </div>
+
+                    <div class="lw-pag-right">
+                        Page
+                        <strong>{{ page_obj.number }}</strong>
+                        of
+                        <strong>{{ page_obj.paginator.num_pages }}</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- SIDEBAR -->
+            <aside class="lw-sidebar">
+
+                <!-- SEARCH -->
+                <section class="lw-sidebar-section">
+
+                    <h2 class="lw-sidebar-heading">
+                        SEARCH WEBINARS
+                    </h2>
+
+                    <form
+                        method="get"
+                        class="lw-sidebar-search"
+                        id="searchForm"
+                    >
+
+                        {% for cat in selected_categories %}
+                            <input type="hidden" name="category" value="{{ cat }}">
+                        {% endfor %}
+
+                        {% for inst in selected_instructors %}
+                            <input type="hidden" name="instructor" value="{{ inst }}">
+                        {% endfor %}
+
+                        {% if selected_month %}
+                            <input type="hidden" name="month" value="{{ selected_month }}">
+                        {% endif %}
+
+                        <input
+                            type="hidden"
+                            name="per_page"
+                            value="{{ per_page }}"
+                        >
+
+                        <input
+                            type="search"
+                            name="search"
+                            value="{{ search_query|default:'' }}"
+                            placeholder="Search your keyword..."
+                            aria-label="Search webinars"
+                        >
+
+                        <button type="submit" aria-label="Search">
+                            <i class="fas fa-search"></i>
+                        </button>
+
+                    </form>
+
+                </section>
+
+                <!-- FILTERS -->
+                <section class="lw-sidebar-section">
+
+                    <h2 class="lw-sidebar-heading related-heading">
+                        RELATED POSTS
+                    </h2>
+
+                    <!-- Compatibility with existing page JavaScript -->
+                    <button
+                        type="button"
+                        id="filterToggleBtn"
+                        hidden
+                        aria-hidden="true"
+                    ></button>
+
+                    <form
+                        method="get"
+                        id="filterForm"
+                        class="lw-sidebar-filters"
+                    >
+
+                        <input
+                            type="hidden"
+                            name="search"
+                            value="{{ search_query|default:'' }}"
+                        >
+
+                        <input
+                            type="hidden"
+                            name="per_page"
+                            value="{{ per_page }}"
+                        >
+
+                        <div class="lw-filter-panel active" id="filterPanel">
+
+                            <!-- CATEGORIES -->
+                            <div class="lw-filter-group">
+
+                                <h3 class="lw-filter-title">
+                                    <span>Categories</span>
+                                    <i class="fas fa-minus"></i>
+                                </h3>
+
+                                <div class="lw-filter-options">
+
+                                    <label class="lw-filter-label">
+                                        <input
+                                            type="checkbox"
+                                            name="category"
+                                            value="all"
+                                            id="category_all"
+                                            {% if not selected_categories %}checked{% endif %}
+                                        >
+                                        <span>All Categories</span>
+                                    </label>
+
+                                    {% for category in categories %}
+
+                                    <label class="lw-filter-label">
+
+                                        <input
+                                            type="checkbox"
+                                            name="category"
+                                            value="{{ category.id }}"
+                                            {% if category.id|stringformat:"s" in selected_categories %}checked{% endif %}
+                                        >
+
+                                        <span class="filter-label-text">
+                                            {{ category.name }}
+                                        </span>
+
+                                        <span class="filter-count">
+                                            {{ category.webinar_count }}
+                                        </span>
+
+                                    </label>
+
+                                    {% empty %}
+
+                                    <p class="lw-empty-filter">
+                                        No categories available
+                                    </p>
+
+                                    {% endfor %}
+
+                                </div>
+
+                            </div>
+
+                            <!-- INSTRUCTORS -->
+                            <div class="lw-filter-group">
+
+                                <h3 class="lw-filter-title">
+                                    <span>Instructors</span>
+                                    <i class="fas fa-minus"></i>
+                                </h3>
+
+                                <div class="lw-filter-options">
+
+                                    <label class="lw-filter-label">
+                                        <input
+                                            type="checkbox"
+                                            name="instructor"
+                                            value="all"
+                                            id="instructor_all"
+                                            {% if not selected_instructors %}checked{% endif %}
+                                        >
+                                        <span>All Instructors</span>
+                                    </label>
+
+                                    {% for instructor in instructors %}
+
+                                    <label class="lw-filter-label">
+
+                                        <input
+                                            type="checkbox"
+                                            name="instructor"
+                                            value="{{ instructor.id }}"
+                                            {% if instructor.id|stringformat:"s" in selected_instructors %}checked{% endif %}
+                                        >
+
+                                        <span class="filter-label-text">
+                                            {{ instructor.name }}
+                                        </span>
+
+                                        <span class="filter-count">
+                                            {{ instructor.webinar_count }}
+                                        </span>
+
+                                    </label>
+
+                                    {% empty %}
+
+                                    <p class="lw-empty-filter">
+                                        No instructors available
+                                    </p>
+
+                                    {% endfor %}
+
+                                </div>
+
+                            </div>
+
+                            <!-- MONTH -->
+                            <div class="lw-filter-group">
+
+                                <h3 class="lw-filter-title">
+                                    <span>Month</span>
+                                    <i class="fas fa-minus"></i>
+                                </h3>
+
+                                <div class="lw-filter-options">
+
+                                    <label class="lw-filter-label">
+                                        <input
+                                            type="radio"
+                                            name="month"
+                                            value=""
+                                            {% if not selected_month %}checked{% endif %}
+                                        >
+                                        <span>All Months</span>
+                                    </label>
+
+                                    {% for date in available_months %}
+
+                                    <label class="lw-filter-label">
+
+                                        <input
+                                            type="radio"
+                                            name="month"
+                                            value="{{ date.month }}"
+                                            {% if selected_month == date.month|stringformat:"s" %}checked{% endif %}
+                                        >
+
+                                        <span>{{ date|date:"F Y" }}</span>
+
+                                    </label>
+
+                                    {% empty %}
+
+                                    <p class="lw-empty-filter">
+                                        No months available
+                                    </p>
+
+                                    {% endfor %}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- FILTER ACTIONS -->
+                        <div class="lw-filter-actions">
+
+                            <a
+                                href="{% url 'live_webinars:list' %}"
+                                class="lw-filter-reset"
+                            >
+                                <i class="fas fa-rotate-left"></i>
+                                Reset
+                            </a>
+
+                            <button
+                                type="submit"
+                                class="lw-filter-apply"
+                            >
+                                Apply Filters
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+            </aside>
+
+        </div>
+    </main>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+
+<script src="{% static 'home/js/live-webinars.js' %}"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    // All checkboxes are mutually exclusive with individual choices.
+    function setupAllCheckbox(allId, name) {
+
+        const allBox = document.getElementById(allId);
+
+        const boxes = document.querySelectorAll(
+            '#filterForm input[name="' + name + '"]:not(#' + allId + ')'
+        );
+
+        if (!allBox) return;
+
+        allBox.addEventListener('change', function () {
+
+            if (this.checked) {
+                boxes.forEach(box => box.checked = false);
+            }
+
+        });
+
+        boxes.forEach(box => {
+
+            box.addEventListener('change', function () {
+
+                if (this.checked) {
+                    allBox.checked = false;
+                }
+
+                if (![...boxes].some(item => item.checked)) {
+                    allBox.checked = true;
+                }
+
+            });
+
+        });
+
+    }
+
+    setupAllCheckbox('category_all', 'category');
+    setupAllCheckbox('instructor_all', 'instructor');
+
+
+    // Sidebar filter sections collapse independently.
+    document.querySelectorAll('.lw-filter-title').forEach(title => {
+
+        title.addEventListener('click', function () {
+
+            const options = this.nextElementSibling;
+
+            const isCollapsed = options.classList.toggle('is-collapsed');
+
+            this.classList.toggle('is-collapsed', isCollapsed);
+
+            const icon = this.querySelector('i');
+
+            if (icon) {
+                icon.className = isCollapsed
+                    ? 'fas fa-plus'
+                    : 'fas fa-minus';
+            }
+
+        });
+
+    });
+
+});
+</script>
+
+{% endblock %}

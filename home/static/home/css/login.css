@@ -1,0 +1,907 @@
+
+/* =====================================================
+   PEOPLE SKILL WEBINAR LOGIN
+   Dark Green Theme
+===================================================== */
+
+:root {
+    --login-bg: #064B35;
+    --login-dark: #032719;
+    --login-panel: #0B3022;
+    --login-green: #087C55;
+    --login-light: #67D99B;
+    --login-lime: #9AFF70;
+    --login-text: #FFFFFF;
+    --login-muted: #A9C9B8;
+}
+
+/* =====================================================
+   MAIN PAGE
+===================================================== */
+
+.webinar-login-page {
+    width: 100%;
+    min-height: 650px;
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--login-bg);
+    font-family: 'Inter', sans-serif;
+}
+
+/* =====================================================
+   LOGIN WRAPPER
+===================================================== */
+
+.webinar-login-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    min-height: 490px;
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid rgba(103,217,155,.35);
+    background: var(--login-dark);
+    box-shadow: 0 15px 45px rgba(0,0,0,.2);
+    animation: cardReveal 1s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes cardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =====================================================
+   LEFT VISUAL SECTION
+===================================================== */
+
+.webinar-visual {
+    position: relative;
+    min-height: 490px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--login-dark);
+}
+
+/* Laptop image */
+
+.webinar-visual .webinar-laptop {
+    position: relative;
+    z-index: 4;
+    width: 90%;
+    max-height: 400px;
+    height: auto;
+    object-fit: contain;
+    padding: 0;
+    filter: drop-shadow(0 12px 22px rgba(50,255,120,.2));
+    animation: laptopFloat 4s ease-in-out infinite;
+}
+
+@keyframes laptopFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* Background glow */
+
+.webinar-visual::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    top: 25%;
+    left: 25%;
+    border-radius: 50%;
+    background: #18A66B;
+    filter: blur(100px);
+    opacity: .17;
+    z-index: 0;
+    animation: greenGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes greenGlow {
+    from {
+        transform: scale(.8);
+        opacity: .10;
+    }
+    to {
+        transform: scale(1.3);
+        opacity: .28;
+    }
+}
+
+/* =====================================================
+   ORBIT RINGS
+===================================================== */
+
+.laptop-orbit {
+    position: absolute;
+    width: 80%;
+    height: 48%;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.orbit-one {
+    border: 2px dashed rgba(125,255,100,.65);
+    animation: orbitRotate 14s linear infinite;
+}
+
+.orbit-two {
+    width: 90%;
+    height: 58%;
+    border: 2px solid rgba(65,210,120,.3);
+    border-left-color: transparent;
+    border-right-color: transparent;
+    animation: orbitRotate 10s linear infinite reverse;
+}
+
+@keyframes orbitRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Orbit glow */
+
+.laptop-orbit::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    top: 0;
+    left: 50%;
+    border-radius: 50%;
+    background: var(--login-lime);
+    box-shadow: 0 0 10px var(--login-lime),
+                0 0 20px var(--login-lime);
+}
+
+/* =====================================================
+   GREEN LIGHT GLOW
+===================================================== */
+
+.laptop-glow {
+    position: absolute;
+    width: 55%;
+    height: 55%;
+    background: #18C875;
+    filter: blur(90px);
+    border-radius: 50%;
+    opacity: .18;
+    z-index: 0;
+    animation: glowPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    from {
+        transform: scale(.8);
+        opacity: .10;
+    }
+    to {
+        transform: scale(1.3);
+        opacity: .25;
+    }
+}
+
+/* =====================================================
+   FLOATING ICON CARDS
+===================================================== */
+
+.orbit-icon {
+    position: absolute;
+    z-index: 5;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    color: var(--login-lime);
+    font-size: 20px;
+    background: linear-gradient(145deg,#126943,#063522);
+    border: 1px solid rgba(103,217,155,.65);
+    box-shadow: 0 5px 20px rgba(30,255,110,.16);
+    animation: iconFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+    50% {
+        transform: translateY(-14px) rotate(4deg);
+    }
+}
+
+.chart-icon {
+    top: 17%;
+    left: 9%;
+}
+
+.users-icon {
+    top: 43%;
+    left: 4%;
+    animation-delay: .7s;
+}
+
+.cap-icon {
+    top: 19%;
+    right: 8%;
+    animation-delay: 1.2s;
+}
+
+.calendar-icon {
+    top: 62%;
+    right: 5%;
+    animation-delay: 1.8s;
+}
+
+.orbit-icon:hover {
+    border-color: var(--login-lime);
+    box-shadow: 0 0 25px rgba(120,255,90,.45);
+}
+
+/* =====================================================
+   RIGHT LOGIN PANEL
+===================================================== */
+
+.webinar-login-panel {
+    padding: 35px 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(145deg,#0B3022,#032719);
+    color: var(--login-text);
+}
+
+/* =====================================================
+   COMPANY LOGO
+===================================================== */
+
+.login-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    animation: logoReveal .8s ease both;
+}
+
+/* Original PeopleSkill P logo */
+
+.brand-logo {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    border-radius: 50%;
+    animation: logoGlow 3s ease-in-out infinite;
+}
+
+.login-brand strong {
+    display: block;
+    font-size: 23px;
+    font-weight: 800;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+@keyframes logoReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes logoGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(103,217,155,.1);
+    }
+    50% {
+        box-shadow: 0 0 22px rgba(103,217,155,.4);
+    }
+}
+
+/* =====================================================
+   LOGIN HEADING
+===================================================== */
+
+.login-heading {
+    margin-bottom: 25px;
+    animation: formReveal .8s ease both;
+    animation-delay: .15s;
+}
+
+.login-heading h2 {
+    font-size: 27px;
+    font-weight: 800;
+    margin: 0 0 7px;
+    color: #FFFFFF;
+}
+
+.login-heading p {
+    font-size: 12px;
+    color: var(--login-muted);
+    margin: 0;
+}
+
+/* =====================================================
+   ALERT MESSAGES
+===================================================== */
+
+.alert-container {
+    margin-bottom: 15px;
+}
+
+.login-alert {
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    margin-bottom: 8px;
+}
+
+.login-alert-error {
+    background: rgba(255,50,50,.12);
+    color: #FF9999;
+}
+
+.login-alert-success {
+    background: rgba(50,255,100,.12);
+    color: #9AFFAD;
+}
+
+/* =====================================================
+   FORM INPUTS
+===================================================== */
+
+.webinar-form {
+    display: flex;
+    flex-direction: column;
+    animation: formReveal .8s ease both;
+    animation-delay: .3s;
+}
+
+.webinar-input-group {
+    margin-bottom: 18px;
+}
+
+.webinar-input-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #D7E9DE;
+    margin-bottom: 8px;
+}
+
+.webinar-input {
+    height: 46px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 14px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(103,217,155,.22);
+    border-radius: 9px;
+    transition: border-color .3s ease,
+                box-shadow .3s ease,
+                background .3s ease,
+                transform .3s ease;
+}
+
+.webinar-input:focus-within {
+    border-color: var(--login-light);
+    background: rgba(103,217,155,.10);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(103,217,155,.12);
+}
+
+.webinar-input > i:first-child {
+    color: var(--login-light);
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.webinar-input input {
+    width: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.webinar-input input::placeholder {
+    color: #9AB7A6;
+}
+
+.webinar-input .password-toggle {
+    cursor: pointer;
+    color: var(--login-light);
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+/* =====================================================
+   REMEMBER ME AND FORGOT PASSWORD
+===================================================== */
+
+.webinar-form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin: 5px 0 22px;
+}
+
+.remember-option {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #C4D9CC;
+    font-size: 11px;
+}
+
+.remember-option input {
+    accent-color: var(--login-light);
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+
+.webinar-form-options a {
+    color: var(--login-light);
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.webinar-form-options a:hover {
+    color: #A2F5C3;
+}
+
+/* =====================================================
+   SIGN IN BUTTON
+===================================================== */
+
+.webinar-login-btn {
+    position: relative;
+    width: 100%;
+    height: 46px;
+    border: none;
+    border-radius: 9px;
+    background: var(--login-green);
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    overflow: hidden;
+    transition: transform .3s ease,
+                box-shadow .3s ease,
+                background .3s ease;
+}
+
+.webinar-login-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left .65s ease;
+}
+
+.webinar-login-btn:hover::before {
+    left: 150%;
+}
+
+.webinar-login-btn:hover {
+    background: #099568;
+    transform: translateY(-3px);
+    box-shadow: 0 9px 25px rgba(8,124,85,.35);
+}
+
+.webinar-login-btn i {
+    transition: transform .3s ease;
+}
+
+.webinar-login-btn:hover i {
+    transform: translateX(6px);
+}
+
+/* =====================================================
+   CREATE ACCOUNT
+===================================================== */
+
+.create-account-section {
+    margin-top: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: var(--login-muted);
+    animation: formReveal .8s ease both;
+    animation-delay: .4s;
+}
+
+.create-account-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 16px;
+    border: 1px solid rgba(103,217,155,.4);
+    border-radius: 7px;
+    background: rgba(8,124,85,.12);
+    color: var(--login-light);
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+
+.create-account-btn:hover {
+    background: var(--login-green);
+    color: #FFFFFF;
+    border-color: var(--login-light);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(8,124,85,.2);
+}
+
+.create-account-btn i {
+    transition: transform .3s ease;
+}
+
+.create-account-btn:hover i {
+    transform: translateX(4px);
+}
+
+/* =====================================================
+   SECURITY FOOTER
+===================================================== */
+
+.login-security {
+    margin-top: 25px;
+    text-align: center;
+    color: #8EBAA0;
+    font-size: 10px;
+    animation: formReveal .8s ease both;
+    animation-delay: .5s;
+}
+
+.login-security i {
+    color: var(--login-light);
+    margin-right: 5px;
+    animation: securityPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes securityPulse {
+    0%, 100% {
+        opacity: .7;
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 10px var(--login-light);
+    }
+}
+
+/* =====================================================
+   FORM ENTRANCE
+===================================================== */
+
+@keyframes formReveal {
+    from {
+        opacity: 0;
+        transform: translateX(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* =====================================================
+   TABLET RESPONSIVE
+===================================================== */
+
+@media(max-width: 900px) {
+
+    .webinar-login-wrapper {
+        max-width: 750px;
+        grid-template-columns: 1fr 0.95fr;
+    }
+
+    .webinar-visual {
+        min-height: 450px;
+    }
+
+    .webinar-visual .webinar-laptop {
+        width: 94%;
+        max-height: 350px;
+    }
+
+    .webinar-login-panel {
+        padding: 28px;
+    }
+
+    .login-brand strong {
+        font-size: 20px;
+    }
+
+    .login-heading h2 {
+        font-size: 24px;
+    }
+}
+
+/* =====================================================
+   MOBILE RESPONSIVE
+===================================================== */
+
+@media(max-width: 650px) {
+
+    .webinar-login-page {
+        min-height: auto;
+        padding: 20px 12px;
+    }
+
+    .webinar-login-wrapper {
+        max-width: 430px;
+        grid-template-columns: 1fr;
+        border-radius: 16px;
+    }
+
+    .webinar-visual {
+        min-height: 240px;
+        height: 240px;
+    }
+
+    .webinar-visual .webinar-laptop {
+        width: 85%;
+        max-height: 220px;
+    }
+
+    .laptop-orbit {
+        width: 85%;
+        height: 45%;
+    }
+
+    .orbit-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    .chart-icon {
+        top: 12%;
+        left: 8%;
+    }
+
+    .users-icon {
+        top: 43%;
+        left: 4%;
+    }
+
+    .cap-icon {
+        top: 12%;
+        right: 8%;
+    }
+
+    .calendar-icon {
+        top: 62%;
+        right: 5%;
+    }
+
+    .webinar-login-panel {
+        padding: 30px 25px;
+    }
+
+    .login-brand {
+        margin-bottom: 24px;
+    }
+
+    .brand-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .login-brand strong {
+        font-size: 20px;
+    }
+
+    .login-heading h2 {
+        font-size: 24px;
+    }
+
+    .create-account-section {
+        flex-wrap: wrap;
+        margin-top: 15px;
+    }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width: 380px) {
+
+    .webinar-login-panel {
+        padding: 25px 18px;
+    }
+
+    .webinar-form-options {
+        gap: 5px;
+    }
+
+    .remember-option {
+        font-size: 10px;
+    }
+
+    .webinar-form-options a {
+        font-size: 10px;
+    }
+
+    .login-heading h2 {
+        font-size: 22px;
+    }
+
+    .create-account-section {
+        font-size: 10px;
+    }
+
+    .create-account-btn {
+        padding: 8px 12px;
+        font-size: 10px;
+    }
+}
+
+/* =====================================================
+   ACCESSIBILITY - REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion: reduce) {
+
+    .webinar-login-wrapper,
+    .webinar-laptop,
+    .webinar-visual::before,
+    .laptop-orbit,
+    .orbit-icon,
+    .laptop-glow,
+    .login-brand,
+    .brand-logo,
+    .login-heading,
+    .webinar-form,
+    .create-account-section,
+    .login-security,
+    .login-security i {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+
+/* =========================================
+   LOGIN TWO ACTION BUTTONS
+========================================= */
+
+.login-action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    width: 100%;
+    margin-top: 5px;
+    align-items: stretch;
+}
+
+/* SIGN IN BUTTON */
+
+.login-action-buttons .webinar-login-btn {
+    width: 100%;
+    height: 48px;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    background: #079B65;
+    color: #ffffff;
+    border: 1px solid #079B65;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+/* CREATE ACCOUNT BUTTON */
+
+.login-action-buttons .create-account-btn {
+    width: 100%;
+    height: 48px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    border: 1px solid #38D98B;
+    border-radius: 10px;
+
+    background: transparent;
+    color: #67D99B;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+    box-sizing: border-box;
+
+    transition: all .3s ease;
+}
+
+.login-action-buttons .create-account-btn:hover {
+    background: rgba(8, 124, 85, .20);
+    color: #ffffff;
+    border-color: #67D99B;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(8,124,85,.2);
+}
+
+.login-action-buttons .create-account-btn i {
+    transition: transform .3s ease;
+}
+
+.login-action-buttons .create-account-btn:hover i {
+    transform: translateX(4px);
+}
+
+/* MOBILE */
+
+@media(max-width: 380px) {
+
+    .login-action-buttons {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .login-action-buttons .webinar-login-btn,
+    .login-action-buttons .create-account-btn {
+        height: 46px;
+    }
+
+}

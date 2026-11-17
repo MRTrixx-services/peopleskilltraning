@@ -1,0 +1,403 @@
+
+/* =========================================
+   PEOPLE SKILL TRAINING FOOTER
+   DARK GREEN THEME
+========================================= */
+
+.ft-footer {
+    position: relative;
+    background: #052f25;
+    color: #ffffff;
+    border-top: 1px solid rgba(85, 213, 138, 0.2);
+    overflow: hidden;
+}
+
+.ft-top-bar {
+    height: 3px;
+    background: #087a50;
+}
+
+.ft-inner {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 22px 24px 0;
+}
+
+.ft-main-grid {
+    display: grid;
+    grid-template-columns: 1.45fr 0.9fr 1.2fr 1.15fr;
+    gap: 45px;
+    align-items: start;
+    padding-bottom: 34px;
+}
+
+/* BRAND */
+.ft-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.ft-logo {
+    width: 58px;
+    height: 58px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #28664f;
+}
+
+.ft-brand-name {
+    margin: 0;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.ft-brand-name span {
+    color: #55d58a;
+}
+
+.ft-brand small {
+    display: block;
+    margin-top: 4px;
+    color: #c0d5ca;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+}
+
+.ft-description {
+    max-width: 340px;
+    margin: 16px 0 18px;
+    color: #d0e1d8;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+/* SOCIAL */
+.ft-social-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ft-social-links a {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #087a50;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.ft-social-links a:hover {
+    background: #087a50;
+    border-color: #55d58a;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* HEADINGS */
+.ft-heading {
+    position: relative;
+    margin: 0 0 27px;
+    padding-bottom: 12px;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.ft-heading::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 54px;
+    height: 4px;
+    border-radius: 5px;
+    background: #55d58a;
+}
+
+/* QUICK LINKS */
+.ft-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ft-links li + li {
+    margin-top: 12px;
+}
+
+.ft-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    color: #d5e5dc;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.ft-links a::before {
+    content: "›";
+    color: #55d58a;
+    font-size: 22px;
+    line-height: 12px;
+}
+
+.ft-links a:hover {
+    color: #55d58a;
+    transform: translateX(3px);
+}
+
+/* TRAINING CATEGORIES */
+.ft-category-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ft-category-links li {
+    margin-bottom: 12px;
+}
+
+.ft-category-links li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #d5e5dc;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.ft-category-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background: rgba(85, 213, 138, 0.12);
+    color: #55d58a;
+    font-size: 14px;
+    transition: all 0.25s ease;
+}
+
+.ft-category-links li a:hover {
+    color: #55d58a;
+    transform: translateX(3px);
+}
+
+.ft-category-links li a:hover .ft-category-icon {
+    background: #087a50;
+    color: #ffffff;
+}
+
+/* CONTACT */
+.ft-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.ft-contact-icon {
+    width: 43px;
+    height: 43px;
+    min-width: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(85, 213, 138, 0.12);
+    color: #55d58a;
+    font-size: 18px;
+}
+
+.ft-contact-item p,
+.ft-contact-item a {
+    margin: 0;
+    padding-top: 2px;
+    color: #d5e5dc;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.65;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.ft-contact-item a:hover {
+    color: #55d58a;
+}
+
+/* CONTACT BUTTON */
+.ft-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1px;
+    padding: 10px 15px;
+    border: 1px solid #55d58a;
+    border-radius: 8px;
+    color: #55d58a;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.ft-contact-btn:hover {
+    background: #087a50;
+    border-color: #087a50;
+    color: #ffffff;
+}
+
+/* BOTTOM */
+.ft-bottom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    min-height: 61px;
+    padding: 12px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.ft-copyright {
+    color: #c0d5ca;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+}
+
+.ft-legal-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.ft-legal-links a {
+    color: #d5e5dc;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.ft-legal-links a:hover {
+    color: #55d58a;
+}
+
+/* BOTTOM ACCENT */
+.ft-footer::after {
+    content: "";
+    position: absolute;
+    left: -2%;
+    bottom: 0;
+    width: 104%;
+    height: 5px;
+    background: #087a50;
+    border-radius: 50% 50% 0 0;
+}
+
+/* TABLET */
+@media (max-width: 1050px) {
+    .ft-main-grid {
+        grid-template-columns: 1.3fr 1fr;
+        gap: 35px 45px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .ft-inner {
+        padding: 28px 18px 0;
+    }
+
+    .ft-main-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 20px;
+        padding-bottom: 25px;
+    }
+
+    .ft-brand-col,
+    .ft-contact-col {
+        grid-column: 1 / -1;
+    }
+
+    .ft-heading {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .ft-brand-name {
+        font-size: 19px;
+    }
+
+    .ft-description {
+        font-size: 12px;
+    }
+
+    .ft-social-links a {
+        width: 39px;
+        height: 39px;
+        font-size: 16px;
+    }
+
+    .ft-category-links li a,
+    .ft-links a {
+        font-size: 12px;
+    }
+
+    .ft-category-icon {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+    }
+
+    .ft-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 17px 0 20px;
+    }
+
+    .ft-legal-links {
+        justify-content: flex-start;
+        gap: 12px 18px;
+    }
+
+    .ft-copyright,
+    .ft-legal-links a {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 380px) {
+    .ft-main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ft-brand-col,
+    .ft-contact-col {
+        grid-column: auto;
+    }
+}

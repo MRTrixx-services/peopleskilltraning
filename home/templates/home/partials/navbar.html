@@ -1,0 +1,239 @@
+
+{% load static %}
+
+<nav class="navbar navbar-expand-lg ws-navbar sticky-top {% if request.user.is_authenticated %}ws-authenticated{% else %}ws-guest{% endif %}">
+    <div class="container-fluid px-lg-4 px-3">
+
+        <!-- BRAND -->
+        <a class="navbar-brand ws-brand d-flex align-items-center"
+           href="{% url 'home:home' %}">
+
+            <div class="ws-logo-wrapper">
+                <img src="{% static 'home/images/people-skill-logo.png' %}"
+                     alt="PeopleSkillTraining Logo"
+                     class="ws-logo-img">
+            </div>
+
+            <div class="ws-brand-content">
+                <span class="ws-brand-title">
+                    PeopleSkill<span>Training</span>
+                </span>
+                <small class="ws-brand-sub">
+                    Compliance & Professional Training
+                </small>
+            </div>
+        </a>
+
+        <!-- MOBILE TOGGLER -->
+        <button class="navbar-toggler ws-navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- NAVIGATION -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <!-- MAIN LINKS -->
+            <ul class="navbar-nav mx-auto ws-nav-links">
+
+                <li class="nav-item">
+                    <a class="nav-link ws-nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
+                       href="{% url 'home:about' %}">
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link ws-nav-link {% if request.resolver_match.namespace == 'live_webinars' %}active{% endif %}"
+                       href="{% url 'live_webinars:list' %}">
+                        Live Webinars
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link ws-nav-link {% if request.resolver_match.namespace == 'recorded_webinars' %}active{% endif %}"
+                       href="{% url 'recorded_webinars:list' %}">
+                        Recorded Webinars
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link ws-nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
+                       href="{% url 'home:contact' %}">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- RIGHT ACTIONS -->
+            <ul class="navbar-nav ws-nav-actions align-items-lg-center">
+
+                <!-- SEARCH -->
+                <li class="nav-item ws-search-item">
+
+                    <button type="button"
+                            class="ws-search-toggle"
+                            id="wsSearchToggle"
+                            aria-label="Open search"
+                            aria-expanded="false">
+                        <i class="bi bi-search"></i>
+                    </button>
+
+                    <form action="{% url 'home:search' %}"
+                          method="GET"
+                          class="ws-search-form"
+                          id="wsSearchForm">
+
+                        <i class="bi bi-search ws-search-input-icon"></i>
+
+                        <input type="search"
+                               name="q"
+                               id="wsSearchInput"
+                               placeholder="Search webinars, topics..."
+                               autocomplete="off"
+                               aria-label="Search webinars"
+                               required>
+
+                        <button type="button"
+                                class="ws-search-close"
+                                id="wsSearchClose"
+                                aria-label="Close search">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </form>
+                </li>
+
+                <!-- CART -->
+                <li class="nav-item">
+                    <a class="nav-link ws-cart-link position-relative"
+                       href="{% url 'cart:cart_page' %}"
+                       aria-label="Shopping Cart">
+
+                        <i class="bi bi-cart3"></i>
+
+                        {% if cart_count > 0 %}
+                            <span class="cart-badge">{{ cart_count }}</span>
+                        {% endif %}
+                    </a>
+                </li>
+
+                {% if request.user.is_authenticated %}
+
+                    <!-- LOGGED-IN USER -->
+                    <li class="nav-item dropdown ws-user-dropdown">
+
+                        <a class="nav-link dropdown-toggle ws-user-menu"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+
+                            <span class="ws-user-avatar">
+                                {{ request.user.first_name|default:request.user.email|slice:":1"|upper }}
+                            </span>
+
+                            <span class="ws-user-name">
+                                {{ request.user.first_name|default:request.user.email }}
+                            </span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end ws-dropdown-menu">
+
+                            <li>
+                                <a class="dropdown-item ws-dropdown-item"
+                                   href="{% url 'profile:enrollments' %}">
+                                    <i class="bi bi-person"></i>
+                                    My Profile
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item ws-dropdown-item"
+                                   href="{% url 'profile:enrollments' %}">
+                                    <i class="bi bi-mortarboard"></i>
+                                    My Learning
+                                </a>
+                            </li>
+
+                            <li><hr class="dropdown-divider"></li>
+
+                            <li>
+                                <a class="dropdown-item ws-dropdown-item ws-logout"
+                                   href="{% url 'accounts:logout' %}">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    Log Out
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                {% else %}
+
+                    <!-- LOGIN -->
+                    <li class="nav-item">
+                        <a class="ws-login-btn"
+                           href="{% url 'accounts:login' %}">
+                            <i class="bi bi-person"></i>
+                            <span>Log In</span>
+                        </a>
+                    </li>
+
+                    <!-- REGISTER -->
+                    <li class="nav-item">
+                        <a class="ws-signup-btn"
+                           href="{% url 'accounts:register' %}">
+                            <i class="bi bi-person-plus"></i>
+                            <span>Register</span>
+                        </a>
+                    </li>
+
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const toggle = document.getElementById("wsSearchToggle");
+    const form = document.getElementById("wsSearchForm");
+    const input = document.getElementById("wsSearchInput");
+    const close = document.getElementById("wsSearchClose");
+
+    if (!toggle || !form || !input || !close) return;
+
+    function openSearch() {
+        form.classList.add("is-open");
+        toggle.classList.add("is-hidden");
+        toggle.setAttribute("aria-expanded", "true");
+
+        setTimeout(() => input.focus(), 150);
+    }
+
+    function closeSearch() {
+        form.classList.remove("is-open");
+        toggle.classList.remove("is-hidden");
+        toggle.setAttribute("aria-expanded", "false");
+    }
+
+    toggle.addEventListener("click", openSearch);
+    close.addEventListener("click", closeSearch);
+
+    input.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeSearch();
+            toggle.focus();
+        }
+    });
+
+});
+</script>

@@ -1,0 +1,549 @@
+
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}Recorded Webinars{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/live-webinars.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/recorded-webinars.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="lw-page lw-recorded-page">
+
+    <!-- HERO SECTION -->
+    <section class="lw-hero">
+        <div class="lw-hero-inner">
+
+            <div class="lw-hero-content">
+
+                <div class="lw-hero-badge">
+                    <span class="lw-hero-live-dot"></span>
+                    Recorded Webinars
+                </div>
+
+                <h1 class="lw-hero-title">
+                    Explore Our <span>Recorded Webinars</span>
+                </h1>
+
+                <p class="lw-hero-description">
+                    Learn at your own pace with expert-led sessions, build practical skills,
+                    and stay up to date with the latest workplace standards.
+                </p>
+
+                <div class="lw-hero-features">
+
+                    <div class="lw-hero-feature">
+                        <i class="fas fa-play-circle"></i>
+                        <span>On-Demand Learning</span>
+                    </div>
+
+                    <span class="lw-hero-divider"></span>
+
+                    <div class="lw-hero-feature">
+                        <i class="fas fa-users"></i>
+                        <span>Expert Instructors</span>
+                    </div>
+
+                    <span class="lw-hero-divider"></span>
+
+                    <div class="lw-hero-feature">
+                        <i class="fas fa-clock"></i>
+                        <span>Watch Anytime</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="lw-hero-visual">
+
+                <div class="lw-hero-circle"></div>
+
+                <img
+                    src="/static/home/images/live.png"
+                    alt="Recorded Webinar Instructor"
+                    class="lw-hero-instructor"
+                >
+
+                <div class="lw-hero-session">
+                    <i class="fas fa-play-circle"></i>
+                    <span>On-Demand</span>
+                </div>
+
+                <div class="lw-hero-play">
+                    <i class="fas fa-play"></i>
+                </div>
+
+                <div class="lw-hero-dots"></div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <div class="lw-content-layout">
+
+        <!-- MAIN CONTENT -->
+        <main class="lw-main-content">
+
+            <!-- TOOLBAR -->
+            <div class="lw-toolbar">
+
+                <div class="lw-results-info">
+                    <span class="lw-count">
+                        {{ page_obj.paginator.count }}
+                        Webinar{{ page_obj.paginator.count|pluralize }}
+                    </span>
+
+                    {% if filters_active %}
+                    <div class="lw-active-tags">
+
+                        {% for cat_id in selected_categories %}
+                            {% for category in categories %}
+                                {% if category.id|stringformat:"s" == cat_id %}
+                                <span class="lw-tag">
+                                    {{ category.name }}
+                                </span>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+
+                        {% for inst_id in selected_instructors %}
+                            {% for instructor in instructors %}
+                                {% if instructor.id|stringformat:"s" == inst_id %}
+                                <span class="lw-tag">
+                                    {{ instructor.name }}
+                                </span>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+
+                        {% if selected_month %}
+                        <span class="lw-tag">
+                            {{ selected_month }}
+                        </span>
+                        {% endif %}
+
+                        <a href="{% url 'recorded_webinars:list' %}"
+                           class="lw-tag-clear">
+                            Clear all
+                        </a>
+
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- TOP PAGINATION -->
+                <div class="lw-toolbar-center">
+
+                    {% if page_obj.has_previous %}
+                    <a class="lw-pag-btn"
+                       href="?page=1&per_page={{ per_page }}">
+                        <i class="fas fa-angle-double-left"></i>
+                    </a>
+
+                    <a class="lw-pag-btn"
+                       href="?page={{ page_obj.previous_page_number }}&per_page={{ per_page }}">
+                        <i class="fas fa-angle-left"></i>
+                    </a>
+                    {% else %}
+                    <span class="lw-pag-btn disabled">
+                        <i class="fas fa-angle-double-left"></i>
+                    </span>
+                    <span class="lw-pag-btn disabled">
+                        <i class="fas fa-angle-left"></i>
+                    </span>
+                    {% endif %}
+
+                    <span class="lw-pag-btn active">
+                        {{ page_obj.number }}
+                    </span>
+
+                    {% if page_obj.has_next %}
+                    <a class="lw-pag-btn"
+                       href="?page={{ page_obj.next_page_number }}&per_page={{ per_page }}">
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+
+                    <a class="lw-pag-btn"
+                       href="?page={{ page_obj.paginator.num_pages }}&per_page={{ per_page }}">
+                        <i class="fas fa-angle-double-right"></i>
+                    </a>
+                    {% else %}
+                    <span class="lw-pag-btn disabled">
+                        <i class="fas fa-angle-right"></i>
+                    </span>
+                    <span class="lw-pag-btn disabled">
+                        <i class="fas fa-angle-double-right"></i>
+                    </span>
+                    {% endif %}
+
+                </div>
+            </div>
+
+            <!-- WEBINAR CARDS -->
+            <div class="lw-webinar-list" id="webinarList">
+
+                {% for webinar in webinars %}
+
+                <article class="lw-webinar-card lw-recorded-card">
+
+                    <!-- INSTRUCTOR IMAGE -->
+                    <div class="lw-card-image-wrap">
+
+                        {% if webinar.instructor.photo %}
+                        <img
+                            src="{{ webinar.instructor.photo.url }}"
+                            alt="{{ webinar.instructor.name }}"
+                            class="lw-card-image">
+                        {% else %}
+                        <img
+                            src="{% static 'home/images/default-user.png' %}"
+                            alt="{{ webinar.instructor.name }}"
+                            class="lw-card-image">
+                        {% endif %}
+
+                        <span class="lw-card-status">
+                            <i class="fas fa-play"></i> RECORDED
+                        </span>
+
+                    </div>
+
+                    <!-- CARD DETAILS -->
+                    <div class="lw-card-content">
+
+                        <div class="lw-card-date-row">
+                            <span class="lw-card-date">
+                                <i class="fas fa-play-circle"></i>
+                                On-Demand Recording
+                            </span>
+                        </div>
+
+                        <h2 class="lw-card-title">
+                            {{ webinar.title }}
+                        </h2>
+
+                        <!-- META -->
+                        <div class="lw-card-meta">
+
+                            <span class="lw-meta-item lw-instructor-meta">
+
+                                {% if webinar.instructor.photo %}
+                                <img
+                                    src="{{ webinar.instructor.photo.url }}"
+                                    alt="{{ webinar.instructor.name }}"
+                                    class="lw-instructor-avatar">
+                                {% else %}
+                                <img
+                                    src="{% static 'home/images/default-user.png' %}"
+                                    alt="{{ webinar.instructor.name }}"
+                                    class="lw-instructor-avatar">
+                                {% endif %}
+
+                                <span>
+                                    <strong>Instructor:</strong>
+                                    {{ webinar.instructor.name }}
+                                </span>
+
+                            </span>
+
+                            {% if webinar.duration_minutes %}
+                            <span class="lw-meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>
+                                    <strong>Duration:</strong>
+                                    {{ webinar.duration_minutes }} Min
+                                </span>
+                            </span>
+                            {% endif %}
+
+                            <span class="lw-meta-item lw-availability-meta">
+                                <i class="fas fa-infinity"></i>
+                                <span>Watch at your pace</span>
+                            </span>
+
+                        </div>
+
+                        <!-- PRICE AND BUTTON -->
+                        <div class="lw-card-footer">
+
+                            <div class="lw-card-price">
+                                {% if webinar.pricing.single_price == 0 %}
+                                    <span class="lw-price-free">FREE</span>
+                                {% else %}
+                                    $ {{ webinar.pricing.single_price }}
+                                {% endif %}
+                            </div>
+
+                            <a
+                                href="{% url 'recorded_webinars:detail' webinar.webinar_id %}"
+                                class="lw-enroll-btn">
+                                Watch Now
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </article>
+
+                {% empty %}
+
+                <div class="lw-empty-state">
+                    <i class="fas fa-video-slash"></i>
+                    <h3>No recorded webinars found</h3>
+                    <p>Try changing your search or filters.</p>
+
+                    <a href="{% url 'recorded_webinars:list' %}"
+                       class="lw-empty-reset">
+                        Clear Filters
+                    </a>
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            <!-- BOTTOM PAGINATION -->
+            <div class="lw-pagination">
+
+                <div class="lw-pag-left">
+
+                    <form method="get" class="lw-perpage-form">
+
+                        <input type="hidden"
+                               name="search"
+                               value="{{ search_query|default:'' }}">
+
+                        {% for cat in selected_categories %}
+                        <input type="hidden" name="category" value="{{ cat }}">
+                        {% endfor %}
+
+                        {% for inst in selected_instructors %}
+                        <input type="hidden" name="instructor" value="{{ inst }}">
+                        {% endfor %}
+
+                        {% if selected_month %}
+                        <input type="hidden" name="month" value="{{ selected_month }}">
+                        {% endif %}
+
+                        <input type="hidden" name="page" value="1">
+
+                        <label for="recordedPerPage">Show</label>
+
+                        <select name="per_page"
+                                id="recordedPerPage"
+                                onchange="this.form.submit()">
+
+                            <option value="12" {% if per_page == 12 %}selected{% endif %}>12</option>
+                            <option value="24" {% if per_page == 24 %}selected{% endif %}>24</option>
+                            <option value="36" {% if per_page == 36 %}selected{% endif %}>36</option>
+                            <option value="100" {% if per_page == 100 %}selected{% endif %}>100</option>
+
+                        </select>
+
+                        <label>per page</label>
+
+                    </form>
+                </div>
+
+                <div class="lw-pag-right">
+                    Page <strong>{{ page_obj.number }}</strong>
+                    of <strong>{{ page_obj.paginator.num_pages }}</strong>
+                </div>
+
+            </div>
+
+        </main>
+
+        <!-- SIDEBAR -->
+        <aside class="lw-sidebar">
+
+            <!-- SEARCH -->
+            <section class="lw-sidebar-section lw-search-section">
+
+                <h3 class="lw-sidebar-title">SEARCH WEBINARS</h3>
+
+                <form method="get" class="lw-sidebar-search">
+
+                    {% for cat in selected_categories %}
+                    <input type="hidden" name="category" value="{{ cat }}">
+                    {% endfor %}
+
+                    {% for inst in selected_instructors %}
+                    <input type="hidden" name="instructor" value="{{ inst }}">
+                    {% endfor %}
+
+                    {% if selected_month %}
+                    <input type="hidden" name="month" value="{{ selected_month }}">
+                    {% endif %}
+
+                    <input type="hidden" name="per_page" value="{{ per_page }}">
+
+                    <input type="search"
+                           name="search"
+                           value="{{ search_query|default:'' }}"
+                           placeholder="Search your keyword..."
+                           aria-label="Search recorded webinars">
+
+                    <button type="submit" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+
+                </form>
+            </section>
+
+            <!-- FILTERS -->
+            <form method="get" class="lw-filter-form">
+
+                <input type="hidden"
+                       name="search"
+                       value="{{ search_query|default:'' }}">
+
+                <input type="hidden"
+                       name="per_page"
+                       value="{{ per_page }}">
+
+                <!-- CATEGORIES -->
+                <section class="lw-filter-section">
+
+                    <h3 class="lw-filter-heading">
+                        Categories
+                        <i class="fas fa-minus"></i>
+                    </h3>
+
+                    <div class="lw-filter-options">
+
+                        <label class="lw-filter-option">
+                            <input type="checkbox"
+                                   name="category"
+                                   value="all"
+                                   {% if not selected_categories %}checked{% endif %}>
+                            <span>All Categories</span>
+                        </label>
+
+                        {% for category in categories %}
+                        <label class="lw-filter-option">
+
+                            <input type="checkbox"
+                                   name="category"
+                                   value="{{ category.id }}"
+                                   {% if category.id|stringformat:"s" in selected_categories %}checked{% endif %}>
+
+                            <span class="lw-filter-option-name">
+                                {{ category.name }}
+                            </span>
+
+                            <span class="lw-filter-count">
+                                {{ category.webinar_count }}
+                            </span>
+
+                        </label>
+                        {% endfor %}
+
+                    </div>
+                </section>
+
+                <!-- INSTRUCTORS -->
+                <section class="lw-filter-section">
+
+                    <h3 class="lw-filter-heading">
+                        Instructors
+                        <i class="fas fa-minus"></i>
+                    </h3>
+
+                    <div class="lw-filter-options">
+
+                        <label class="lw-filter-option">
+                            <input type="checkbox"
+                                   name="instructor"
+                                   value="all"
+                                   {% if not selected_instructors %}checked{% endif %}>
+                            <span>All Instructors</span>
+                        </label>
+
+                        {% for instructor in instructors %}
+                        <label class="lw-filter-option">
+
+                            <input type="checkbox"
+                                   name="instructor"
+                                   value="{{ instructor.id }}"
+                                   {% if instructor.id|stringformat:"s" in selected_instructors %}checked{% endif %}>
+
+                            <span class="lw-filter-option-name">
+                                {{ instructor.name }}
+                            </span>
+
+                            <span class="lw-filter-count">
+                                {{ instructor.webinar_count }}
+                            </span>
+
+                        </label>
+                        {% endfor %}
+
+                    </div>
+                </section>
+
+                <!-- MONTH -->
+                <section class="lw-filter-section">
+
+                    <h3 class="lw-filter-heading">
+                        Month
+                        <i class="fas fa-minus"></i>
+                    </h3>
+
+                    <div class="lw-filter-options">
+
+                        <label class="lw-filter-option">
+                            <input type="radio"
+                                   name="month"
+                                   value=""
+                                   {% if not selected_month %}checked{% endif %}>
+                            <span>All Months</span>
+                        </label>
+
+                        {% for date in available_months %}
+                        <label class="lw-filter-option">
+
+                            <input type="radio"
+                                   name="month"
+                                   value="{{ date.month }}"
+                                   {% if selected_month == date.month|stringformat:"s" %}checked{% endif %}>
+
+                            <span>{{ date|date:"F Y" }}</span>
+
+                        </label>
+                        {% endfor %}
+
+                    </div>
+                </section>
+
+                <!-- FILTER BUTTONS -->
+                <div class="lw-filter-actions">
+
+                    <a href="{% url 'recorded_webinars:list' %}"
+                       class="lw-filter-reset">
+                        <i class="fas fa-undo"></i> Reset
+                    </a>
+
+                    <button type="submit" class="lw-filter-apply">
+                        Apply Filters
+                    </button>
+
+                </div>
+
+            </form>
+
+        </aside>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'home/js/live-webinars.js' %}"></script>
+<script src="{% static 'home/js/recorded-webinars.js' %}"></script>
+{% endblock %}

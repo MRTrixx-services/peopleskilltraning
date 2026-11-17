@@ -1,0 +1,1191 @@
+/* =========================================
+   PEOPLE SKILL TRAINING - CONTACT PAGE
+   Premium Emerald Green Theme
+========================================= */
+
+.contact-hero,
+.contact-info-section,
+.why-contact-section,
+.training-areas-section,
+.contact-cta-section {
+    font-family: 'Inter', sans-serif;
+}
+
+.contact-hero h1,
+.contact-info-card h2,
+.why-contact-heading h2,
+.why-contact-item h3,
+.training-section-heading h2,
+.training-card h3,
+.contact-cta h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.contact-hero .container,
+.contact-info-section .container,
+.why-contact-section .container,
+.training-areas-section .container,
+.contact-cta-section .container {
+    max-width: 1140px;
+}
+
+
+/* =========================================
+   01. HERO SECTION
+========================================= */
+
+.contact-hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding: 65px 0 75px;
+    color: #fff;
+    background: linear-gradient(115deg, #043d2c, #08794e);
+}
+
+.contact-hero-layout {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 205px;
+}
+
+.contact-hero-inner {
+    position: relative;
+    z-index: 3;
+    max-width: 560px;
+    animation: contactHeroReveal .9s ease both;
+}
+
+.contact-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 15px;
+    color: #c1f29c;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.contact-eyebrow i,
+.section-eyebrow i {
+    width: 22px;
+    height: 2px;
+    background: #a4e879;
+    border-radius: 5px;
+}
+
+.contact-hero h1 {
+    margin: 0 0 15px;
+    color: #fff;
+    font-size: clamp(36px, 4.2vw, 52px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -1.8px;
+}
+
+.contact-hero h1 span {
+    display: block;
+    color: #b3f17b;
+}
+
+.contact-hero-inner > p {
+    max-width: 510px;
+    margin: 0;
+    color: rgba(255,255,255,.82);
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+.contact-hero-glow {
+    position: absolute;
+    z-index: -1;
+    right: 15%;
+    bottom: -180px;
+    width: 330px;
+    height: 330px;
+    background: #39c887;
+    opacity: .18;
+    filter: blur(85px);
+    border-radius: 50%;
+}
+
+
+/* Hero illustration */
+
+.contact-hero-visual {
+    position: relative;
+    width: 390px;
+    height: 235px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: heroVisualFloat 5s ease-in-out infinite;
+}
+
+.hero-orbit {
+    position: absolute;
+    border: 1px solid rgba(174,255,133,.45);
+    border-radius: 50%;
+    transform: rotate(-15deg);
+}
+
+.orbit-one {
+    width: 310px;
+    height: 100px;
+    animation: orbitRotate 12s linear infinite;
+}
+
+.orbit-two {
+    width: 250px;
+    height: 150px;
+    border-color: rgba(255,255,255,.14);
+    animation: orbitRotateReverse 17s linear infinite;
+}
+
+.hero-mail-card {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 155px;
+    height: 125px;
+    color: #08794e;
+    background: linear-gradient(145deg, #fff, #d9f7e3);
+    border: 2px solid rgba(255,255,255,.65);
+    border-radius: 20px;
+    box-shadow: 0 18px 45px rgba(0,0,0,.23);
+    transform: rotate(-7deg);
+}
+
+.hero-mail-card i {
+    font-size: 45px;
+}
+
+.hero-mail-card span {
+    position: absolute;
+    top: 30px;
+    font-size: 31px;
+    font-weight: 800;
+}
+
+.hero-float-icon {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 47px;
+    height: 47px;
+    color: #c7ff70;
+    background: rgba(14,135,75,.8);
+    border: 1px solid #b7f57b;
+    border-radius: 50%;
+    box-shadow: 0 0 22px rgba(173,255,89,.28);
+    font-size: 19px;
+}
+
+.phone-float {
+    top: 5px;
+    left: 35px;
+    animation: floatIcon 4s ease-in-out infinite;
+}
+
+.chat-float {
+    top: 15px;
+    right: 25px;
+    animation: floatIcon 4.5s ease-in-out infinite .5s;
+}
+
+.people-float {
+    bottom: 10px;
+    left: 5px;
+    animation: floatIcon 5s ease-in-out infinite 1s;
+}
+
+
+/* =========================================
+   02. CONTACT INFORMATION
+========================================= */
+
+.contact-info-section {
+    position: relative;
+    z-index: 4;
+    padding: 0 0 48px;
+    background: #f7faf8;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: -29px;
+}
+
+.contact-info-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 175px;
+    padding: 21px;
+    color: inherit;
+    background: #fff;
+    border: 1px solid #e2eee6;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(20,65,43,.07);
+    text-decoration: none;
+    transition: transform .35s ease,
+                box-shadow .35s ease,
+                border-color .35s ease;
+}
+
+a.contact-info-card:hover {
+    transform: translateY(-7px);
+    border-color: #a9dfba;
+    box-shadow: 0 15px 32px rgba(20,100,60,.13);
+}
+
+.contact-info-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.contact-info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    color: #08794e;
+    background: #eaf7ee;
+    border-radius: 13px;
+    font-size: 20px;
+    transition: transform .4s ease,
+                background .3s ease;
+}
+
+.contact-info-card:hover .contact-info-icon {
+    transform: rotate(-10deg) scale(1.1);
+    background: #d8f3df;
+}
+
+.contact-info-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 29px;
+    height: 29px;
+    color: #08794e;
+    background: #f3f8f4;
+    border: 1px solid #e4eee7;
+    border-radius: 50%;
+    font-size: 12px;
+    transition: .3s ease;
+}
+
+.contact-info-card:hover .contact-info-arrow {
+    color: #fff;
+    background: #08794e;
+    transform: translate(3px,-3px);
+}
+
+.contact-info-label {
+    margin-bottom: 5px;
+    color: #84948a;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.contact-info-card h2 {
+    margin: 0 0 6px;
+    color: #183c2b;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.contact-info-card > strong {
+    color: #08794e;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.contact-info-card > p {
+    margin: auto 0 0;
+    padding-top: 9px;
+    color: #77847c;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.office-info-card {
+    cursor: default;
+}
+
+.office-status {
+    color: #08794e;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: .8px;
+}
+
+.contact-info-card > strong.office-address {
+    color: #43574a;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+
+/* =========================================
+   03. WHY CONTACT US
+========================================= */
+
+.why-contact-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin: 0 auto 65px;
+    padding: 55px 0 58px;
+    width: calc(100% - 60px);
+    max-width: 1320px;
+    color: #fff;
+    background: linear-gradient(120deg, #043c2b, #006b45 60%, #06452f);
+    border: 1px solid rgba(125,220,156,.2);
+    border-radius: 27px;
+    box-shadow: 0 18px 45px rgba(10,95,55,.12);
+}
+
+.why-contact-section::before,
+.why-contact-section::after {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    width: 330px;
+    height: 330px;
+    border: 1px solid rgba(171,255,120,.2);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.why-contact-section::before {
+    top: -240px;
+    left: -90px;
+    box-shadow: 0 0 0 18px rgba(171,255,120,.025),
+                0 0 0 38px rgba(171,255,120,.025);
+    animation: orbitRotate 25s linear infinite;
+}
+
+.why-contact-section::after {
+    right: -130px;
+    bottom: -260px;
+    box-shadow: 0 0 0 20px rgba(171,255,120,.025),
+                0 0 0 42px rgba(171,255,120,.025);
+    animation: orbitRotateReverse 30s linear infinite;
+}
+
+.why-contact-decoration {
+    position: absolute;
+    z-index: -1;
+    width: 280px;
+    height: 70px;
+    border-top: 2px solid rgba(183,255,105,.75);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 8px rgba(183,255,105,.6));
+    pointer-events: none;
+}
+
+.why-decoration-top {
+    top: 15px;
+    left: -80px;
+    transform: rotate(-25deg);
+}
+
+.why-decoration-bottom {
+    right: -60px;
+    bottom: 12px;
+    transform: rotate(-20deg);
+}
+
+.why-contact-heading {
+    max-width: 700px;
+    margin: 0 auto 34px;
+    text-align: center;
+}
+
+.light-eyebrow {
+    color: #c0f29d;
+}
+
+.light-eyebrow i {
+    background: #b5ed82;
+}
+
+.why-contact-heading h2 {
+    margin: 0 0 11px;
+    color: #fff;
+    font-size: clamp(30px, 3.5vw, 40px);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+}
+
+.why-contact-heading h2 span {
+    color: #b7f17d;
+}
+
+.why-contact-heading p {
+    margin: 0;
+    color: rgba(255,255,255,.82);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.why-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.why-contact-item {
+    position: relative;
+    padding: 5px 22px 0;
+    text-align: center;
+    animation: contactHeroReveal .8s ease both;
+}
+
+.why-contact-item:not(:last-child)::after {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    width: 1px;
+    height: 125px;
+    content: "";
+    background: rgba(255,255,255,.18);
+}
+
+.why-contact-item:nth-child(2) {
+    animation-delay: .12s;
+}
+
+.why-contact-item:nth-child(3) {
+    animation-delay: .24s;
+}
+
+.why-contact-item:nth-child(4) {
+    animation-delay: .36s;
+}
+
+.why-contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 61px;
+    height: 61px;
+    margin: 0 auto 15px;
+    color: #c4ff67;
+    background: rgba(14,139,75,.45);
+    border: 1px solid rgba(179,255,110,.65);
+    border-radius: 17px;
+    animation: whyIconRotate 8s linear infinite;
+    box-shadow: 0 0 20px rgba(158,255,87,.12),
+                inset 0 0 15px rgba(158,255,87,.08);
+    font-size: 26px;
+    transition: transform .5s ease,
+                box-shadow .4s ease,
+                background .4s ease;
+}
+
+.why-contact-item:hover .why-contact-icon {
+    transform: translateY(-7px) rotate(8deg);
+    background: rgba(39,167,88,.65);
+    box-shadow: 0 0 28px rgba(174,255,92,.3);
+}
+
+.why-contact-item h3 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.why-contact-item p {
+    max-width: 210px;
+    margin: 0 auto;
+    color: rgba(255,255,255,.8);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   04. TRAINING AREAS
+========================================= */
+
+.training-areas-section {
+    padding: 5px 0 55px;
+    background: #fff;
+}
+
+.training-section-heading {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-bottom: 10px;
+    color: #08794e;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.section-eyebrow i {
+    background: #81c995;
+}
+
+.training-section-heading h2 {
+    margin: 0 0 9px;
+    color: #193529;
+    font-size: clamp(27px, 3vw, 36px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -1px;
+}
+
+.training-section-heading h2 span {
+    color: #08794e;
+}
+
+.training-section-heading p {
+    max-width: 570px;
+    margin: 0 auto;
+    color: #748078;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.training-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.training-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    padding: 21px;
+    background: linear-gradient(145deg, #fff, #fbfefc);
+    border: 1px solid #e2eee6;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(20,65,43,.045);
+    transition: transform .35s ease,
+                box-shadow .35s ease,
+                border-color .35s ease;
+}
+
+.training-card::after {
+    position: absolute;
+    right: -45px;
+    bottom: -60px;
+    width: 125px;
+    height: 125px;
+    content: "";
+    background: rgba(66,181,110,.055);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform .5s ease;
+}
+
+.training-card:hover {
+    transform: translateY(-7px);
+    border-color: #b5dfc2;
+    box-shadow: 0 15px 30px rgba(20,85,50,.1);
+}
+
+.training-card:hover::after {
+    transform: scale(1.5);
+}
+
+.training-card-top {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 17px;
+}
+
+.training-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 49px;
+    height: 49px;
+    color: #08794e;
+    background: #eaf6ee;
+    border: 1px solid #dcefe1;
+    border-radius: 14px;
+    font-size: 22px;
+    transition: transform .45s ease,
+                background .35s ease;
+}
+
+.training-card:hover .training-icon {
+    transform: rotate(-10deg) scale(1.1);
+    background: #d9f4df;
+}
+
+.training-number {
+    color: #dcebe0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 29px;
+    font-weight: 800;
+}
+
+.training-category {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 6px;
+    color: #08794e;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: .8px;
+}
+
+.training-card h3 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 8px;
+    color: #193a2a;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.training-card > p {
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+    margin: 0 0 15px;
+    color: #748078;
+    font-size: 11px;
+    line-height: 1.75;
+}
+
+.training-tags {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.training-tags span {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 7px;
+    color: #276548;
+    background: #f0f7f2;
+    border: 1px solid #e5efe7;
+    border-radius: 5px;
+    font-size: 8px;
+    font-weight: 600;
+}
+
+.training-link {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 8px;
+    margin-top: auto;
+    padding: 10px 12px;
+    color: #fff;
+    background: #08794e;
+    border: 1px solid #08794e;
+    border-radius: 7px;
+    font-size: 9px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+.training-link i {
+    font-size: 12px;
+    transition: transform .3s ease;
+}
+
+.training-link:hover {
+    color: #08794e;
+    background: #fff;
+}
+
+.training-link:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   05. FINAL CTA
+========================================= */
+
+.contact-cta-section {
+    padding: 0 0 55px;
+    background: #fff;
+}
+
+.contact-cta {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 23px;
+    overflow: hidden;
+    padding: 30px 35px;
+    background: linear-gradient(110deg, #073d2d, #08794e);
+    border-radius: 17px;
+    isolation: isolate;
+}
+
+.contact-cta-symbol {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+    color: #075638;
+    background: #b7f17d;
+    border-radius: 17px;
+    box-shadow: 0 0 25px rgba(183,241,125,.3);
+    font-size: 29px;
+    animation: ctaIconFloat 4s ease-in-out infinite;
+}
+
+.contact-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 590px;
+}
+
+.contact-cta-content > span {
+    display: block;
+    margin-bottom: 8px;
+    color: #b4eac3;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.contact-cta h2 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: clamp(22px, 2.5vw, 29px);
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.contact-cta h2 span {
+    display: block;
+    color: #a9e875;
+}
+
+.contact-cta-content p {
+    max-width: 510px;
+    margin: 0;
+    color: rgba(255,255,255,.77);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.contact-cta-button {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: 9px;
+    padding: 13px 17px;
+    color: #075638;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+.contact-cta-button:hover {
+    color: #fff;
+    background: transparent;
+    transform: translateY(-4px);
+}
+
+.contact-cta-decoration {
+    position: absolute;
+    z-index: 0;
+    top: -165px;
+    right: -100px;
+    width: 320px;
+    height: 320px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 50%;
+    animation: orbitRotate 25s linear infinite;
+}
+
+.contact-cta-decoration::before,
+.contact-cta-decoration::after {
+    position: absolute;
+    content: "";
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 50%;
+}
+
+.contact-cta-decoration::before {
+    inset: 30px;
+}
+
+.contact-cta-decoration::after {
+    inset: 65px;
+}
+
+
+/* =========================================
+   06. ANIMATIONS
+========================================= */
+
+@keyframes contactHeroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroVisualFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes floatIcon {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes orbitRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes orbitRotateReverse {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes ctaIconFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+    50% {
+        transform: translateY(-6px) rotate(3deg);
+    }
+}
+
+
+/* =========================================
+   07. TABLET
+========================================= */
+
+@media (max-width: 991px) {
+    .contact-hero-visual {
+        width: 300px;
+        transform: scale(.85);
+    }
+
+    .contact-info-grid {
+        gap: 11px;
+    }
+
+    .contact-info-card {
+        padding: 17px;
+    }
+
+    .why-contact-section {
+        width: calc(100% - 35px);
+    }
+
+    .why-contact-item {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .training-cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-cta {
+        padding: 25px;
+    }
+}
+
+
+/* =========================================
+   08. MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+    .contact-hero {
+        padding: 48px 0 65px;
+    }
+
+    .contact-hero-layout {
+        min-height: 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-hero-inner {
+        max-width: 100%;
+    }
+
+    .contact-hero h1 {
+        font-size: 36px;
+        letter-spacing: -1.2px;
+    }
+
+    .contact-hero-inner > p {
+        font-size: 12px;
+    }
+
+    .contact-hero-visual {
+        align-self: center;
+        width: 100%;
+        max-width: 340px;
+        height: 190px;
+        margin-top: 20px;
+        transform: scale(.9);
+    }
+
+    .contact-info-section {
+        padding-bottom: 35px;
+    }
+
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: -23px;
+    }
+
+    .contact-info-card {
+        min-height: 0;
+        padding: 18px;
+    }
+
+    .why-contact-section {
+        width: calc(100% - 24px);
+        margin-bottom: 45px;
+        padding: 40px 0;
+        border-radius: 20px;
+    }
+
+    .why-contact-heading {
+        padding: 0 15px;
+        margin-bottom: 28px;
+    }
+
+    .why-contact-heading h2 {
+        font-size: 30px;
+    }
+
+    .why-contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 30px;
+    }
+
+    .why-contact-item {
+        padding: 0 12px;
+    }
+
+    .why-contact-item:nth-child(2)::after {
+        display: none;
+    }
+
+    .why-contact-item:not(:last-child)::after {
+        height: 110px;
+    }
+
+    .why-contact-item h3 {
+        font-size: 14px;
+    }
+
+    .why-contact-item p {
+        font-size: 11px;
+    }
+
+    .training-areas-section {
+        padding: 5px 0 40px;
+    }
+
+    .training-section-heading {
+        margin-bottom: 23px;
+    }
+
+    .training-section-heading h2 {
+        font-size: 28px;
+    }
+
+    .training-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .training-card {
+        padding: 19px;
+    }
+
+    .contact-cta-section {
+        padding-bottom: 40px;
+    }
+
+    .contact-cta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 17px;
+        padding: 24px 20px;
+    }
+
+    .contact-cta h2 {
+        font-size: 23px;
+    }
+
+    .contact-cta-symbol {
+        width: 55px;
+        height: 55px;
+        font-size: 25px;
+    }
+
+    .contact-cta-button {
+        width: 100%;
+    }
+}
+
+
+/* =========================================
+   09. SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+    .contact-hero {
+        padding: 40px 0 55px;
+    }
+
+    .contact-hero h1 {
+        font-size: 32px;
+    }
+
+    .contact-hero-visual {
+        height: 170px;
+        transform: scale(.82);
+        transform-origin: center;
+    }
+
+    .why-contact-section {
+        padding: 35px 0;
+    }
+
+    .why-contact-grid {
+        column-gap: 0;
+    }
+
+    .why-contact-icon {
+        width: 53px;
+        height: 53px;
+        font-size: 22px;
+    }
+
+    .why-contact-item h3 {
+        font-size: 13px;
+    }
+
+    .training-section-heading h2 {
+        font-size: 25px;
+    }
+
+    .training-card {
+        padding: 17px;
+    }
+
+    .training-link {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .contact-cta {
+        padding: 21px 17px;
+    }
+}
+
+
+/* =========================================
+   10. ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+@keyframes whyIconRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

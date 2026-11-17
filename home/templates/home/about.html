@@ -1,0 +1,1244 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}About Us — PeopleSkillTraining | Professional Compliance Training Platform{% endblock %}
+
+{% block extra_css %}
+<meta name="description" content="PeopleSkillTraining is a premium compliance training and professional development platform trusted by 500+ organizations across the USA. Expert-led webinars, unlimited access, and enterprise-grade solutions.">
+<meta name="keywords" content="compliance training, webinar platform, professional development, OSHA training, HR compliance, workforce training">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<link rel="stylesheet" href="{% static 'home/css/about.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<!-- ================================================
+     HERO SECTION - FRESH MODERN DESIGN
+================================================ -->
+
+<!-- ABOUT HERO SECTION -->
+<section class="about-hero">
+    <div class="about-hero-pattern"></div>
+    <div class="about-hero-glow about-hero-glow-one"></div>
+    <div class="about-hero-glow about-hero-glow-two"></div>
+
+    <div class="about-hero-container">
+
+        <div class="about-hero-content">
+
+            <div class="about-hero-eyebrow">
+                <span class="eyebrow-dot"></span>
+                MORE THAN JUST TRAINING
+            </div>
+
+            <h1>
+                Empowering People.
+                <span>Strengthening</span>
+                Workplaces.
+            </h1>
+
+            <p class="about-hero-description">
+                We believe stronger workplaces begin with informed people.
+                Discover learning experiences designed to build knowledge,
+                encourage professional growth, and create better work
+                environments.
+            </p>
+
+            <div class="about-hero-actions">
+                <a href="{% url 'live_webinars:list' %}" class="about-btn-primary">
+                    Explore Our Webinars
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+                <a href="{% url 'home:contact' %}" class="about-btn-secondary">
+                    Get to Know Us
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="about-hero-bottom">
+                <div class="about-hero-line"></div>
+                <span>Learning with purpose. Growing with confidence.</span>
+            </div>
+
+        </div>
+
+        <!-- CSS-ONLY VISUAL COMPOSITION -->
+        <div class="about-hero-visual">
+
+            <div class="hero-visual-orbit orbit-one"></div>
+            <div class="hero-visual-orbit orbit-two"></div>
+
+            <div class="hero-visual-center">
+                <div class="visual-center-icon">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+
+                <span>PEOPLE FIRST</span>
+                <h3>Growth<br>Starts Here.</h3>
+
+                <div class="visual-center-line"></div>
+
+                <p>Knowledge creates<br>stronger possibilities.</p>
+            </div>
+
+            <div class="hero-floating-card hero-card-top">
+                <div class="floating-card-icon">
+                    <i class="bi bi-lightbulb"></i>
+                </div>
+                <div>
+                    <strong>Knowledge</strong>
+                    <span>Build understanding</span>
+                </div>
+            </div>
+
+            <div class="hero-floating-card hero-card-bottom">
+                <div class="floating-card-icon">
+                    <i class="bi bi-graph-up-arrow"></i>
+                </div>
+                <div>
+                    <strong>Professional Growth</strong>
+                    <span>Move forward with confidence</span>
+                </div>
+            </div>
+
+            <div class="hero-visual-number">01</div>
+
+        </div>
+
+    </div>
+
+    <div class="about-hero-footer">
+        <span>PEOPLE</span>
+        <span class="footer-separator"></span>
+        <span>KNOWLEDGE</span>
+        <span class="footer-separator"></span>
+        <span>PROGRESS</span>
+    </div>
+
+</section>
+<!-- ================================================
+     WHO WE ARE SECTION
+================================================ -->
+
+<!-- OUR STORY SECTION -->
+<section class="story-section">
+
+    <div class="story-container">
+
+        <div class="story-topline">
+            <span class="story-label">
+                <span class="story-label-dot"></span>
+                OUR STORY
+            </span>
+
+            <span class="story-index">02 / OUR PURPOSE</span>
+        </div>
+
+        <div class="story-layout">
+
+            <!-- LEFT SIDE -->
+            <div class="story-heading">
+
+                <span class="story-small-heading">
+                    WHY WE EXIST
+                </span>
+
+                <h2>
+                    Learning should
+                    <span>move people</span>
+                    forward.
+                </h2>
+
+                <div class="story-heading-decoration">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="story-content">
+
+                <p class="story-lead">
+                    A stronger workplace begins with people who have
+                    the knowledge, confidence, and understanding to
+                    make a difference.
+                </p>
+
+                <p class="story-description">
+                    We believe professional learning should be more
+                    than simply completing a training session. It
+                    should help individuals understand their
+                    responsibilities, develop practical knowledge,
+                    and approach everyday workplace challenges
+                    with greater confidence.
+                </p>
+
+                <p class="story-description">
+                    Our focus is on making professional education
+                    accessible through meaningful learning
+                    experiences that connect workplace knowledge
+                    with real professional needs.
+                </p>
+
+                <div class="story-divider"></div>
+
+                <!-- THREE CORE IDEAS -->
+                <div class="story-pillars">
+
+                    <div class="story-pillar">
+                        <span class="pillar-number">01</span>
+                        <div>
+                            <h4>Understand</h4>
+                            <p>Build meaningful knowledge.</p>
+                        </div>
+                    </div>
+
+                    <div class="story-pillar">
+                        <span class="pillar-number">02</span>
+                        <div>
+                            <h4>Apply</h4>
+                            <p>Connect learning with practice.</p>
+                        </div>
+                    </div>
+
+                    <div class="story-pillar">
+                        <span class="pillar-number">03</span>
+                        <div>
+                            <h4>Grow</h4>
+                            <p>Move forward with confidence.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BOTTOM STATEMENT -->
+        <div class="story-bottom">
+            <div class="story-bottom-mark">
+                <i class="bi bi-quote"></i>
+            </div>
+
+            <p>
+                Better knowledge creates better decisions.
+                Better decisions help build stronger workplaces.
+            </p>
+
+            <span>OUR BELIEF</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SECTION 03 - THE CHALLENGE WE ADDRESS -->
+<section class="challenge-section">
+
+    <div class="challenge-container">
+
+        <div class="challenge-topline">
+            <span class="challenge-label">
+                <span></span>
+                THE CHALLENGE
+            </span>
+            <span class="challenge-index">03 / THE NEED</span>
+        </div>
+
+        <div class="challenge-heading">
+            <div>
+                <span class="challenge-eyebrow">UNDERSTANDING THE WORKPLACE</span>
+
+                <h2>
+                    Today's workplaces
+                    face <span>real challenges.</span>
+                </h2>
+            </div>
+
+            <p>
+                Every workplace is different. But the need for
+                informed decisions, responsible practices, and
+                continuous learning is shared by all.
+            </p>
+        </div>
+
+        <div class="challenge-content">
+
+            <!-- LEFT FEATURE -->
+            <div class="challenge-intro">
+
+                <div class="challenge-intro-number">01—04</div>
+
+                <h3>
+                    Knowledge gaps
+                    can become
+                    <span>workplace risks.</span>
+                </h3>
+
+                <p>
+                    Without the right knowledge and guidance,
+                    organizations may struggle to maintain
+                    consistent standards, support their people,
+                    and respond effectively to workplace issues.
+                </p>
+
+                <div class="challenge-intro-bottom">
+                    <i class="bi bi-arrow-down-right"></i>
+                    <span>WHY LEARNING MATTERS</span>
+                </div>
+
+            </div>
+
+            <!-- RIGHT CHALLENGES -->
+            <div class="challenge-list">
+
+                <div class="challenge-item">
+                    <span class="challenge-item-number">01</span>
+
+                    <div class="challenge-item-content">
+                        <h4>Changing Workplace Expectations</h4>
+                        <p>
+                            Organizations must continually adapt
+                            to evolving workplace standards,
+                            responsibilities, and expectations.
+                        </p>
+                    </div>
+
+                    <i class="bi bi-arrow-up-right challenge-item-icon"></i>
+                </div>
+
+                <div class="challenge-item">
+                    <span class="challenge-item-number">02</span>
+
+                    <div class="challenge-item-content">
+                        <h4>Workplace Safety & Awareness</h4>
+                        <p>
+                            Employees need a clear understanding
+                            of safety practices and their role in
+                            maintaining a responsible environment.
+                        </p>
+                    </div>
+
+                    <i class="bi bi-arrow-up-right challenge-item-icon"></i>
+                </div>
+
+                <div class="challenge-item">
+                    <span class="challenge-item-number">03</span>
+
+                    <div class="challenge-item-content">
+                        <h4>Respectful Work Environments</h4>
+                        <p>
+                            Building a workplace where people
+                            understand professional conduct,
+                            respect, and shared responsibility.
+                        </p>
+                    </div>
+
+                    <i class="bi bi-arrow-up-right challenge-item-icon"></i>
+                </div>
+
+                <div class="challenge-item">
+                    <span class="challenge-item-number">04</span>
+
+                    <div class="challenge-item-content">
+                        <h4>Turning Knowledge Into Action</h4>
+                        <p>
+                            Training is most meaningful when
+                            people can apply what they learn
+                            to everyday workplace situations.
+                        </p>
+                    </div>
+
+                    <i class="bi bi-arrow-up-right challenge-item-icon"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BOTTOM STATEMENT -->
+        <div class="challenge-bottom">
+
+            <div class="challenge-bottom-icon">
+                <i class="bi bi-lightbulb"></i>
+            </div>
+
+            <div>
+                <span>OUR PERSPECTIVE</span>
+                <h3>
+                    Better workplaces don't happen by chance.
+                    They are built through knowledge, awareness,
+                    and action.
+                </h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SECTION 04 - OUR APPROACH -->
+<section class="approach-section">
+
+    <div class="approach-container">
+
+        <div class="approach-topline">
+            <span class="approach-label">
+                <span></span>
+                OUR APPROACH
+            </span>
+            <span class="approach-index">04 / HOW WE WORK</span>
+        </div>
+
+        <div class="approach-header">
+
+            <div class="approach-heading">
+                <span class="approach-eyebrow">LEARNING WITH PURPOSE</span>
+
+                <h2>
+                    Turning knowledge
+                    into <span>meaningful progress.</span>
+                </h2>
+            </div>
+
+            <div class="approach-intro">
+                <p>
+                    Effective learning is not just about receiving
+                    information. It is about understanding ideas,
+                    developing practical awareness, and using that
+                    knowledge with confidence.
+                </p>
+
+                <p>
+                    Our approach brings these elements together
+                    through structured and accessible learning
+                    experiences.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- LEARNING PROCESS -->
+
+        <div class="approach-process">
+
+            <div class="approach-process-line"></div>
+
+            <div class="approach-step">
+
+                <div class="approach-step-number">
+                    <span>01</span>
+                    <i class="bi bi-book-open"></i>
+                </div>
+
+                <div class="approach-step-content">
+                    <span class="approach-step-label">STEP ONE</span>
+                    <h3>Discover</h3>
+                    <p>
+                        Explore relevant topics and identify the
+                        knowledge that supports professional
+                        responsibilities and workplace needs.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="approach-step">
+
+                <div class="approach-step-number">
+                    <span>02</span>
+                    <i class="bi bi-lightbulb"></i>
+                </div>
+
+                <div class="approach-step-content">
+                    <span class="approach-step-label">STEP TWO</span>
+                    <h3>Understand</h3>
+                    <p>
+                        Develop a clearer understanding of important
+                        concepts, workplace expectations, and
+                        professional practices.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="approach-step">
+
+                <div class="approach-step-number">
+                    <span>03</span>
+                    <i class="bi bi-clipboard-check"></i>
+                </div>
+
+                <div class="approach-step-content">
+                    <span class="approach-step-label">STEP THREE</span>
+                    <h3>Apply</h3>
+                    <p>
+                        Connect learning with practical situations
+                        and consider how knowledge can guide
+                        everyday workplace decisions.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="approach-step">
+
+                <div class="approach-step-number">
+                    <span>04</span>
+                    <i class="bi bi-graph-up-arrow"></i>
+                </div>
+
+                <div class="approach-step-content">
+                    <span class="approach-step-label">STEP FOUR</span>
+                    <h3>Grow</h3>
+                    <p>
+                        Continue building professional knowledge
+                        and confidence through an ongoing
+                        commitment to learning.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BOTTOM MESSAGE -->
+
+        <div class="approach-bottom">
+            <div class="approach-bottom-content">
+                <span>THE OUTCOME WE BELIEVE IN</span>
+                <h3>
+                    Learning that goes beyond information
+                    and encourages real professional growth.
+                </h3>
+            </div>
+
+            <div class="approach-bottom-icon">
+                <i class="bi bi-arrow-up-right"></i>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SECTION 05 - OUR SERVICES -->
+<section class="services-section">
+
+    <div class="services-container">
+
+        <div class="services-topline">
+            <span class="services-label">
+                <span></span>
+                WHAT WE COVER
+            </span>
+            <span class="services-index">05 / OUR SERVICES</span>
+        </div>
+
+        <div class="services-header">
+
+            <div class="services-heading">
+                <span class="services-eyebrow">PROFESSIONAL LEARNING AREAS</span>
+
+                <h2>
+                    Knowledge for
+                    <span>better workplaces.</span>
+                </h2>
+            </div>
+
+            <div class="services-intro">
+                <p>
+                    Every organization has responsibilities that
+                    require awareness, preparation, and informed
+                    decision-making.
+                </p>
+
+                <p>
+                    Explore learning areas designed to help
+                    professionals understand important workplace
+                    practices and responsibilities.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- SERVICES GRID -->
+
+        <div class="services-grid">
+
+            <!-- SERVICE 01 -->
+            <article class="service-item">
+
+                <div class="service-item-top">
+                    <div class="service-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <span class="service-number">01</span>
+                </div>
+
+                <div class="service-item-content">
+                    <span class="service-category">SAFETY & PREVENTION</span>
+
+                    <h3>Workplace Safety</h3>
+
+                    <p>
+                        Develop awareness of workplace hazards,
+                        safety responsibilities, and practices
+                        that contribute to safer working environments.
+                    </p>
+
+                    <div class="service-tags">
+                        <span>Safety Awareness</span>
+                        <span>OSHA Topics</span>
+                        <span>Hazard Prevention</span>
+                    </div>
+                </div>
+
+                <div class="service-item-footer">
+                    <span>Explore Safety Learning</span>
+                    <i class="bi bi-arrow-up-right"></i>
+                </div>
+
+            </article>
+
+            <!-- SERVICE 02 -->
+            <article class="service-item">
+
+                <div class="service-item-top">
+                    <div class="service-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <span class="service-number">02</span>
+                </div>
+
+                <div class="service-item-content">
+                    <span class="service-category">RESPECT & CULTURE</span>
+
+                    <h3>Harassment Prevention</h3>
+
+                    <p>
+                        Understand professional conduct,
+                        respectful communication, and the
+                        importance of maintaining inclusive
+                        workplace environments.
+                    </p>
+
+                    <div class="service-tags">
+                        <span>Workplace Respect</span>
+                        <span>Prevention Awareness</span>
+                        <span>Professional Conduct</span>
+                    </div>
+                </div>
+
+                <div class="service-item-footer">
+                    <span>Explore Prevention Learning</span>
+                    <i class="bi bi-arrow-up-right"></i>
+                </div>
+
+            </article>
+
+            <!-- SERVICE 03 -->
+            <article class="service-item">
+
+                <div class="service-item-top">
+                    <div class="service-icon">
+                        <i class="bi bi-file-earmark-check"></i>
+                    </div>
+                    <span class="service-number">03</span>
+                </div>
+
+                <div class="service-item-content">
+                    <span class="service-category">POLICIES & RESPONSIBILITIES</span>
+
+                    <h3>Regulatory Compliance</h3>
+
+                    <p>
+                        Build an understanding of workplace
+                        regulations, organizational policies,
+                        and the responsibilities that support
+                        compliant business practices.
+                    </p>
+
+                    <div class="service-tags">
+                        <span>HR Compliance</span>
+                        <span>Workplace Policies</span>
+                        <span>Regulatory Awareness</span>
+                    </div>
+                </div>
+
+                <div class="service-item-footer">
+                    <span>Explore Compliance Learning</span>
+                    <i class="bi bi-arrow-up-right"></i>
+                </div>
+
+            </article>
+
+            <!-- SERVICE 04 -->
+            <article class="service-item">
+
+                <div class="service-item-top">
+                    <div class="service-icon">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <span class="service-number">04</span>
+                </div>
+
+                <div class="service-item-content">
+                    <span class="service-category">AWARENESS & PREPAREDNESS</span>
+
+                    <h3>Risk Management</h3>
+
+                    <p>
+                        Explore risk awareness, responsible
+                        decision-making, and practical approaches
+                        to identifying and addressing potential
+                        workplace challenges.
+                    </p>
+
+                    <div class="service-tags">
+                        <span>Risk Awareness</span>
+                        <span>Risk Assessment</span>
+                        <span>Prevention Strategies</span>
+                    </div>
+                </div>
+
+                <div class="service-item-footer">
+                    <span>Explore Risk Learning</span>
+                    <i class="bi bi-arrow-up-right"></i>
+                </div>
+
+            </article>
+
+        </div>
+
+        <!-- BOTTOM MESSAGE -->
+
+        <div class="services-bottom">
+            <div>
+                <span>CONTINUOUS PROFESSIONAL DEVELOPMENT</span>
+                <h3>
+                    The right knowledge helps people make
+                    more informed workplace decisions.
+                </h3>
+            </div>
+
+            <a href="{% url 'live_webinars:list' %}">
+                Browse Webinars
+                <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+
+</section>
+<!-- SECTION 6: LEARNING EXPERIENCE -->
+<section class="learning-section" id="learning-experience">
+    <div class="learning-container">
+
+        <div class="learning-heading">
+            <div class="learning-eyebrow">
+                <span></span>
+                THE LEARNING EXPERIENCE
+            </div>
+
+            <h2>
+                Learning designed<br>
+                around <span>real people.</span>
+            </h2>
+
+            <p>
+                Professional learning should be clear, engaging, and relevant.
+                We focus on making workplace knowledge easier to understand
+                and apply in professional settings.
+            </p>
+        </div>
+
+        <div class="learning-content">
+
+            <!-- LEFT FEATURE PANEL -->
+            <div class="learning-feature">
+                <div class="learning-feature-top">
+                    <span>OUR LEARNING PHILOSOPHY</span>
+                    <span class="learning-feature-number">06</span>
+                </div>
+
+                <div class="learning-feature-icon">
+                    <i class="bi bi-lightbulb"></i>
+                </div>
+
+                <div class="learning-feature-text">
+                    <span>KNOWLEDGE THAT MOVES YOU FORWARD</span>
+                    <h3>
+                        Understand more.<br>
+                        Do better.
+                    </h3>
+                    <p>
+                        Every learning opportunity should help people build
+                        awareness, strengthen understanding, and approach
+                        workplace situations with greater confidence.
+                    </p>
+                </div>
+
+                <div class="learning-feature-bottom">
+                    <span>LEARN</span>
+                    <span class="learning-feature-line"></span>
+                    <span>APPLY</span>
+                    <span class="learning-feature-line"></span>
+                    <span>GROW</span>
+                </div>
+            </div>
+
+            <!-- RIGHT LEARNING POINTS -->
+            <div class="learning-points">
+
+                <div class="learning-point">
+                    <div class="learning-point-icon">
+                        <i class="bi bi-camera-video"></i>
+                    </div>
+
+                    <div class="learning-point-content">
+                        <span>01 / LEARNING FORMAT</span>
+                        <h3>Live Learning</h3>
+                        <p>
+                            Engage with scheduled webinar sessions and explore
+                            workplace topics through an interactive learning format.
+                        </p>
+                    </div>
+
+                    <div class="learning-point-arrow">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </div>
+                </div>
+
+                <div class="learning-point">
+                    <div class="learning-point-icon">
+                        <i class="bi bi-play-circle"></i>
+                    </div>
+
+                    <div class="learning-point-content">
+                        <span>02 / FLEXIBLE ACCESS</span>
+                        <h3>Recorded Webinars</h3>
+                        <p>
+                            Revisit available recorded sessions and continue
+                            exploring relevant topics at a convenient time.
+                        </p>
+                    </div>
+
+                    <div class="learning-point-arrow">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </div>
+                </div>
+
+                <div class="learning-point">
+                    <div class="learning-point-icon">
+                        <i class="bi bi-person-video3"></i>
+                    </div>
+
+                    <div class="learning-point-content">
+                        <span>03 / EXPERT INSIGHTS</span>
+                        <h3>Instructor-Led Sessions</h3>
+                        <p>
+                            Learn from webinar instructors who guide sessions
+                            around relevant professional and workplace subjects.
+                        </p>
+                    </div>
+
+                    <div class="learning-point-arrow">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </div>
+                </div>
+
+                <div class="learning-point">
+                    <div class="learning-point-icon">
+                        <i class="bi bi-book"></i>
+                    </div>
+
+                    <div class="learning-point-content">
+                        <span>04 / CONTINUOUS GROWTH</span>
+                        <h3>Keep Building Knowledge</h3>
+                        <p>
+                            Explore different learning topics and continue
+                            developing your understanding over time.
+                        </p>
+                    </div>
+
+                    <div class="learning-point-arrow">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="audience-section">
+    <div class="audience-container">
+
+        <div class="audience-heading">
+            <span>WHO WE SERVE</span>
+            <h2>Learning for every<br>stage of your journey.</h2>
+            <p>Workplace learning that supports individuals, teams, and organizations.</p>
+        </div>
+
+        <div class="audience-grid">
+
+            <div class="audience-item">
+                <i class="bi bi-person-workspace"></i>
+                <h3>Professionals</h3>
+                <p>Build knowledge and awareness to navigate workplace responsibilities.</p>
+                <span>01</span>
+            </div>
+
+            <div class="audience-item">
+                <i class="bi bi-people"></i>
+                <h3>HR Teams</h3>
+                <p>Explore relevant topics that support workplace policies and practices.</p>
+                <span>02</span>
+            </div>
+
+            <div class="audience-item">
+                <i class="bi bi-building"></i>
+                <h3>Organizations</h3>
+                <p>Encourage learning and awareness across your workplace.</p>
+                <span>03</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- SECTION 8: OUR PRINCIPLES -->
+<section class="principles-section">
+    <div class="principles-container">
+
+        <div class="principles-heading">
+            <span>WHAT GUIDES US</span>
+            <h2>Principles behind<br>everything we do.</h2>
+        </div>
+
+        <div class="principles-list">
+
+            <div class="principle-item">
+                <span>01</span>
+                <h3>People First</h3>
+                <p>We believe stronger workplaces begin with informed and empowered people.</p>
+            </div>
+
+            <div class="principle-item">
+                <span>02</span>
+                <h3>Practical Learning</h3>
+                <p>We value knowledge that connects with real workplace situations.</p>
+            </div>
+
+            <div class="principle-item">
+                <span>03</span>
+                <h3>Continuous Growth</h3>
+                <p>We encourage curiosity, learning, and ongoing professional development.</p>
+            </div>
+
+            <div class="principle-item">
+                <span>04</span>
+                <h3>Workplace Awareness</h3>
+                <p>We promote greater understanding of responsible workplace practices.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- SECTION 9: EXPERT INSTRUCTORS -->
+<section class="instructors-section">
+    <div class="instructors-container">
+
+        <div class="instructors-content">
+            <span>LEARN FROM INSTRUCTORS</span>
+            <h2>Knowledge shared by people who understand the workplace.</h2>
+            <p>
+                Explore professional learning sessions guided by instructors
+                covering workplace practices, safety, compliance, and awareness.
+            </p>
+            <a href="{% url 'live_webinars:list' %}">
+                Explore Webinars <i class="bi bi-arrow-up-right"></i>
+            </a>
+        </div>
+
+        <div class="instructors-visual">
+            <div class="instructor-circle">
+                <i class="bi bi-person-video3"></i>
+            </div>
+            <div class="instructor-label">
+                <i class="bi bi-mortarboard"></i>
+                <div>
+                    <strong>Shared Knowledge</strong>
+                    <span>Professional Learning</span>
+                </div>
+            </div>
+            <span class="instructor-decoration">LEARN · SHARE · GROW</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- SECTION 10: TESTIMONIALS -->
+<section class="testimonials-section">
+    <div class="testimonials-container">
+
+        <div class="testimonials-heading">
+            <span>LEARNER FEEDBACK</span>
+            <h2>Experiences that<br><em>speak for themselves.</em></h2>
+            <p>Discover how professional learning can make a difference.</p>
+        </div>
+
+        <div class="testimonials-grid">
+
+            <div class="testimonial-card">
+                <div class="testimonial-top">
+                    <span class="testimonial-quote">“</span>
+                    <span class="testimonial-stars">★★★★★</span>
+                </div>
+
+                <p class="testimonial-text">
+                    The session was informative and easy to follow.
+                    I especially appreciated how the topics connected
+                    to situations we actually face in the workplace.
+                </p>
+
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JM</div>
+                    <div>
+                        <h4>Jennifer M.</h4>
+                        <span>HR Professional</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card testimonial-featured">
+                <div class="testimonial-top">
+                    <span class="testimonial-quote">“</span>
+                    <span class="testimonial-stars">★★★★★</span>
+                </div>
+
+                <p class="testimonial-text">
+                    I liked that the webinar focused on practical
+                    information instead of just theory. It gave me
+                    a better understanding of workplace safety
+                    and awareness.
+                </p>
+
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">DT</div>
+                    <div>
+                        <h4>David T.</h4>
+                        <span>Operations Manager</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-top">
+                    <span class="testimonial-quote">“</span>
+                    <span class="testimonial-stars">★★★★★</span>
+                </div>
+
+                <p class="testimonial-text">
+                    Clear explanations and relevant topics made
+                    the learning experience worthwhile. I would
+                    be interested in exploring more sessions.
+                </p>
+
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SC</div>
+                    <div>
+                        <h4>Sarah C.</h4>
+                        <span>Business Professional</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="testimonial-disclaimer">
+            Design preview only — fictional sample testimonials.
+            Replace with verified customer feedback before publishing.
+        </p>
+
+    </div>
+</section>
+<!-- SECTION 11: FAQ -->
+<section class="faq-section" id="faq">
+    <div class="faq-container">
+
+        <div class="faq-header">
+            <div class="faq-heading">
+                <span>HAVE QUESTIONS?</span>
+                <h2>Everything you need<br>to <em>know.</em></h2>
+                <p>
+                    Find answers to common questions about our webinars,
+                    learning experience, registration, and support.
+                </p>
+            </div>
+
+            <div class="faq-help-card">
+                <i class="bi bi-chat-square-text"></i>
+                <h3>Still have questions?</h3>
+                <p>Our team is here to help you with your queries.</p>
+                <a href="{% url 'home:contact' %}">
+                    Contact Our Team <i class="bi bi-arrow-up-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="faq-list">
+
+            <div class="faq-item active">
+                <button class="faq-question" type="button" aria-expanded="true">
+                    <span>01</span>
+                    <h3>What is PeopleSkillTraining?</h3>
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        PeopleSkillTraining is an online professional learning platform
+                        offering webinars focused on workplace safety,
+                        harassment prevention, regulatory compliance, and
+                        other important workplace topics.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">
+                    <span>02</span>
+                    <h3>How can I register for a webinar?</h3>
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Browse the available webinars, select a session
+                        that interests you, and follow the registration
+                        instructions provided on the webinar page.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">
+                    <span>03</span>
+                    <h3>Are the webinars conducted online?</h3>
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Yes. Our platform provides online webinar learning.
+                        Check the individual webinar details for its schedule
+                        and participation instructions.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">
+                    <span>04</span>
+                    <h3>Can I watch a webinar recording later?</h3>
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Recordings may be available for selected webinars.
+                        Please check the specific webinar details to understand
+                        whether a recording is offered and how to access it.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">
+                    <span>05</span>
+                    <h3>Who can participate in your webinars?</h3>
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Our webinars are designed for professionals,
+                        HR teams, managers, and organizations interested
+                        in workplace learning and professional development.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">
+                    <span>06</span>
+                    <h3>Do I need special software to attend?</h3>
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Participation requirements can vary by webinar.
+                        Please review the session instructions before
+                        attending and make sure you have a stable internet
+                        connection and a compatible device.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">
+                    <span>07</span>
+                    <h3>Are the webinars free or paid?</h3>
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Webinar pricing can vary by session. Please visit
+                        the individual webinar page to review its price
+                        and registration details.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">
+                    <span>08</span>
+                    <h3>How can I get help with my registration?</h3>
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        If you experience any issues during registration
+                        or have questions about a webinar, contact our
+                        support team through the Contact Us page.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script>
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', function () {
+
+        const currentItem = this.closest('.faq-item');
+        const wasActive = currentItem.classList.contains('active');
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+            item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        if (!wasActive) {
+            currentItem.classList.add('active');
+            this.setAttribute('aria-expanded', 'true');
+        }
+    });
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,1170 @@
+
+/* =========================================================
+   RECORDED WEBINAR DETAILS PAGE
+   Premium Green Theme | Fully Responsive
+========================================================= */
+
+.recorded-detail-page {
+    --ldp-green: #07834f;
+    --ldp-green-dark: #005b39;
+    --ldp-green-deep: #004b32;
+    --ldp-green-light: #e9f8ee;
+    --ldp-green-soft: #f3fbf6;
+    --ldp-text: #101b2a;
+    --ldp-muted: #64748b;
+    --ldp-border: #e5ebe7;
+    --ldp-white: #ffffff;
+
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    background: #ffffff;
+    color: var(--ldp-text);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+.recorded-detail-page *,
+.recorded-detail-page *::before,
+.recorded-detail-page *::after {
+    box-sizing: border-box;
+}
+
+.recorded-detail-page button,
+.recorded-detail-page input {
+    font: inherit;
+}
+
+.recorded-detail-page img {
+    max-width: 100%;
+    display: block;
+}
+
+.recorded-detail-page a {
+    text-decoration: none;
+}
+
+.recorded-detail-page .ldp-container {
+    width: min(100% - 64px, 1440px);
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.recorded-detail-page .ldp-breadcrumb {
+    width: 100%;
+    padding: 15px 0;
+    background: #f0faf3;
+    border-bottom: 1px solid #e3f0e7;
+}
+
+.recorded-detail-page .ldp-breadcrumb .ldp-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: #087346;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.recorded-detail-page .ldp-breadcrumb i {
+    font-size: 13px;
+    color: #07834f;
+}
+
+.recorded-detail-page .ldp-breadcrumb a {
+    color: #087346;
+    transition: color .2s ease;
+}
+
+.recorded-detail-page .ldp-breadcrumb a:hover {
+    color: #003d29;
+}
+
+.recorded-detail-page .ldp-breadcrumb .ldp-breadcrumb-current {
+    color: #182b25;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   MAIN TWO COLUMN LAYOUT
+========================================================= */
+
+.recorded-detail-page .ldp-main-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 390px;
+    align-items: start;
+    gap: 34px;
+    padding-top: 36px;
+    padding-bottom: 75px;
+}
+
+.recorded-detail-page .ldp-left {
+    min-width: 0;
+    width: 100%;
+}
+
+.recorded-detail-page .ldp-right {
+    min-width: 0;
+    width: 100%;
+    position: sticky;
+    top: 25px;
+}
+
+
+/* =========================================================
+   WEBINAR INTRO
+========================================================= */
+
+.recorded-detail-page .ldp-intro {
+    width: 100%;
+    padding: 4px 0 28px;
+}
+
+.recorded-detail-page .ldp-status-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.recorded-detail-page .ldp-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 17px;
+    border-radius: 30px;
+    background: #e7f8ec;
+    color: #087543;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .45px;
+}
+
+.recorded-detail-page .ldp-status-badge.recorded-status {
+    background: #e7f8ec;
+    color: #087543;
+}
+
+.recorded-detail-page .ldp-status-dot {
+    width: 9px;
+    height: 9px;
+    display: inline-block;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #10a65d;
+    box-shadow: 0 0 0 4px rgba(16, 166, 93, .12);
+}
+
+.recorded-detail-page .ldp-title {
+    max-width: 100%;
+    margin: 0 0 16px;
+    color: #111827;
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(30px, 3.2vw, 48px);
+    font-weight: 800;
+    line-height: 1.19;
+    letter-spacing: -1.5px;
+    overflow-wrap: anywhere;
+}
+
+.recorded-detail-page .ldp-description {
+    max-width: 850px;
+    margin: 0;
+    color: #526071;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   RECORDED SESSION META
+========================================================= */
+
+.recorded-detail-page .ldp-session-info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.recorded-detail-page .ldp-session-item {
+    min-width: 0;
+    min-height: 84px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 18px;
+    background: #f4fbf6;
+    border: 1px solid #e2f0e5;
+    border-radius: 13px;
+    transition: .25s ease;
+}
+
+.recorded-detail-page .ldp-session-item:hover {
+    border-color: #a7d9b8;
+    transform: translateY(-2px);
+}
+
+.recorded-detail-page .ldp-session-icon {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: #e0f5e7;
+    color: #07834f;
+    font-size: 21px;
+}
+
+.recorded-detail-page .ldp-session-item > div:last-child {
+    min-width: 0;
+}
+
+.recorded-detail-page .ldp-session-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #738178;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.recorded-detail-page .ldp-session-item strong {
+    display: block;
+    color: #14251c;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+.recorded-detail-page .ldp-details-section,
+.recorded-detail-page .ldp-instructor-section {
+    margin-top: 28px;
+}
+
+.recorded-detail-page .ldp-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 15px;
+}
+
+.recorded-detail-page .ldp-heading-icon {
+    width: 39px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #087f4e;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.recorded-detail-page .ldp-instructor-heading-icon {
+    background: transparent;
+    color: #07934f;
+    font-size: 28px;
+}
+
+.recorded-detail-page .ldp-section-heading h2 {
+    margin: 0;
+    color: #101820;
+    font-family: 'Sora', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   WEBINAR DESCRIPTION CARD
+========================================================= */
+
+.recorded-detail-page .ldp-details-card {
+    width: 100%;
+    padding: 25px 28px;
+    background: #ffffff;
+    border: 1px solid #e8ece9;
+    border-radius: 17px;
+    box-shadow: 0 3px 14px rgba(16, 42, 28, .045);
+}
+
+.recorded-detail-page .ldp-overview-content {
+    width: 100%;
+    min-width: 0;
+}
+
+.recorded-detail-page .description-content {
+    width: 100%;
+    color: #263443;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+.recorded-detail-page .description-content h1 {
+    margin: 0 0 18px;
+    padding-left: 14px;
+    border-left: 4px solid #07834f;
+    color: #10251b;
+    font-family: 'Sora', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.recorded-detail-page .description-content h2 {
+    margin: 30px 0 13px;
+    color: #11271d;
+    font-family: 'Sora', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.45;
+}
+
+.recorded-detail-page .description-content h3 {
+    margin: 24px 0 12px;
+    color: #087b4b;
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.recorded-detail-page .description-content h4,
+.recorded-detail-page .description-content h5 {
+    margin: 20px 0 10px;
+    color: #153425;
+    font-weight: 700;
+}
+
+.recorded-detail-page .description-content p {
+    margin: 0 0 17px;
+    color: #455263;
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.recorded-detail-page .description-content strong,
+.recorded-detail-page .description-content b {
+    color: #172c20;
+    font-weight: 750;
+}
+
+.recorded-detail-page .description-content ul,
+.recorded-detail-page .description-content ol {
+    margin: 12px 0 23px;
+    padding-left: 27px;
+}
+
+.recorded-detail-page .description-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.recorded-detail-page .description-content ul li {
+    position: relative;
+    margin-bottom: 11px;
+    padding-left: 29px;
+    color: #455263;
+    font-size: 15.5px;
+    line-height: 1.7;
+}
+
+.recorded-detail-page .description-content ul li::before {
+    content: "\F26A";
+    position: absolute;
+    top: 2px;
+    left: 0;
+    color: #0b9958;
+    font-family: "bootstrap-icons";
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.recorded-detail-page .description-content ol li {
+    margin-bottom: 10px;
+    padding-left: 5px;
+    color: #455263;
+    line-height: 1.75;
+}
+
+.recorded-detail-page .description-content li p {
+    margin: 0;
+}
+
+.recorded-detail-page .description-content blockquote {
+    margin: 22px 0;
+    padding: 17px 22px;
+    border-left: 4px solid #07834f;
+    border-radius: 0 10px 10px 0;
+    background: #f1faf4;
+    color: #365444;
+}
+
+.recorded-detail-page .description-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 18px auto;
+    border-radius: 12px;
+}
+
+.recorded-detail-page .description-content table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.recorded-detail-page .description-content th,
+.recorded-detail-page .description-content td {
+    padding: 12px;
+    border: 1px solid #e0e9e3;
+    text-align: left;
+}
+
+.recorded-detail-page .description-content th {
+    background: #eaf7ee;
+    color: #075e3b;
+    font-weight: 700;
+}
+
+.recorded-detail-page .description-content hr {
+    margin: 25px 0;
+    border: 0;
+    border-top: 1px solid #e4ece6;
+}
+
+
+/* =========================================================
+   INSTRUCTOR CARD
+========================================================= */
+
+.recorded-detail-page .ldp-instructor-card {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    padding: 23px 27px;
+    background: #ffffff;
+    border: 1px solid #e8ece9;
+    border-radius: 17px;
+    box-shadow: 0 3px 14px rgba(16, 42, 28, .045);
+}
+
+.recorded-detail-page .ldp-instructor-image-wrap {
+    width: 145px;
+    height: 145px;
+    flex: 0 0 145px;
+    padding: 4px;
+    border: 3px solid #0a9b53;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.recorded-detail-page .ldp-instructor-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.recorded-detail-page .ldp-instructor-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.recorded-detail-page .ldp-instructor-info h3 {
+    margin: 0 0 9px;
+    color: #121d28;
+    font-family: 'Sora', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.recorded-detail-page .ldp-instructor-designation,
+.recorded-detail-page .ldp-instructor-organization {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: #087b4b;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.recorded-detail-page .ldp-instructor-designation i,
+.recorded-detail-page .ldp-instructor-organization i {
+    font-size: 16px;
+}
+
+.recorded-detail-page .ldp-instructor-bio {
+    margin-top: 13px;
+    color: #4b5968;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.recorded-detail-page .ldp-instructor-bio p {
+    margin: 0 0 10px;
+}
+
+
+/* =========================================================
+   PRICING CARD - RIGHT SIDEBAR
+========================================================= */
+
+.recorded-detail-page .ldp-pricing-card {
+    width: 100%;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e4ebe6;
+    border-radius: 19px;
+    box-shadow: 0 5px 22px rgba(14, 55, 32, .08);
+}
+
+.recorded-detail-page .ldp-pricing-header {
+    padding: 19px 23px;
+    background: #e5f7e9;
+}
+
+.recorded-detail-page .ldp-pricing-header h2 {
+    margin: 0;
+    color: #075a37;
+    font-family: 'Sora', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.recorded-detail-page .ldp-pricing-body {
+    padding: 23px 20px 21px;
+}
+
+.recorded-detail-page .ldp-access-heading {
+    margin: 0 0 15px;
+    color: #18251e;
+    font-family: 'Sora', sans-serif;
+    font-size: 15px;
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   ACCESS TABS
+========================================================= */
+
+.recorded-detail-page .ldp-access-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin-bottom: 17px;
+    padding: 5px;
+    background: #f0f5f1;
+    border-radius: 12px;
+}
+
+.recorded-detail-page .ldp-access-tabs .tab-btn {
+    min-width: 0;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    background: transparent;
+    color: #506258;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    transition: all .22s ease;
+}
+
+.recorded-detail-page .ldp-access-tabs .tab-btn i {
+    font-size: 17px;
+}
+
+.recorded-detail-page .ldp-access-tabs .tab-btn:hover {
+    color: #087b4b;
+    background: #ffffff;
+}
+
+.recorded-detail-page .ldp-access-tabs .tab-btn.active {
+    color: #ffffff;
+    background: #07834f;
+    border-color: #07834f;
+    box-shadow: 0 3px 9px rgba(7, 131, 79, .18);
+}
+
+
+/* =========================================================
+   PRICING OPTIONS
+========================================================= */
+
+.recorded-detail-page .tab-panel {
+    display: none;
+}
+
+.recorded-detail-page .tab-panel.active {
+    display: block;
+}
+
+.recorded-detail-page .ldp-options-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 11px;
+}
+
+.recorded-detail-page .ldp-option-card {
+    position: relative;
+    min-width: 0;
+    min-height: 83px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 13px;
+    border: 1.5px solid #e5e9e6;
+    border-radius: 13px;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all .22s ease;
+}
+
+.recorded-detail-page .ldp-option-card:hover {
+    border-color: #82c9a0;
+    background: #fbfffc;
+}
+
+.recorded-detail-page .ldp-option-card:has(input:checked) {
+    border-color: #07834f;
+    background: #f1faf4;
+    box-shadow: 0 0 0 2px rgba(7, 131, 79, .07);
+}
+
+.recorded-detail-page .ldp-option-card input[type="radio"] {
+    width: 17px;
+    height: 17px;
+    flex: 0 0 17px;
+    margin: 0;
+    accent-color: #07834f;
+    cursor: pointer;
+}
+
+.recorded-detail-page .option-info {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.recorded-detail-page .option-title {
+    color: #17251d;
+    font-size: 14px;
+    font-weight: 750;
+    line-height: 1.4;
+}
+
+.recorded-detail-page .option-sub {
+    color: #748077;
+    font-size: 11.5px;
+    line-height: 1.5;
+}
+
+.recorded-detail-page .option-price {
+    flex-shrink: 0;
+    color: #17251d;
+    font-size: 15px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   TOTAL PRICE
+========================================================= */
+
+.recorded-detail-page .ldp-total-box {
+    margin-top: 20px;
+    padding: 17px 18px;
+    border-radius: 13px;
+    background: #eaf8ed;
+}
+
+.recorded-detail-page .ldp-total-label {
+    display: block;
+    margin-bottom: 4px;
+    color: #344c3d;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.recorded-detail-page .ldp-total-value {
+    color: #08663d;
+    font-family: 'Sora', sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -1px;
+}
+
+.recorded-detail-page .ldp-total-value small {
+    color: #246b47;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+
+/* =========================================================
+   CTA BUTTONS
+========================================================= */
+
+.recorded-detail-page .ldp-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-top: 17px;
+}
+
+.recorded-detail-page .ldp-cta-buttons .btn-cta {
+    width: 100%;
+    min-height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 12px 17px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 750;
+    transition: all .23s ease;
+}
+
+.recorded-detail-page .ldp-cta-buttons .btn-outline {
+    color: #ffffff;
+    border: 1.5px solid #07834f;
+    background: #07834f;
+    box-shadow: 0 4px 12px rgba(7, 131, 79, .14);
+}
+
+.recorded-detail-page .ldp-cta-buttons .btn-outline:hover {
+    background: #006d42;
+    border-color: #006d42;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 16px rgba(7, 131, 79, .2);
+}
+
+.recorded-detail-page .ldp-cta-buttons .btn-primary {
+    color: #075d3a;
+    border: 1.5px solid #07834f;
+    background: #ffffff;
+}
+
+.recorded-detail-page .ldp-cta-buttons .btn-primary:hover {
+    color: #ffffff;
+    background: #07834f;
+    transform: translateY(-2px);
+}
+
+.recorded-detail-page .ldp-cta-buttons .btn-cta:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================================================
+   PRICING BENEFITS
+========================================================= */
+
+.recorded-detail-page .ldp-pricing-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 23px;
+    padding-top: 20px;
+    border-top: 1px solid #e9eeea;
+}
+
+.recorded-detail-page .ldp-benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: #33443a;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.recorded-detail-page .ldp-benefit-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #e9f8ed;
+    color: #07834f;
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   TABLET RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .recorded-detail-page .ldp-container {
+        width: min(100% - 44px, 100%);
+    }
+
+    .recorded-detail-page .ldp-main-layout {
+        grid-template-columns: minmax(0, 1fr) 340px;
+        gap: 23px;
+    }
+
+    .recorded-detail-page .ldp-title {
+        font-size: 36px;
+    }
+
+    .recorded-detail-page .ldp-pricing-body {
+        padding: 19px 15px;
+    }
+
+    .recorded-detail-page .ldp-option-card {
+        padding: 13px 10px;
+    }
+
+    .recorded-detail-page .option-title {
+        font-size: 13px;
+    }
+
+    .recorded-detail-page .option-sub {
+        font-size: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .recorded-detail-page .ldp-main-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-top: 28px;
+        padding-bottom: 55px;
+    }
+
+    .recorded-detail-page .ldp-right {
+        position: static;
+        max-width: 600px;
+        margin-inline: auto;
+    }
+
+    .recorded-detail-page .ldp-left {
+        width: 100%;
+    }
+
+    .recorded-detail-page .ldp-pricing-body {
+        padding: 23px;
+    }
+
+    .recorded-detail-page .ldp-pricing-header {
+        padding: 20px 23px;
+    }
+
+    .recorded-detail-page .ldp-pricing-header h2 {
+        font-size: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .recorded-detail-page .ldp-container {
+        width: calc(100% - 32px);
+    }
+
+    .recorded-detail-page .ldp-breadcrumb {
+        padding: 12px 0;
+    }
+
+    .recorded-detail-page .ldp-breadcrumb .ldp-container {
+        gap: 8px;
+        font-size: 11px;
+    }
+
+    .recorded-detail-page .ldp-main-layout {
+        padding-top: 23px;
+        padding-bottom: 40px;
+        gap: 25px;
+    }
+
+    .recorded-detail-page .ldp-intro {
+        padding-bottom: 15px;
+    }
+
+    .recorded-detail-page .ldp-status-row {
+        margin-bottom: 15px;
+    }
+
+    .recorded-detail-page .ldp-status-badge {
+        padding: 8px 12px;
+        font-size: 10px;
+    }
+
+    .recorded-detail-page .ldp-title {
+        margin-bottom: 12px;
+        font-size: clamp(27px, 7vw, 35px);
+        line-height: 1.25;
+        letter-spacing: -.9px;
+    }
+
+    .recorded-detail-page .ldp-description {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .recorded-detail-page .ldp-session-info {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 22px;
+    }
+
+    .recorded-detail-page .ldp-session-item {
+        min-height: 72px;
+        padding: 13px;
+        gap: 12px;
+    }
+
+    .recorded-detail-page .ldp-session-icon {
+        width: 39px;
+        height: 39px;
+        font-size: 19px;
+    }
+
+    .recorded-detail-page .ldp-session-item strong {
+        font-size: 13px;
+    }
+
+    .recorded-detail-page .ldp-details-section,
+    .recorded-detail-page .ldp-instructor-section {
+        margin-top: 23px;
+    }
+
+    .recorded-detail-page .ldp-section-heading {
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .recorded-detail-page .ldp-heading-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .recorded-detail-page .ldp-section-heading h2 {
+        font-size: 19px;
+    }
+
+    .recorded-detail-page .ldp-details-card {
+        padding: 20px 17px;
+        border-radius: 13px;
+    }
+
+    .recorded-detail-page .description-content {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .recorded-detail-page .description-content h1 {
+        font-size: 21px;
+    }
+
+    .recorded-detail-page .description-content h2 {
+        margin-top: 24px;
+        font-size: 18px;
+    }
+
+    .recorded-detail-page .description-content h3 {
+        font-size: 16px;
+    }
+
+    .recorded-detail-page .description-content p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .recorded-detail-page .description-content ul li {
+        font-size: 14px;
+        padding-left: 25px;
+    }
+
+    .recorded-detail-page .ldp-instructor-card {
+        flex-direction: column;
+        align-items: center;
+        gap: 17px;
+        padding: 22px 17px;
+        text-align: center;
+        border-radius: 13px;
+    }
+
+    .recorded-detail-page .ldp-instructor-image-wrap {
+        width: 125px;
+        height: 125px;
+        flex-basis: 125px;
+    }
+
+    .recorded-detail-page .ldp-instructor-info h3 {
+        font-size: 20px;
+    }
+
+    .recorded-detail-page .ldp-instructor-designation,
+    .recorded-detail-page .ldp-instructor-organization {
+        justify-content: center;
+        font-size: 13px;
+    }
+
+    .recorded-detail-page .ldp-instructor-bio {
+        font-size: 13px;
+        line-height: 1.75;
+        text-align: left;
+    }
+
+    .recorded-detail-page .ldp-pricing-card {
+        border-radius: 15px;
+    }
+
+    .recorded-detail-page .ldp-pricing-header {
+        padding: 17px;
+    }
+
+    .recorded-detail-page .ldp-pricing-header h2 {
+        font-size: 18px;
+    }
+
+    .recorded-detail-page .ldp-pricing-body {
+        padding: 18px 15px;
+    }
+
+    .recorded-detail-page .ldp-access-heading {
+        font-size: 14px;
+    }
+
+    .recorded-detail-page .ldp-option-card {
+        min-height: 77px;
+        padding: 12px 10px;
+        gap: 9px;
+    }
+
+    .recorded-detail-page .option-title {
+        font-size: 13px;
+    }
+
+    .recorded-detail-page .option-sub {
+        font-size: 10.5px;
+    }
+
+    .recorded-detail-page .option-price {
+        font-size: 14px;
+    }
+
+    .recorded-detail-page .ldp-total-value {
+        font-size: 30px;
+    }
+
+    .recorded-detail-page .ldp-cta-buttons .btn-cta {
+        min-height: 47px;
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .recorded-detail-page .ldp-container {
+        width: calc(100% - 24px);
+    }
+
+    .recorded-detail-page .ldp-title {
+        font-size: 26px;
+    }
+
+    .recorded-detail-page .ldp-session-item {
+        padding: 11px;
+    }
+
+    .recorded-detail-page .ldp-pricing-body {
+        padding: 15px 11px;
+    }
+
+    .recorded-detail-page .ldp-option-card {
+        gap: 7px;
+        padding: 11px 8px;
+    }
+
+    .recorded-detail-page .option-sub {
+        font-size: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY / MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .recorded-detail-page *,
+    .recorded-detail-page *::before,
+    .recorded-detail-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+
+}

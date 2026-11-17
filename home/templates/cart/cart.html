@@ -1,0 +1,608 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load tz %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="cart-page">
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- REMOVE CONFIRMATION -->
+    <div id="confirmAlert" class="custom-alert">
+        <div class="alert-content">
+
+            <div class="alert-icon danger">
+                <i class="fas fa-trash-alt"></i>
+            </div>
+
+            <div class="alert-text">
+                <h4>Remove This Webinar?</h4>
+                <p>Are you sure you want to remove this webinar from your cart?</p>
+            </div>
+
+            <div class="alert-actions">
+                <button type="button" class="alert-btn cancel" onclick="closeConfirm()">
+                    Cancel
+                </button>
+
+                <button type="button" class="alert-btn confirm" onclick="confirmRemove()">
+                    <i class="fas fa-trash-alt"></i>
+                    Remove Item
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- CART HERO -->
+    <section class="cart-hero">
+        <div class="cart-hero-inner">
+
+            <div class="cart-hero-text">
+                <span class="cart-eyebrow">
+                    <i class="fas fa-graduation-cap"></i>
+                    YOUR LEARNING JOURNEY
+                </span>
+
+                <h1>Your Shopping Cart</h1>
+
+                <p>
+                    Review your selected training sessions and complete your enrollment.
+                </p>
+            </div>
+
+            {% if items %}
+            <div class="cart-hero-count">
+                <div class="cart-count-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+
+                <div>
+                    <strong>{{ items|length }}</strong>
+                    <span>{{ items|length|pluralize:"Webinar,Webinars" }} Selected</span>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </section>
+
+
+    <!-- MAIN CART -->
+    <main class="cart-main">
+
+        {% if items %}
+
+        <div class="cart-layout">
+
+            <!-- LEFT : CART ITEMS -->
+            <section class="cart-items-column">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">YOUR SELECTION</span>
+                        <h2>Selected Webinars</h2>
+                    </div>
+
+                    <span class="selected-count">
+                        {{ items|length }} Items
+                    </span>
+                </div>
+
+
+                {% for item in items %}
+
+                <article class="cart-card">
+
+                    <!-- CARD TOP -->
+                    <div class="cart-card-top">
+
+                        <div class="webinar-type-area">
+
+                            {% if item.webinar.start_datetime %}
+                            <span class="webinar-type-badge live-badge">
+                                <span class="badge-dot"></span>
+                                <i class="fas fa-broadcast-tower"></i>
+                                Live Webinar
+                            </span>
+                            {% else %}
+                            <span class="webinar-type-badge recorded-badge">
+                                <i class="fas fa-play-circle"></i>
+                                Recorded Webinar
+                            </span>
+                            {% endif %}
+
+                            <span class="cart-variant">
+                                {{ item.variant|title }}
+                            </span>
+
+                        </div>
+
+                        <a href="#"
+                           class="remove-btn"
+                           data-remove-url="{% url 'cart:remove_item' item.id %}"
+                           onclick="showConfirm(event, this.dataset.removeUrl)">
+
+                            <i class="far fa-trash-alt"></i>
+                            <span>Remove</span>
+                        </a>
+
+                    </div>
+
+
+                    <!-- WEBINAR TITLE -->
+                    <div class="cart-webinar-heading">
+                        <h3>{{ item.webinar.title }}</h3>
+                    </div>
+
+
+                    <!-- INSTRUCTOR DETAILS -->
+                    <div class="instructor-panel">
+
+                        <div class="instructor-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+
+                        <div class="instructor-content">
+
+                            <span class="detail-label">PRESENTED BY</span>
+
+                            <h4>{{ item.webinar.instructor.name }}</h4>
+
+                            {% if item.webinar.instructor.designation %}
+                            <p>{{ item.webinar.instructor.designation }}</p>
+                            {% endif %}
+
+                            {% if item.webinar.instructor.organization %}
+                            <span class="organization-name">
+                                <i class="far fa-building"></i>
+                                {{ item.webinar.instructor.organization }}
+                            </span>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- WEBINAR INFORMATION -->
+                    <div class="webinar-information">
+
+                        <div class="information-item">
+                            <div class="information-icon">
+                                <i class="far fa-clock"></i>
+                            </div>
+
+                            <div>
+                                <span class="detail-label">DURATION</span>
+                                <strong>{{ item.webinar.duration_minutes }} Minutes</strong>
+                            </div>
+                        </div>
+
+
+                        {% if item.webinar.start_datetime %}
+
+                        <div class="information-item">
+                            <div class="information-icon">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+
+                            <div>
+                                <span class="detail-label">WEBINAR DATE</span>
+                                <strong>
+                                    {% timezone "America/New_York" %}
+                                        {{ item.webinar.start_datetime|date:"F j, Y" }}
+                                    {% endtimezone %}
+                                </strong>
+                            </div>
+                        </div>
+
+
+                        <div class="information-item">
+                            <div class="information-icon">
+                                <i class="far fa-clock"></i>
+                            </div>
+
+                            <div>
+                                <span class="detail-label">START TIME</span>
+                                <strong>
+                                    {% timezone "America/New_York" %}
+                                        {{ item.webinar.start_datetime|date:"g:i A" }} EST
+                                    {% endtimezone %}
+                                </strong>
+                            </div>
+                        </div>
+
+                        {% else %}
+
+                        <div class="information-item recorded-information">
+                            <div class="information-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+
+                            <div>
+                                <span class="detail-label">ACCESS TYPE</span>
+                                <strong>On-Demand Recording</strong>
+                            </div>
+                        </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- PRICE SECTION -->
+                    <div class="cart-card-footer">
+
+                        <div class="pricing-description">
+                            <span class="detail-label">WEBINAR PRICE</span>
+
+                            <div class="price-note">
+                                <i class="fas fa-check-circle"></i>
+                                One-time enrollment
+                            </div>
+                        </div>
+
+                        <div class="price-wrapper">
+
+                            <div class="cart-price">
+                                ${{ item.price_snapshot }}
+                            </div>
+
+                            {% if item.original_price %}
+                            <div class="original-price">
+                                ${{ item.original_price }}
+                            </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                {% endfor %}
+
+
+                <!-- CART BENEFITS -->
+                <div class="cart-benefits">
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+
+                        <div>
+                            <strong>Secure Payment</strong>
+                            <span>Protected checkout</span>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+
+                        <div>
+                            <strong>Expert Instructors</strong>
+                            <span>Professional training</span>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+
+                        <div>
+                            <strong>Easy Access</strong>
+                            <span>Learn at your convenience</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RIGHT : ORDER SUMMARY -->
+            <aside class="cart-summary-column">
+
+                <div class="summary-card">
+
+                    <div class="summary-header">
+                        <div>
+                            <span class="section-kicker">PAYMENT DETAILS</span>
+                            <h2>Order Summary</h2>
+                        </div>
+
+                        <div class="summary-header-icon">
+                            <i class="fas fa-receipt"></i>
+                        </div>
+                    </div>
+
+
+                    <div class="summary-items">
+
+                        {% for item in items %}
+
+                        <div class="summary-item">
+
+                            <div class="summary-item-info">
+
+                                <span class="summary-item-type">
+                                    {% if item.webinar.start_datetime %}
+                                        Live
+                                    {% else %}
+                                        Recorded
+                                    {% endif %}
+                                </span>
+
+                                <strong>{{ item.webinar.title|truncatechars:42 }}</strong>
+
+                            </div>
+
+                            <span class="summary-item-price">
+                                ${{ item.price_snapshot }}
+                            </span>
+
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="summary-calculation">
+
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <strong>${{ total }}</strong>
+                        </div>
+
+                        <div class="summary-row summary-payment-type">
+                            <span>Payment Type</span>
+                            <strong>One-time Payment</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-total">
+
+                        <div>
+                            <span>Total Amount</span>
+                            <small>USD · Final amount</small>
+                        </div>
+
+                        <strong class="total-amount">${{ total }}</strong>
+
+                    </div>
+
+
+                    <a href="{% url 'orders:checkout' %}" class="checkout-btn">
+                        <span>
+                            <i class="fas fa-lock"></i>
+                            Proceed to Checkout
+                        </span>
+
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+
+
+                    <a href="{% url 'live_webinars:list' %}" class="continue-shopping">
+                        <i class="fas fa-arrow-left"></i>
+                        Continue Shopping
+                    </a>
+
+
+                    <div class="secure-payment-note">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Your payment information is protected.</span>
+                    </div>
+
+
+                    <div class="payment-methods">
+                        <span>WE ACCEPT</span>
+
+                        <img
+                            src="{% static 'home/images/payments.png' %}"
+                            alt="Accepted payment methods"
+                            class="payment-icon"
+                        >
+                    </div>
+
+                </div>
+
+
+                <!-- SUPPORT -->
+                <div class="cart-support-card">
+
+                    <div class="support-icon">
+                        <i class="far fa-question-circle"></i>
+                    </div>
+
+                    <div>
+                        <h4>Need Assistance?</h4>
+
+                        <p>
+                            Our support team is here to help you with your enrollment.
+                        </p>
+
+                        <a href="mailto:support@PeopleSkillTraining.com">
+                            Contact Support
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        {% else %}
+
+
+        <!-- EMPTY CART -->
+        <section class="empty-cart">
+
+            <div class="empty-cart-visual">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="empty-cart-circle"></span>
+            </div>
+
+            <span class="section-kicker">YOUR LEARNING JOURNEY STARTS HERE</span>
+
+            <h2>Your Cart is Empty</h2>
+
+            <p>
+                You haven't selected any webinars yet.
+                Explore our professional training sessions and start learning.
+            </p>
+
+            <div class="empty-cart-actions">
+
+                <a href="{% url 'live_webinars:list' %}" class="empty-live-btn">
+                    <i class="fas fa-broadcast-tower"></i>
+                    Explore Live Webinars
+                </a>
+
+                <a href="{% url 'recorded_webinars:list' %}" class="empty-recorded-btn">
+                    <i class="fas fa-play-circle"></i>
+                    Explore Recorded Webinars
+                </a>
+
+            </div>
+
+        </section>
+
+        {% endif %}
+
+    </main>
+
+</div>
+
+
+<script>
+let removeUrl = null;
+
+function showConfirm(event, url) {
+    event.preventDefault();
+
+    removeUrl = url;
+
+    document.getElementById('confirmAlert').classList.add('show');
+}
+
+function closeConfirm() {
+    document.getElementById('confirmAlert').classList.remove('show');
+    removeUrl = null;
+}
+
+function confirmRemove() {
+    if (removeUrl) {
+        window.location.href = removeUrl;
+    }
+}
+
+document.getElementById('confirmAlert').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeConfirm();
+    }
+});
+
+
+/* TOAST MESSAGES */
+
+function showToast(message, type = 'success') {
+
+    const container = document.getElementById('toastContainer');
+
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+
+    const icon = type === 'success'
+        ? 'fa-check-circle'
+        : 'fa-exclamation-circle';
+
+    const title = type === 'success'
+        ? 'Success'
+        : 'Error';
+
+    const iconElement = document.createElement('i');
+    iconElement.className = `fas ${icon}`;
+
+    const iconWrapper = document.createElement('div');
+    iconWrapper.className = 'toast-icon';
+    iconWrapper.appendChild(iconElement);
+
+    const content = document.createElement('div');
+    content.className = 'toast-content';
+
+    const titleElement = document.createElement('div');
+    titleElement.className = 'toast-title';
+    titleElement.textContent = title;
+
+    const messageElement = document.createElement('div');
+    messageElement.className = 'toast-message';
+    messageElement.textContent = message;
+
+    content.appendChild(titleElement);
+    content.appendChild(messageElement);
+
+    const closeButton = document.createElement('button');
+    closeButton.className = 'toast-close';
+    closeButton.type = 'button';
+    closeButton.innerHTML = '<i class="fas fa-times"></i>';
+    closeButton.onclick = function() {
+        closeToast(this);
+    };
+
+    toast.appendChild(iconWrapper);
+    toast.appendChild(content);
+    toast.appendChild(closeButton);
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        closeToast(closeButton);
+    }, 4000);
+}
+
+function closeToast(btn) {
+
+    const toast = btn.closest('.toast');
+
+    if (!toast || toast.classList.contains('hiding')) {
+        return;
+    }
+
+    toast.classList.add('hiding');
+
+    setTimeout(() => toast.remove(), 300);
+}
+
+
+/* DJANGO MESSAGES */
+
+{% if messages %}
+    {% for message in messages %}
+        showToast(
+            "{{ message|escapejs }}",
+            "{{ message.tags|default:'success'|escapejs }}"
+        );
+    {% endfor %}
+{% endif %}
+
+</script>
+
+{% endblock %}

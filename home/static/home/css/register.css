@@ -1,0 +1,1488 @@
+
+/* =====================================================
+   PEOPLE SKILL - REGISTER PAGE
+   Compact Dark Green Professional Design
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+.webinar-register-page {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #064B35;
+    font-family: 'Inter', sans-serif;
+}
+
+/* =====================================================
+   MAIN WRAPPER
+===================================================== */
+
+.webinar-register-wrapper {
+    width: 100%;
+    max-width: 1500px;
+    height: min(760px, calc(100vh - 125px));
+    min-height: 590px;
+
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+
+    overflow: hidden;
+    border: 1px solid rgba(103,217,155,.35);
+    border-radius: 24px;
+
+    background: #032719;
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+
+    animation: registerReveal .8s ease both;
+}
+
+/* =====================================================
+   LEFT VISUAL SECTION - FIXED
+===================================================== */
+
+.register-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            #07583b 0%,
+            #033522 55%,
+            #022719 100%
+        );
+}
+
+.register-illustration {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 650px;
+    max-height: 580px;
+
+    height: auto;
+    object-fit: contain;
+    padding: 18px;
+
+    filter: drop-shadow(
+        0 15px 30px rgba(0,255,120,.18)
+    );
+
+    animation: illustrationFloat 5s ease-in-out infinite;
+}
+
+/* Background glow */
+
+.register-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+
+    background: #00e878;
+    border-radius: 50%;
+    filter: blur(110px);
+
+    opacity: .17;
+    z-index: 0;
+
+    animation: glowPulse 4s ease-in-out infinite alternate;
+}
+
+/* Orbit rings */
+
+.register-orbit {
+    position: absolute;
+    width: 75%;
+    height: 65%;
+
+    border: 1px solid rgba(65,255,140,.25);
+    border-radius: 50%;
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+.orbit-one {
+    animation: orbitRotate 20s linear infinite;
+}
+
+.orbit-two {
+    width: 82%;
+    height: 72%;
+
+    border: 2px dashed rgba(103,217,80,.55);
+
+    animation: orbitReverse 25s linear infinite;
+}
+
+/* Floating icons */
+
+.register-floating-icon {
+    position: absolute;
+    z-index: 3;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #9aff65;
+    font-size: 23px;
+
+    border: 1px solid rgba(103,217,155,.5);
+    border-radius: 17px;
+
+    background: rgba(8,110,68,.45);
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 0 20px rgba(0,255,120,.12);
+
+    animation: floatingIcon 4s ease-in-out infinite;
+}
+
+.register-cap {
+    top: 17%;
+    left: 17%;
+}
+
+.register-users {
+    top: 42%;
+    left: 7%;
+    animation-delay: .7s;
+}
+
+.register-award {
+    top: 18%;
+    right: 10%;
+    animation-delay: 1.2s;
+}
+
+.register-video {
+    top: 48%;
+    right: 7%;
+    animation-delay: 1.8s;
+}
+
+/* =====================================================
+   RIGHT REGISTER PANEL - INTERNAL SCROLL
+===================================================== */
+
+.register-form-panel {
+    position: relative;
+
+    height: 100%;
+    min-height: 0;
+
+    padding: 24px 48px 22px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    color: #fff;
+
+    background: linear-gradient(
+        145deg,
+        #0b3022,
+        #032719
+    );
+
+    scrollbar-width: thin;
+    scrollbar-color: #159967 #062e20;
+}
+
+/* Chrome scrollbar */
+
+.register-form-panel::-webkit-scrollbar {
+    width: 7px;
+}
+
+.register-form-panel::-webkit-scrollbar-track {
+    background: #062e20;
+    border-radius: 10px;
+}
+
+.register-form-panel::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        #20c879,
+        #087c55
+    );
+    border-radius: 10px;
+}
+
+.register-form-panel::-webkit-scrollbar-thumb:hover {
+    background: #38e493;
+}
+
+/* =====================================================
+   COMPANY BRAND
+===================================================== */
+
+.register-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+
+    flex-shrink: 0;
+    margin-bottom: 12px;
+
+    animation: formReveal .8s ease both;
+}
+
+.register-brand-logo {
+    width: 43px;
+    height: 43px;
+
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.register-brand h2 {
+    font-size: 21px;
+    font-weight: 800;
+
+    color: #fff;
+    margin: 0;
+}
+
+.register-brand h2 span {
+    color: #67D99B;
+}
+
+/* =====================================================
+   REGISTER HEADING
+===================================================== */
+
+.register-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.register-heading h1 {
+    font-size: 29px;
+    font-weight: 800;
+
+    color: #fff;
+    margin: 0 0 6px;
+
+    letter-spacing: -.7px;
+}
+
+.register-heading p {
+    font-size: 12px;
+    line-height: 1.6;
+
+    color: #a9c9b8;
+    margin: 0;
+}
+
+/* =====================================================
+   ERROR MESSAGES
+===================================================== */
+
+.register-error-alert {
+    padding: 11px 14px;
+    margin-bottom: 14px;
+
+    border: 1px solid rgba(255,100,100,.3);
+    border-left: 4px solid #ff6868;
+
+    border-radius: 9px;
+    background: rgba(255,50,50,.10);
+}
+
+.error-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #ffaaaa;
+    font-size: 12px;
+    font-weight: 700;
+
+    margin-bottom: 6px;
+}
+
+.error-list {
+    padding-left: 22px;
+    margin: 0;
+}
+
+.error-list li {
+    color: #ffcccc;
+    font-size: 11px;
+    margin-bottom: 3px;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.register-form {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.register-fields-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    column-gap: 20px;
+    row-gap: 13px;
+}
+
+.register-field {
+    min-width: 0;
+}
+
+.register-label {
+    display: block;
+
+    color: #d7e9de;
+    font-size: 11px;
+    font-weight: 700;
+
+    margin-bottom: 6px;
+}
+
+.register-label span {
+    color: #67D99B;
+}
+
+/* =====================================================
+   INPUT BOXES
+===================================================== */
+
+.register-input {
+    position: relative;
+
+    width: 100%;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 0 12px;
+
+    border: 1px solid rgba(103,217,155,.30);
+    border-radius: 10px;
+
+    background: rgba(255,255,255,.055);
+
+    transition: .3s ease;
+}
+
+.register-input:focus-within {
+    border-color: #67D99B;
+
+    background: rgba(103,217,155,.09);
+
+    box-shadow: 0 0 0 3px rgba(103,217,155,.10);
+}
+
+.register-input > i:first-child {
+    flex-shrink: 0;
+
+    color: #67D99B;
+    font-size: 14px;
+}
+
+.register-input input {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: #fff;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+
+    padding: 0;
+}
+
+.register-input input::placeholder {
+    color: #9ab7a6;
+}
+
+.register-input input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* =====================================================
+   COUNTRY SELECT - SELECT2
+===================================================== */
+
+.country-input {
+    padding: 0 9px;
+}
+
+.country-input .select2-container {
+    width: 100% !important;
+}
+
+.country-input .select2-container--default
+.select2-selection--single {
+    height: 42px !important;
+
+    background: transparent !important;
+    border: none !important;
+
+    display: flex;
+    align-items: center;
+}
+
+.country-input .select2-selection__rendered {
+    color: #fff !important;
+    line-height: 42px !important;
+
+    font-size: 12px !important;
+    padding-left: 7px !important;
+}
+
+.country-input .select2-selection__arrow {
+    height: 42px !important;
+}
+
+.country-input .select2-selection__arrow b {
+    border-color: #67D99B transparent transparent transparent !important;
+}
+
+.select2-dropdown {
+    background: #073c2a !important;
+
+    border: 1px solid #2d9d69 !important;
+    border-radius: 9px !important;
+
+    overflow: hidden;
+    z-index: 99999;
+}
+
+.select2-results__option {
+    color: #fff !important;
+    font-size: 12px;
+
+    padding: 9px 12px;
+}
+
+.select2-results__option--highlighted {
+    background: #087c55 !important;
+}
+
+.select2-search__field {
+    background: #eaf3ed !important;
+    color: #123 !important;
+}
+
+/* =====================================================
+   PHONE INPUT - INTL TEL INPUT
+===================================================== */
+
+.phone-input {
+    padding: 0;
+    border: none;
+    background: transparent;
+    overflow: visible;
+}
+
+.phone-input .iti {
+    width: 100%;
+}
+
+.phone-input .iti input {
+    width: 100%;
+    height: 44px !important;
+
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-right: 35px !important;
+
+    border: 1px solid rgba(103,217,155,.30) !important;
+    border-radius: 10px !important;
+
+    background: rgba(255,255,255,.055) !important;
+    color: #fff !important;
+
+    font-family: 'Inter', sans-serif !important;
+    font-size: 12px !important;
+}
+
+.phone-input .iti input:focus {
+    border-color: #67D99B !important;
+
+    box-shadow: 0 0 0 3px rgba(103,217,155,.10) !important;
+}
+
+.phone-input .iti__selected-flag {
+    background: rgba(255,255,255,.05) !important;
+    border-radius: 9px 0 0 9px;
+}
+
+.phone-input .iti__selected-dial-code {
+    color: #fff;
+    font-size: 12px;
+}
+
+.iti__country-list {
+    background: #073c2a !important;
+    border: 1px solid #2d9d69 !important;
+
+    color: #fff;
+    max-height: 220px;
+    border-radius: 8px;
+    z-index: 99999;
+}
+
+.iti__country {
+    color: #fff;
+}
+
+.iti__country:hover,
+.iti__country.iti__highlight {
+    background: #087c55 !important;
+}
+
+/* =====================================================
+   PASSWORD FIELDS
+===================================================== */
+
+.password-input input {
+    padding-right: 28px;
+}
+
+.password-toggle {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #67D99B;
+    font-size: 14px;
+
+    cursor: pointer;
+    z-index: 5;
+}
+
+.password-toggle:hover {
+    color: #a2f5c3;
+}
+
+/* =====================================================
+   TERMS & CONDITIONS
+===================================================== */
+
+.register-terms {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 19px 0 16px;
+}
+
+.register-terms input {
+    width: 16px;
+    height: 16px;
+
+    flex-shrink: 0;
+
+    accent-color: #08bd70;
+    cursor: pointer;
+}
+
+.register-terms label {
+    color: #d2e5d9;
+
+    font-size: 11px;
+    line-height: 1.6;
+
+    cursor: pointer;
+}
+
+.register-terms a {
+    color: #67D99B;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.register-terms a:hover {
+    color: #a2f5c3;
+    text-decoration: underline;
+}
+
+/* =====================================================
+   CREATE ACCOUNT BUTTON
+===================================================== */
+
+.register-submit-btn {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    height: 49px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        110deg,
+        #08b86e,
+        #00d77a
+    );
+
+    color: #fff;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    transition: .3s ease;
+}
+
+.register-submit-btn:not(:disabled):hover {
+    background: linear-gradient(
+        110deg,
+        #00d77a,
+        #16ec8a
+    );
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 22px rgba(0,215,122,.25);
+}
+
+.register-submit-btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.register-submit-btn i {
+    transition: transform .3s ease;
+}
+
+.register-submit-btn:not(:disabled):hover i {
+    transform: translateX(6px);
+}
+
+/* Button shine */
+
+.register-submit-btn::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+}
+
+.register-submit-btn:not(:disabled):hover::before {
+    animation: buttonShine .7s ease;
+}
+
+/* =====================================================
+   SIGN IN LINK
+===================================================== */
+
+.register-signin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+
+    margin-top: 20px;
+    padding-bottom: 4px;
+}
+
+.register-signin > span {
+    flex: 1;
+    height: 1px;
+
+    background: rgba(103,217,155,.2);
+}
+
+.register-signin p {
+    color: #c3d9cb;
+
+    font-size: 11px;
+    margin: 0;
+
+    white-space: nowrap;
+}
+
+.register-signin a {
+    color: #67D99B;
+
+    font-weight: 800;
+    text-decoration: none;
+
+    margin-left: 5px;
+}
+
+.register-signin a:hover {
+    color: #a2f5c3;
+}
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes registerReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes formReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes illustrationFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes floatingIcon {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+@keyframes glowPulse {
+    from {
+        opacity: .10;
+        transform: scale(.85);
+    }
+
+    to {
+        opacity: .23;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes orbitRotate {
+    to {
+        transform: rotate(335deg);
+    }
+}
+
+@keyframes orbitReverse {
+    to {
+        transform: rotate(-335deg);
+    }
+}
+
+@keyframes buttonShine {
+    to {
+        left: 150%;
+    }
+}
+
+/* =====================================================
+   SMALL DESKTOP / TABLET
+===================================================== */
+
+@media (max-width: 1050px) {
+
+    .webinar-register-page {
+        padding: 18px;
+    }
+
+    .webinar-register-wrapper {
+        max-width: 850px;
+        height: auto;
+        min-height: 0;
+
+        grid-template-columns: 1fr;
+    }
+
+    .register-visual {
+        min-height: 260px;
+    }
+
+    .register-illustration {
+        max-width: 370px;
+        max-height: 260px;
+    }
+
+    .register-floating-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    .register-form-panel {
+        height: auto;
+        max-height: 650px;
+        padding: 30px 40px;
+        overflow-y: auto;
+    }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .webinar-register-page {
+        min-height: auto;
+        padding: 14px 10px;
+    }
+
+    .webinar-register-wrapper {
+        border-radius: 16px;
+    }
+
+    .register-visual {
+        min-height: 210px;
+    }
+
+    .register-illustration {
+        max-width: 290px;
+        max-height: 210px;
+        padding: 8px;
+    }
+
+    .register-floating-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+
+    .register-form-panel {
+        max-height: 650px;
+        padding: 25px 20px;
+    }
+
+    .register-brand-logo {
+        width: 38px;
+        height: 38px;
+    }
+
+    .register-brand h2 {
+        font-size: 18px;
+    }
+
+    .register-heading h1 {
+        font-size: 23px;
+    }
+
+    .register-heading p {
+        font-size: 11px;
+    }
+
+    .register-fields-grid {
+        grid-template-columns: 1fr;
+        row-gap: 13px;
+    }
+
+    .register-input {
+        height: 44px;
+    }
+
+    .register-label {
+        font-size: 11px;
+    }
+
+    .register-terms {
+        align-items: flex-start;
+        margin: 18px 0;
+    }
+
+    .register-terms label {
+        font-size: 10px;
+    }
+
+    .register-submit-btn {
+        height: 46px;
+        font-size: 13px;
+    }
+
+    .register-signin {
+        gap: 7px;
+    }
+
+    .register-signin p {
+        font-size: 10px;
+    }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .register-form-panel {
+        padding: 22px 15px;
+    }
+
+    .register-heading h1 {
+        font-size: 21px;
+    }
+
+    .register-brand h2 {
+        font-size: 16px;
+    }
+
+    .register-signin p {
+        font-size: 9px;
+    }
+}
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .webinar-register-wrapper,
+    .register-illustration,
+    .register-floating-icon,
+    .register-glow,
+    .register-orbit,
+    .register-brand {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* =====================================
+   REGISTER CARD - REDUCED WIDTH
+===================================== */
+
+.webinar-register-page {
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
+}
+
+.webinar-register-wrapper {
+    width: 100%;
+    max-width: 1320px !important;
+    height: min(740px, calc(100vh - 125px));
+    min-height: 590px;
+
+    grid-template-columns: 0.85fr 1.15fr;
+    margin: 0 auto;
+}
+
+/* Right form spacing */
+
+.register-form-panel {
+    padding: 25px 38px;
+}
+
+/* Left illustration */
+
+.register-illustration {
+    max-width: 530px;
+    max-height: 520px;
+}
+
+/* Form spacing */
+
+.register-fields-grid {
+    column-gap: 16px;
+    row-gap: 12px;
+}
+
+/* Responsive */
+
+@media (max-width: 1050px) {
+    .webinar-register-wrapper {
+        max-width: 850px !important;
+    }
+}
+
+
+
+/* ==========================================
+   REGISTER INPUT - DARK THEME FIX
+========================================== */
+
+/* Common input background */
+.register-input input {
+    background: transparent !important;
+    color: #ffffff !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Chrome autofill white/blue background fix */
+.register-input input:-webkit-autofill,
+.register-input input:-webkit-autofill:hover,
+.register-input input:-webkit-autofill:focus,
+.register-input input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #123b2d inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    caret-color: #ffffff !important;
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+/* ==========================================
+   COUNTRY FIELD ALIGNMENT
+========================================== */
+
+.country-input {
+    height: 44px !important;
+    min-height: 44px;
+    padding: 0 10px !important;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.country-input .select2-container {
+    width: 100% !important;
+    height: 42px !important;
+}
+
+.country-input .select2-selection--single {
+    height: 42px !important;
+    display: flex !important;
+    align-items: center !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 8px !important;
+}
+
+.country-input .select2-selection__rendered {
+    color: #ffffff !important;
+    font-size: 12px !important;
+    line-height: normal !important;
+    padding-left: 8px !important;
+    padding-right: 28px !important;
+}
+
+.country-input .select2-selection__arrow {
+    height: 42px !important;
+    top: 0 !important;
+    right: 3px !important;
+}
+
+.country-input .select2-selection__arrow b {
+    border-color: #67D99B transparent transparent transparent !important;
+}
+
+/* ==========================================
+   PHONE NUMBER - SAME ALIGNMENT AS COUNTRY
+========================================== */
+
+.phone-input {
+    height: 44px !important;
+    min-height: 44px;
+    width: 100%;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    border: 1px solid rgba(103,217,155,.30) !important;
+    border-radius: 10px !important;
+    background: rgba(255,255,255,.055) !important;
+
+    box-sizing: border-box;
+    overflow: visible !important;
+}
+
+.phone-input .iti {
+    width: 100% !important;
+    height: 42px !important;
+    display: block !important;
+}
+
+.phone-input .iti input {
+    width: 100% !important;
+    height: 42px !important;
+
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-right: 12px !important;
+
+    border: none !important;
+    border-radius: 9px !important;
+
+    background: transparent !important;
+    color: #ffffff !important;
+
+    font-size: 12px !important;
+    font-family: 'Inter', sans-serif !important;
+
+    outline: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+}
+
+.phone-input .iti input::placeholder {
+    color: #9ab7a6 !important;
+}
+
+.phone-input .iti input:-webkit-autofill,
+.phone-input .iti input:-webkit-autofill:hover,
+.phone-input .iti input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #123b2d inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+.phone-input .iti__selected-flag {
+    height: 42px !important;
+    padding: 0 10px !important;
+    background: transparent !important;
+    border-radius: 9px 0 0 9px;
+}
+
+.phone-input .iti__selected-dial-code {
+    color: #ffffff !important;
+    font-size: 12px !important;
+}
+
+.phone-input .iti__arrow {
+    border-top-color: #67D99B !important;
+}
+
+/* ==========================================
+   PASSWORD FIELD WHITE BACKGROUND FIX
+========================================== */
+
+.password-input input {
+    background: transparent !important;
+    color: #ffffff !important;
+    padding-right: 32px !important;
+}
+
+.password-input input:-webkit-autofill,
+.password-input input:-webkit-autofill:hover,
+.password-input input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #123b2d inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* ==========================================
+   FOCUS EFFECT
+========================================== */
+
+.country-input:focus-within,
+.phone-input:focus-within {
+    border-color: #67D99B !important;
+    box-shadow: 0 0 0 3px rgba(103,217,155,.10);
+}
+
+/* ==========================================
+   GRID ALIGNMENT
+========================================== */
+
+.register-fields-grid {
+    align-items: start;
+}
+
+.register-field {
+    width: 100%;
+    min-width: 0;
+}
+
+.register-input,
+.country-input,
+.phone-input {
+    box-sizing: border-box;
+}
+
+/* Country and phone dropdown layering */
+.iti__country-list,
+.select2-dropdown {
+    z-index: 99999 !important;
+}
+
+
+/* ==========================================
+   PEOPLE SKILL - FINAL COUNTRY & PHONE FIX
+========================================== */
+
+/* COUNTRY SELECT2 DROPDOWN */
+.select2-container--open {
+    z-index: 999999 !important;
+}
+
+.select2-container--open .select2-dropdown {
+    background: #062f22 !important;
+    border: 1px solid #32845f !important;
+    border-radius: 9px !important;
+    overflow: hidden !important;
+    box-shadow: 0 12px 30px rgba(0,0,0,.35) !important;
+}
+
+/* WHITE SEARCH BOX FIX */
+.select2-container--open .select2-search--dropdown {
+    background: #062f22 !important;
+    padding: 10px !important;
+}
+
+.select2-container--open .select2-search__field {
+    width: 100% !important;
+    height: 38px !important;
+    padding: 8px 12px !important;
+
+    background: #123b2d !important;
+    color: #ffffff !important;
+
+    border: 1px solid #32845f !important;
+    border-radius: 7px !important;
+
+    outline: none !important;
+    box-shadow: none !important;
+
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+}
+
+.select2-container--open .select2-search__field:focus {
+    background: #123b2d !important;
+    border-color: #67D99B !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(103,217,155,.12) !important;
+}
+
+.select2-container--open .select2-search__field::placeholder {
+    color: #9ab7a6 !important;
+    opacity: 1 !important;
+}
+
+/* COUNTRY OPTIONS */
+.select2-results {
+    background: #062f22 !important;
+}
+
+.select2-results__options {
+    background: #062f22 !important;
+    max-height: 220px !important;
+}
+
+.select2-results__option {
+    background: #062f22 !important;
+    color: #dcefe4 !important;
+    padding: 11px 13px !important;
+    font-size: 13px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Hover */
+.select2-results__option--highlighted[aria-selected] {
+    background: #087c55 !important;
+    color: #ffffff !important;
+}
+
+/* Selected country */
+.select2-results__option[aria-selected="true"] {
+    background: #164b35 !important;
+    color: #67D99B !important;
+}
+
+/* Dropdown scrollbar */
+.select2-results__options::-webkit-scrollbar {
+    width: 6px;
+}
+
+.select2-results__options::-webkit-scrollbar-track {
+    background: #062f22;
+}
+
+.select2-results__options::-webkit-scrollbar-thumb {
+    background: #087c55;
+    border-radius: 10px;
+}
+
+/* ==========================================
+   PHONE NUMBER WHITE BACKGROUND FIX
+========================================== */
+
+.phone-input {
+    background: #123b2d !important;
+    border: 1px solid rgba(103,217,155,.30) !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+}
+
+.phone-input .iti {
+    width: 100% !important;
+    height: 44px !important;
+}
+
+.phone-input .iti input,
+.phone-input .iti__tel-input {
+    background-color: #123b2d !important;
+    color: #ffffff !important;
+    height: 44px !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Chrome autofill */
+.phone-input input:-webkit-autofill,
+.phone-input input:-webkit-autofill:hover,
+.phone-input input:-webkit-autofill:focus,
+.phone-input input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #123b2d inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    caret-color: #ffffff !important;
+}
+
+/* Country dropdown and phone flag */
+.phone-input .iti__selected-flag {
+    background: transparent !important;
+}
+
+.phone-input .iti__selected-dial-code {
+    color: #ffffff !important;
+}
+
+/* ==========================================
+   COUNTRY & PHONE ALIGNMENT
+========================================== */
+
+.country-input,
+.phone-input {
+    height: 46px !important;
+    min-height: 46px !important;
+    box-sizing: border-box !important;
+}
+
+.country-input .select2-container,
+.country-input .select2-selection--single {
+    height: 44px !important;
+}
+
+.country-input .select2-selection--single {
+    display: flex !important;
+    align-items: center !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.country-input .select2-selection__rendered {
+    color: #ffffff !important;
+    line-height: normal !important;
+}
+
+.country-input .select2-selection__arrow {
+    height: 44px !important;
+}
+
+/* Focus */
+.country-input:focus-within,
+.phone-input:focus-within {
+    border-color: #67D99B !important;
+    box-shadow: 0 0 0 3px rgba(103,217,155,.10) !important;
+}
+
+
+.register-action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.register-signin-btn {
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border: 1px solid #20B879;
+    border-radius: 10px;
+
+    color: #67D99B;
+    background: transparent;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: .3s ease;
+}
+
+.register-signin-btn:hover {
+    background: rgba(32,184,121,.12);
+    color: #ffffff;
+}
+
+@media(max-width: 480px) {
+    .register-action-buttons {
+        grid-template-columns: 1fr;
+    }
+}

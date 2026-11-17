@@ -1,0 +1,1086 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}PeopleSkill Training | Compliance & Professional Training Webinars{% endblock %}
+
+{% block extra_css %}
+<meta name="description"
+      content="PeopleSkill Training provides live and recorded compliance webinars for professionals across the USA. Stay compliant, stay ahead.">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- ═══════════════════════════════
+     HERO SECTION
+═══════════════════════════════ -->
+
+
+<section class="sw-hero">
+
+    <!-- Background Decorations -->
+    <div class="sw-hero-bg"></div>
+    <div class="sw-hero-shape sw-shape-one"></div>
+    <div class="sw-hero-shape sw-shape-two"></div>
+    <div class="sw-hero-shape sw-shape-three"></div>
+
+    <div class="container sw-hero-container">
+
+        <!-- LEFT CONTENT -->
+        <div class="sw-hero-content">
+
+            <div class="sw-hero-badge">
+                <i class="fas fa-broadcast-tower"></i>
+                Live & On-Demand Webinars
+            </div>
+
+            <h1 class="sw-hero-title" id="swHeroTitle">
+                Professional Webinars &
+                <span>Training for Workplace Excellence</span>
+            </h1>
+
+            <p class="sw-hero-description" id="swHeroDescription">
+                Expert-led live and on-demand sessions on workplace
+                safety, compliance, harassment prevention and more.
+                Learn from industry professionals and build a safer,
+                more productive workplace.
+            </p>
+
+            <!-- BUTTONS -->
+            <div class="sw-hero-buttons">
+
+                <a href="{% url 'live_webinars:list' %}"
+                   class="sw-btn-primary">
+                    Explore Webinars
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <a href="{% url 'home:contact' %}"
+                   class="sw-btn-outline">
+                    <i class="fas fa-building"></i>
+                    For Organizations
+                </a>
+
+                <a href="{% url 'accounts:register' %}"
+                    class="sw-btn-register">
+                        <i class="fas fa-user-plus"></i>
+                        Create Free Account
+                </a>
+
+            </div>
+
+            <!-- BENEFITS -->
+            <div class="sw-hero-benefits">
+
+                <div class="sw-benefit">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Expert-Led Sessions</span>
+                </div>
+
+                <div class="sw-benefit">
+                    <i class="fas fa-check-circle"></i>
+                    <span>On-Demand Learning</span>
+                </div>
+
+                <div class="sw-benefit">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Team Training</span>
+                </div>
+
+                <div class="sw-benefit">
+                    <i class="fas fa-check-circle"></i>
+                    <span>U.S. Compliance Focus</span>
+                </div>
+
+            </div>
+            <!-- HERO SLIDER CONTROLS -->
+<div class="sw-hero-slider-controls">
+
+    <button type="button"
+            class="sw-slider-arrow"
+            id="swSliderPrev"
+            aria-label="Previous slide">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <div class="sw-slider-dots">
+        <button class="sw-slider-dot active"
+                data-slide="0"
+                aria-label="Slide 1"></button>
+
+        <button class="sw-slider-dot"
+                data-slide="1"
+                aria-label="Slide 2"></button>
+
+        <button class="sw-slider-dot"
+                data-slide="2"
+                aria-label="Slide 3"></button>
+    </div>
+
+    <button type="button"
+            class="sw-slider-arrow"
+            id="swSliderNext"
+            aria-label="Next slide">
+        <i class="fas fa-arrow-right"></i>
+    </button>
+
+</div>
+
+        </div>
+
+
+        <!-- RIGHT HERO IMAGE -->
+        <div class="sw-hero-visual">
+
+            <!-- Decorative Lines -->
+            <div class="sw-hero-rays">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Live Webinar Floating Card -->
+            <div class="sw-live-card">
+
+                <div class="sw-live-card-heading">
+                    <span class="sw-live-dot"></span>
+                    <strong>Live Webinar</strong>
+                </div>
+
+                <h4>Workplace Compliance & Safety</h4>
+
+                <div class="sw-live-meta">
+                    <span>
+                        <i class="far fa-calendar-alt"></i>
+                        Expert-Led Sessions
+                    </span>
+
+                    <span>
+                        <i class="far fa-clock"></i>
+                        Live & On-Demand
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- Main Girl Image -->
+            <div class="sw-hero-person">
+
+                <img
+                    src="{% static 'home/images/hero-woman-laptop.png' %}"
+                    alt="Professional woman attending workplace training webinar"
+                    class="sw-hero-girl"
+                    id="swHeroImage"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- =========================================
+     FEATURES STRIP
+========================================= -->
+
+<section class="hp-features sw-features">
+
+    <div class="container">
+
+        <div class="hp-features-grid sw-features-grid">
+
+            <!-- FEATURE 1 -->
+            <div class="hp-feature-item sw-feature-item">
+
+                <div class="sw-feature-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+
+                <div class="sw-feature-content">
+                    <h5>Expert Instructors</h5>
+                    <p>Learn from industry professionals</p>
+                </div>
+
+            </div>
+
+
+            <!-- FEATURE 2 -->
+            <div class="hp-feature-item sw-feature-item">
+
+                <div class="sw-feature-icon">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+
+                <div class="sw-feature-content">
+                    <h5>On-Demand Learning</h5>
+                    <p>Learn at your own pace, anytime</p>
+                </div>
+
+            </div>
+
+
+            <!-- FEATURE 3 -->
+            <div class="hp-feature-item sw-feature-item">
+
+                <div class="sw-feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+
+                <div class="sw-feature-content">
+                    <h5>Team & Enterprise</h5>
+                    <p>Train your entire organization</p>
+                </div>
+
+            </div>
+
+
+            <!-- FEATURE 4 -->
+            <div class="hp-feature-item sw-feature-item">
+
+                <div class="sw-feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+
+                <div class="sw-feature-content">
+                    <h5>Compliant & Up-to-Date</h5>
+                    <p>Aligned with U.S. regulations</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     EXPLORE TRAINING TOPICS
+========================================= -->
+
+<section class="sw-topics">
+
+    <div class="container">
+
+        <!-- SECTION HEADER -->
+        <div class="sw-topics-header">
+
+            <h2>Explore Training Topics</h2>
+
+            <a href="{% url 'live_webinars:list' %}"
+               class="sw-topics-view-all">
+                View All Topics
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <!-- TOPIC GRID -->
+        <div class="sw-topics-grid">
+
+            <!-- 1. Workplace Safety -->
+            <a href="{% url 'live_webinars:list' %}"
+               class="sw-topic-card">
+
+                <i class="fas fa-shield-alt"></i>
+
+                <h5>Workplace Safety</h5>
+
+            </a>
+
+
+            <!-- 2. Harassment Prevention -->
+            <a href="{% url 'live_webinars:list' %}"
+               class="sw-topic-card">
+
+                <i class="fas fa-user-shield"></i>
+
+                <h5>Harassment<br>Prevention</h5>
+
+            </a>
+
+
+            <!-- 3. Regulatory Compliance -->
+            <a href="{% url 'live_webinars:list' %}"
+               class="sw-topic-card">
+
+                <i class="fas fa-gavel"></i>
+
+                <h5>Regulatory<br>Compliance</h5>
+
+            </a>
+
+
+            <!-- 4. Diversity & Inclusion -->
+            <a href="{% url 'live_webinars:list' %}"
+               class="sw-topic-card">
+
+                <i class="fas fa-users"></i>
+
+                <h5>Diversity & Inclusion</h5>
+
+            </a>
+
+
+            <!-- 5. Employee Wellness -->
+            <a href="{% url 'live_webinars:list' %}"
+               class="sw-topic-card">
+
+                <i class="fas fa-heart"></i>
+
+                <h5>Employee<br>Wellness</h5>
+
+            </a>
+
+
+            <!-- 6. Leadership & Management -->
+            <a href="{% url 'live_webinars:list' %}"
+               class="sw-topic-card">
+
+                <i class="fas fa-chalkboard-teacher"></i>
+
+                <h5>Leadership &<br>Management</h5>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     UPCOMING LIVE WEBINARS
+========================================= -->
+
+{% if upcoming_webinars %}
+
+<section class="hp-upcoming sw-upcoming">
+
+    <div class="container">
+
+
+<!-- SECTION HEADING -->
+<div class="sw-upcoming-header">
+
+    <span class="sw-upcoming-badge">
+        <i class="fas fa-video"></i>
+        Live Webinars
+    </span>
+
+    <h2>
+        Upcoming <span>Live Sessions</span>
+    </h2>
+
+    <p>
+        Register now for our expert-led live webinars —
+        limited seats available.
+    </p>
+
+    <!-- CAROUSEL ARROWS -->
+    <div class="sw-carousel-controls">
+
+        <button type="button"
+                class="sw-carousel-arrow"
+                id="swPrevWebinar"
+                aria-label="Previous webinar">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+
+        <button type="button"
+                class="sw-carousel-arrow"
+                id="swNextWebinar"
+                aria-label="Next webinar">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+
+    </div>
+
+</div>
+
+
+        <!-- WEBINAR CARDS -->
+        <div class="hp-upcoming-grid sw-upcoming-grid">
+
+            {% load tz %}
+
+            {% for webinar in upcoming_webinars %}
+
+            <div class="webinar-item sw-webinar-card">
+
+                <!-- CARD HEADER -->
+                <div class="sw-card-header">
+
+                    <!-- DECORATIVE GREEN CORNER -->
+                    <div class="sw-card-green-corner"></div>
+
+
+                    <!-- TOP BADGES -->
+                    
+
+<!-- TOP BADGES -->
+<div class="sw-card-badges">
+
+    <span class="sw-live-badge">
+        <i class="fas fa-video"></i>
+        Live Webinar
+    </span>
+
+    {% if webinar.status == "LIVE" or webinar.dynamic_status == "LIVE" %}
+
+        <span class="sw-upcoming-badge-small sw-live-now">
+            <span class="sw-live-dot"></span>
+            LIVE NOW
+        </span>
+
+    {% elif webinar.recently_ended %}
+
+        <span class="sw-upcoming-badge-small sw-ended">
+            <i class="fas fa-check-circle"></i>
+            ENDED
+        </span>
+
+    
+{% elif webinar.status == "UPCOMING" %}
+
+    <span class="sw-upcoming-badge-small sw-upcoming-status">
+
+        <i class="far fa-calendar-alt"></i>
+
+        UPCOMING
+
+        <span class="sw-countdown-divider">|</span>
+
+        <span class="countdown"
+              data-start="{{ webinar.start_datetime|date:'c' }}">
+        </span>
+
+    </span>
+
+{% endif %}
+
+
+</div>
+
+
+
+
+                    <!-- DATE CALENDAR -->
+                    <div class="sw-date-calendar">
+
+                        <span class="sw-date-month">
+                            {{ webinar.start_datetime|date:"M Y" }}
+                        </span>
+
+                        <strong class="sw-date-day">
+                            {{ webinar.start_datetime|date:"d" }}
+                        </strong>
+
+                        <span class="sw-date-weekday">
+                            {{ webinar.start_datetime|date:"D" }}
+                        </span>
+
+                    </div>
+
+
+                    <!-- WEBINAR TITLE -->
+                    <h3 class="sw-card-title">
+                        {{ webinar.title }}
+                    </h3>
+
+                </div>
+
+
+                <!-- CARD INFORMATION -->
+                <div class="sw-card-information">
+
+                    <!-- INSTRUCTOR INFORMATION -->
+                    <div class="sw-card-instructor">
+
+                        {% if webinar.instructor.photo %}
+
+                        <img
+                            src="{{ webinar.instructor.photo.url }}"
+                            alt="{{ webinar.instructor.name }}"
+                            class="sw-card-instructor-photo"
+                        >
+
+                        {% else %}
+
+                        <div class="sw-card-instructor-photo sw-instructor-fallback">
+                            {{ webinar.instructor.name|first|upper }}
+                        </div>
+
+                        {% endif %}
+
+
+                        
+            <div class="sw-card-instructor-content">
+
+                <h4>
+                    {{ webinar.instructor.name }}
+                </h4>
+
+                {% if webinar.instructor.designation %}
+
+                <span class="sw-card-designation">
+                    {{ webinar.instructor.designation }}
+                </span>
+
+                {% endif %}
+
+                {% if webinar.instructor.organization %}
+
+                <span class="sw-card-organization">
+                    <i class="fas fa-building"></i>
+                    {{ webinar.instructor.organization }}
+                </span>
+
+                {% endif %}
+
+            </div>
+
+
+                    </div>
+
+
+                    <!-- VERTICAL SEPARATOR -->
+                    <div class="sw-card-separator"></div>
+
+
+                    <!-- DATE / TIME / DURATION -->
+                    <div class="sw-card-meta">
+
+                        <div class="sw-card-meta-item">
+
+                            <i class="far fa-calendar-alt"></i>
+
+                            <span>
+                                {% timezone "America/New_York" %}
+                                {{ webinar.start_datetime|date:"D, M d, Y" }}
+                                {% endtimezone %}
+                            </span>
+
+                        </div>
+
+
+                        <div class="sw-card-meta-item">
+
+                            <i class="far fa-clock"></i>
+
+                            <span>
+                                {% timezone "America/Los_Angeles" %}
+                                {{ webinar.start_datetime|date:"h:i A T" }}
+                                {% endtimezone %}
+                                –
+                                {% timezone "America/New_York" %}
+                                {{ webinar.start_datetime|date:"h:i A T" }}
+                                {% endtimezone %}
+                            </span>
+
+                        </div>
+
+
+                        <div class="sw-card-meta-item">
+
+                            <i class="fas fa-hourglass-half"></i>
+
+                            <span>
+                                Duration:
+                                <strong>
+                                    {{ webinar.duration_minutes }} min
+                                </strong>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRICE AND ENROLL FOOTER -->
+                <div class="sw-card-footer">
+
+                    <!-- PRICE -->
+                    <div class="sw-card-price">
+
+                       
+
+                        <div class="sw-card-price-content">
+
+                            <span>Webinar Price</span>
+
+                            {% if webinar.pricing %}
+
+                            <strong>
+                                ${{ webinar.pricing.live_single_price }}
+                            </strong>
+
+                            {% else %}
+
+                            <strong>Contact Us</strong>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ENROLL BUTTON -->
+                    <a
+                        href="{% url 'live_webinars:detail' webinar.webinar_id webinar.slug %}"
+                        class="sw-card-enroll">
+
+                        Enroll Now
+
+                        <i class="fas fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <!-- VIEW ALL BUTTON -->
+        <div class="hp-upcoming-cta sw-card-view-all">
+
+            <a
+                href="{% url 'live_webinars:list' %}"
+                class="sw-view-all">
+
+                View All Live Webinars
+
+                <i class="fas fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+<!-- ==========================================
+     LEARNING PATHS SECTION
+========================================== -->
+
+<section class="pst-learning-paths">
+    <div class="container">
+
+        <!-- Section Heading -->
+        <div class="pst-paths-heading">
+
+            <span class="pst-section-label">
+                <span class="pst-label-line"></span>
+                Your Professional Development
+                <span class="pst-label-line"></span>
+            </span>
+
+            <h2>
+                Find the Right Path for
+                <span class="pst-heading-highlight">Your Growth</span>
+            </h2>
+
+            <p>
+                Explore flexible learning experiences designed to strengthen
+                your expertise, expand your knowledge, and support your career.
+            </p>
+
+        </div>
+
+
+        <!-- LEARNING PATH CARDS -->
+        <div class="pst-paths-grid pst-paths-grid-three">
+
+            <!-- CARD 1: LIVE WEBINARS -->
+            <article class="pst-path-card pst-card-live">
+
+                <span class="pst-path-number">01</span>
+
+                <div class="pst-path-icon">
+                    <i class="fas fa-broadcast-tower"></i>
+                </div>
+
+                <span class="pst-card-badge">
+                    <i class="fas fa-circle"></i>
+                    LIVE SESSIONS
+                </span>
+
+                <div class="pst-card-content">
+
+                    <h3>
+                        Live <span>Webinars</span>
+                    </h3>
+
+                    <p>
+                        Learn directly from industry experts through
+                        interactive live sessions and practical discussions.
+                    </p>
+
+                </div>
+
+                <div class="pst-card-visual pst-live-visual">
+                    <img
+                        src="{% static 'home/images/live webinar.png' %}"
+                        alt="Expert presenting a live webinar"
+                        loading="lazy"
+                    >
+                </div>
+
+                <a href="{% url 'live_webinars:list' %}"
+                   class="pst-path-link">
+                    Explore Live Webinars
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+
+            <!-- CARD 2: RECORDED WEBINARS -->
+            <article class="pst-path-card pst-card-recorded">
+
+                <span class="pst-path-number">02</span>
+
+                <div class="pst-path-icon">
+                    <i class="fas fa-play"></i>
+                </div>
+
+                <span class="pst-card-badge">
+                    <i class="fas fa-clock"></i>
+                    LEARN ANYTIME
+                </span>
+
+                <div class="pst-card-content">
+
+                    <h3>
+                        Recorded <span>Webinars</span>
+                    </h3>
+
+                    <p>
+                        Access expert-led webinar recordings and learn
+                        at your own pace, whenever it suits you.
+                    </p>
+
+                </div>
+
+                <div class="pst-card-visual pst-recorded-visual">
+                    <img
+                        src="{% static 'home/images/recorded webinar.png' %}"
+                        alt="Recorded webinar displayed on a laptop"
+                        loading="lazy"
+                    >
+                </div>
+
+                <a href="{% url 'live_webinars:list' %}"
+                   class="pst-path-link">
+                    Watch Recordings
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+
+            <!-- CARD 3: EXPERT SPEAKERS -->
+            <article class="pst-path-card pst-card-speakers">
+
+                <span class="pst-path-number">03</span>
+
+                <div class="pst-path-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+
+                <span class="pst-card-badge">
+                    <i class="fas fa-star"></i>
+                    INDUSTRY EXPERTS
+                </span>
+
+                <div class="pst-card-content">
+
+                    <h3>
+                        Expert <span>Speakers</span>
+                    </h3>
+
+                    <p>
+                        Learn from experienced industry speakers sharing
+                        practical insights and expertise.
+                    </p>
+
+                </div>
+
+                <div class="pst-card-visual pst-speakers-visual">
+                    <img
+                        src="{% static 'home/images/expert speakers.png' %}"
+                        alt="Professional industry speakers"
+                        loading="lazy"
+                    >
+                </div>
+
+                <a href="{% url 'live_webinars:list' %}"
+                   class="pst-path-link">
+                    Meet Our Speakers
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+        </div>
+
+
+        <!-- BOTTOM CTA -->
+        <div class="pst-paths-footer">
+
+            <div class="pst-footer-decoration"></div>
+
+            <div class="pst-footer-message">
+
+                <div class="pst-footer-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+
+                <p>
+                    Invest in your skills.
+                    <span>Move forward with confidence.</span>
+                </p>
+
+            </div>
+
+            <a href="{% url 'live_webinars:list' %}"
+               class="pst-paths-button">
+                Explore All Learning
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- WHY CHOOSE US -->
+<section class="pst-why-section" id="why-choose-us">
+    <div class="container">
+
+        <div class="pst-why-heading">
+            <span class="pst-why-label">
+                <span></span> WHY CHOOSE US
+            </span>
+
+            <h2>
+                Why Organizations Choose
+                <span>PeopleSkillTraining</span>
+            </h2>
+
+            <p>
+                Building safer, more inclusive workplaces through
+                expert-led training, practical learning, and
+                compliance-focused solutions.
+            </p>
+        </div>
+
+        <div class="pst-why-grid">
+
+            <!-- Card 1 -->
+            <div class="pst-why-card">
+                <div class="pst-why-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+
+                <span class="pst-why-number">01</span>
+
+                <h3>Expert-Led Training</h3>
+
+                <p>
+                    Learn from experienced professionals with practical
+                    knowledge in workplace safety, harassment prevention,
+                    and compliance.
+                </p>
+
+                <div class="pst-why-bottom">
+                    <i class="fas fa-check-circle"></i>
+                    Learn from industry experts
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="pst-why-card">
+                <div class="pst-why-icon">
+                    <i class="fas fa-laptop-file"></i>
+                </div>
+
+                <span class="pst-why-number">02</span>
+
+                <h3>Practical & Engaging Learning</h3>
+
+                <p>
+                    Interactive webinars and real-world scenarios help
+                    employees understand and apply what they learn.
+                </p>
+
+                <div class="pst-why-bottom">
+                    <i class="fas fa-check-circle"></i>
+                    Learn through real scenarios
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="pst-why-card">
+                <div class="pst-why-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+
+                <span class="pst-why-number">03</span>
+
+                <h3>Compliance-Focused Solutions</h3>
+
+                <p>
+                    Training designed to help organizations strengthen
+                    awareness and support workplace compliance.
+                </p>
+
+                <div class="pst-why-bottom">
+                    <i class="fas fa-check-circle"></i>
+                    Strengthen workplace awareness
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="pst-why-card">
+                <div class="pst-why-icon">
+                    <i class="fas fa-people-group"></i>
+                </div>
+
+                <span class="pst-why-number">04</span>
+
+                <h3>Inclusive Workplace Culture</h3>
+
+                <p>
+                    Encourage respect, equality, and accountability
+                    to create a positive work environment.
+                </p>
+
+                <div class="pst-why-bottom">
+                    <i class="fas fa-check-circle"></i>
+                    Build a culture of respect
+                </div>
+            </div>
+
+        </div>
+
+        <div class="pst-why-footer">
+            <div>
+                <h3>Ready to Build a Safer Workplace?</h3>
+                <p>Take the next step towards a more knowledgeable and inclusive workplace.</p>
+            </div>
+
+            <a href="{% url 'live_webinars:list' %}">
+                Explore Our Training
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'home/js/live-webinars.js' %}"></script>
+<script src="{% static 'home/js/hero-slider.js' %}"></script>
+
+<script>
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.querySelector(".sw-upcoming-grid");
+    const next = document.getElementById("swNextWebinar");
+    const prev = document.getElementById("swPrevWebinar");
+
+    if (!slider || !next || !prev) return;
+
+    let timer;
+    const delay = 3000;
+
+    function step() {
+        const card = slider.querySelector(".sw-webinar-card");
+        if (!card) return 0;
+
+        const gap = parseFloat(getComputedStyle(slider).gap) || 0;
+        return card.getBoundingClientRect().width + gap;
+    }
+
+    function nextSlide() {
+        const max = slider.scrollWidth - slider.clientWidth;
+
+        slider.scrollTo({
+            left: slider.scrollLeft >= max - 5
+                ? 0
+                : slider.scrollLeft + step(),
+            behavior: "smooth"
+        });
+    }
+
+    function previousSlide() {
+        const max = slider.scrollWidth - slider.clientWidth;
+
+        slider.scrollTo({
+            left: slider.scrollLeft <= 5
+                ? max
+                : slider.scrollLeft - step(),
+            behavior: "smooth"
+        });
+    }
+
+    function startAuto() {
+        clearInterval(timer);
+        timer = setInterval(nextSlide, delay);
+    }
+
+    function stopAuto() {
+        clearInterval(timer);
+    }
+
+    next.addEventListener("click", () => {
+        nextSlide();
+        startAuto();
+    });
+
+    prev.addEventListener("click", () => {
+        previousSlide();
+        startAuto();
+    });
+
+    slider.addEventListener("mouseenter", stopAuto);
+    slider.addEventListener("mouseleave", startAuto);
+
+    startAuto();
+});
+
+</script>
+{% endblock %}
