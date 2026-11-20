@@ -87,11 +87,23 @@
 
         <!-- MAIN CONTENT -->
         <main class="lw-main-content">
+         <!-- MOBILE FILTER BUTTON -->
+<button type="button"
+        class="lw-recorded-filter-toggle"
+        id="filterToggleBtn"
+        aria-expanded="false"
+        aria-controls="filterPanel">
+    <i class="fas fa-sliders"></i>
+    Filters
+    <i class="fas fa-chevron-down"></i>
+</button>
+            
+            <!-- SIDEBAR -->
 
-            <!-- TOOLBAR -->
-            <div class="lw-toolbar">
 
-                <div class="lw-results-info">
+                <div class="lw-toolbar">
+
+    <div class="lw-results-info">
                     <span class="lw-count">
                         {{ page_obj.paginator.count }}
                         Webinar{{ page_obj.paginator.count|pluralize }}
@@ -359,7 +371,15 @@
         </main>
 
         <!-- SIDEBAR -->
-        <aside class="lw-sidebar">
+        <!-- SIDEBAR -->
+        <aside class="lw-sidebar" id="filterPanel">
+
+            <button type="button"
+                    class="lw-recorded-filter-close"
+                    id="filterCloseBtn"
+                    aria-label="Close filters">
+                <i class="fas fa-times"></i>
+            </button>
 
             <!-- SEARCH -->
             <section class="lw-sidebar-section lw-search-section">

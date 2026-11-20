@@ -1804,3 +1804,138 @@
         display: none;
     }
 }
+
+/* ==========================================
+   LIVE WEBINARS - MATCH RECORDED CARD DESIGN
+========================================== */
+
+/* Desktop */
+.lw-page .webinar-item {
+    grid-template-columns: 178px minmax(0, 1fr);
+    gap: 26px;
+    padding: 20px;
+    border-radius: 22px;
+}
+
+.lw-page .webinar-visual {
+    height: 190px;
+    border-radius: 16px;
+}
+
+.lw-page .webinar-content {
+    gap: 12px;
+}
+
+.lw-page .webinar-date-line {
+    padding: 10px 15px;
+    font-size: 13px;
+}
+
+.lw-page .webinar-title {
+    font-size: clamp(18px, 2vw, 25px);
+    line-height: 1.35;
+}
+
+.lw-page .webinar-details {
+    gap: 13px 22px;
+}
+
+.lw-page .detail-item {
+    font-size: 13px;
+}
+
+.lw-page .instructor-avatar {
+    width: 29px;
+    height: 29px;
+}
+
+.lw-page .price-tag {
+    font-size: 16px;
+}
+
+.lw-page .enroll-btn {
+    min-height: 42px;
+    padding: 10px 17px;
+    font-size: 13px;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .lw-page .webinar-item {
+        grid-template-columns: 178px minmax(0, 1fr);
+        gap: 18px;
+        padding: 14px;
+    }
+
+    .lw-page .webinar-visual {
+        height: 140px;
+    }
+
+    .lw-page .webinar-title {
+        font-size: 18px;
+    }
+
+    .lw-page .detail-item {
+        font-size: 12px;
+    }
+}
+
+/* Mobile - Same as Recorded */
+@media (max-width: 650px) {
+    .lw-page .webinar-item {
+        grid-template-columns: 110px minmax(0, 1fr);
+        gap: 12px;
+        padding: 10px;
+        border-radius: 17px;
+    }
+
+    .lw-page .webinar-visual {
+        height: 115px;
+        border-radius: 12px;
+    }
+
+    .lw-page .webinar-content {
+        gap: 9px;
+        min-width: 0;
+    }
+
+    .lw-page .webinar-title {
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .lw-page .webinar-date-line {
+        padding: 7px 9px;
+        font-size: 10px;
+    }
+
+    .lw-page .webinar-details {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .lw-page .detail-item {
+        font-size: 11px;
+    }
+
+    .lw-page .instructor-avatar {
+        width: 23px;
+        height: 23px;
+    }
+
+    .lw-page .webinar-card-footer {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .lw-page .price-tag {
+        font-size: 14px;
+    }
+
+    .lw-page .enroll-btn {
+        min-height: 36px;
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+}

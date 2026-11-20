@@ -883,8 +883,292 @@
     }
 }
 
-@media (max-width: 480px) {
+
+/* ==========================================
+   RECORDED CARD - SAME AS LIVE WEBINARS
+========================================== */
+
+@media (max-width: 650px) {
+
+    .lw-recorded-page .lw-webinar-card {
+        grid-template-columns: 110px minmax(0, 1fr) !important;
+        gap: 12px !important;
+        padding: 10px !important;
+        border-radius: 17px !important;
+    }
+
     .lw-recorded-page .lw-card-image-wrap {
-        height: 190px !important;
+        width: 100% !important;
+        height: 115px !important;
+        border-radius: 12px !important;
+    }
+
+    .lw-recorded-page .lw-card-content {
+        gap: 9px !important;
+        min-width: 0;
+    }
+
+    .lw-recorded-page .lw-card-title {
+        font-size: 16px !important;
+        line-height: 1.35 !important;
+    }
+
+    .lw-recorded-page .lw-card-date {
+        padding: 7px 9px !important;
+        font-size: 10px !important;
+    }
+
+    .lw-recorded-page .lw-card-meta {
+        gap: 8px !important;
+        padding-bottom: 8px;
+    }
+
+    .lw-recorded-page .lw-meta-item {
+        font-size: 11px !important;
+    }
+
+    .lw-recorded-page .lw-instructor-avatar {
+        width: 23px !important;
+        height: 23px !important;
+    }
+
+    .lw-recorded-page .lw-card-footer {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .lw-recorded-page .lw-card-price {
+        font-size: 14px !important;
+    }
+
+    .lw-recorded-page .lw-enroll-btn {
+        min-height: 36px !important;
+        padding: 8px 10px !important;
+        font-size: 11px !important;
+    }
+}
+
+
+/* =========================================
+   RECORDED WEBINARS - RESPONSIVE FILTER DRAWER
+========================================= */
+
+.lw-recorded-filter-toggle,
+.lw-recorded-filter-close {
+    display: none;
+}
+
+@media (max-width: 1100px) {
+
+    .lw-recorded-page .lw-content-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .lw-recorded-filter-toggle {
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        margin-bottom: 16px;
+        padding: 12px 16px;
+        border: 1px solid var(--lw-green);
+        border-radius: 9px;
+        color: #fff;
+        background: var(--lw-green);
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .lw-recorded-filter-toggle:hover {
+        color: #fff;
+        background: var(--lw-dark);
+    }
+
+    .lw-recorded-page #filterPanel {
+        display: none;
+    }
+
+    .lw-recorded-page #filterPanel.active {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10000;
+        width: min(420px, 92vw);
+        height: 100vh;
+        height: 100dvh;
+        max-height: 100dvh;
+        margin: 0;
+        padding: 55px 18px 25px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        background: #fff;
+        box-shadow: -10px 0 35px rgba(0,0,0,.15);
+    }
+
+    .lw-recorded-page.filter-open::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(0,0,0,.55);
+    }
+
+    .lw-recorded-filter-close {
+        position: absolute;
+        top: 12px;
+        right: 14px;
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        border: none;
+        border-radius: 50%;
+        color: #fff;
+        background: var(--lw-green);
+        cursor: pointer;
+    }
+
+    body.lw-filter-lock {
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .lw-recorded-page .lw-content-layout {
+        padding: 22px 14px 45px;
+    }
+
+    .lw-recorded-page #filterPanel.active {
+        width: 94vw;
+        padding: 55px 14px 20px;
+    }
+}
+
+/* ==========================================
+   RECORDED HERO - MATCH LIVE WEBINARS
+========================================== */
+
+/* Desktop */
+.lw-recorded-page .lw-hero,
+.lw-recorded-page .lw-hero-inner {
+    min-height: 220px;
+}
+
+.lw-recorded-page .lw-hero-inner {
+    padding-top: 0;
+}
+
+.lw-recorded-page .lw-hero-content {
+    padding-bottom: 10px;
+}
+
+.lw-recorded-page .lw-hero-visual {
+    min-height: 220px;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .lw-recorded-page .lw-hero,
+    .lw-recorded-page .lw-hero-inner {
+        min-height: 200px;
+    }
+
+    .lw-recorded-page .lw-hero-visual {
+        min-height: 200px;
+    }
+}
+
+/* Compact Mobile - Same as Live */
+@media (max-width: 650px) {
+    .lw-recorded-page .lw-hero {
+        min-height: auto;
+        padding: 20px 14px 12px;
+    }
+
+    .lw-recorded-page .lw-hero-inner {
+        min-height: auto;
+        padding: 0;
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .lw-recorded-page .lw-hero-content {
+        padding: 0;
+        text-align: center;
+    }
+
+    .lw-recorded-page .lw-hero-badge {
+        padding: 6px 11px;
+        margin-bottom: 9px;
+        font-size: 11px;
+    }
+
+    .lw-recorded-page .lw-hero-live-dot {
+        width: 9px;
+        height: 9px;
+    }
+
+    .lw-recorded-page .lw-hero-title {
+        font-size: 27px;
+        line-height: 1.2;
+        letter-spacing: -.7px;
+        margin-bottom: 7px;
+    }
+
+    .lw-recorded-page .lw-hero-description {
+        font-size: 12px;
+        line-height: 1.45;
+    }
+
+    .lw-recorded-page .lw-hero-features {
+        justify-content: center;
+        margin-top: 12px;
+        gap: 8px 13px;
+    }
+
+    .lw-recorded-page .lw-hero-feature {
+        font-size: 10px;
+        gap: 6px;
+    }
+
+    .lw-recorded-page .lw-hero-feature i {
+        font-size: 14px;
+    }
+
+    .lw-recorded-page .lw-hero-visual {
+        min-height: 125px;
+        height: 125px;
+    }
+
+    .lw-recorded-page .lw-hero-instructor {
+        height: 145px;
+        max-width: 210px;
+    }
+
+    .lw-recorded-page .lw-hero-circle {
+        width: 165px;
+        height: 165px;
+        bottom: -75px;
+    }
+
+    .lw-recorded-page .lw-hero-session {
+        top: 8px;
+        right: 5px;
+        padding: 7px 9px;
+        font-size: 10px;
+    }
+
+    .lw-recorded-page .lw-hero-session i {
+        font-size: 14px;
+    }
+
+    .lw-recorded-page .lw-hero-play,
+    .lw-recorded-page .lw-hero-dots {
+        display: none;
     }
 }

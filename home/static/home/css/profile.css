@@ -266,3 +266,39 @@
 .sidebar-link.active i {
     color: #ffffff !important;
 }
+
+/* EDIT PROFILE & PASSWORD - GREEN THEME */
+
+.card-header h2 {
+    color: #064b35 !important;
+}
+
+.card-header h2 i {
+    color: #087a50 !important;
+}
+
+.content-card {
+    border-color: #dcece2;
+}
+
+.card-header {
+    border-color: #dcece2;
+}
+
+.form-control:focus {
+    border-color: #087a50 !important;
+    box-shadow: 0 0 0 0.2rem rgba(8, 122, 80, 0.1) !important;
+    outline: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #087a50, #064b35) !important;
+    border-color: #087a50 !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover {
+    background: #064b35 !important;
+    border-color: #064b35 !important;
+    box-shadow: 0 4px 12px rgba(8, 122, 80, 0.3) !important;
+}

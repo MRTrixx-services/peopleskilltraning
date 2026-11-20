@@ -1430,3 +1430,42 @@
     }
 
 }
+
+/* MOBILE SECTION REORDER */
+@media screen and (max-width: 600px) {
+
+    .live-detail-page.ldp-page .ldp-main-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 22px !important;
+    }
+
+    .live-detail-page.ldp-page .ldp-left {
+        display: contents !important;
+    }
+
+    .live-detail-page.ldp-page .ldp-intro {
+        order: 1 !important;
+        width: 100% !important;
+    }
+
+    .live-detail-page.ldp-page .ldp-right {
+        order: 2 !important;
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .live-detail-page.ldp-page .ldp-details-section {
+        order: 3 !important;
+        width: 100% !important;
+        margin-top: 0 !important;
+    }
+
+    .live-detail-page.ldp-page .ldp-instructor-section {
+        order: 4 !important;
+        width: 100% !important;
+        margin-top: 0 !important;
+    }
+}

@@ -1168,3 +1168,39 @@
     }
 
 }
+/* =========================================
+   MOBILE: RECORDED DETAILS PAGE ORDER
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+    .recorded-detail-page .ldp-main-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 22px !important;
+    }
+
+    .recorded-detail-page .ldp-left {
+        display: contents !important;
+    }
+
+    .recorded-detail-page .ldp-intro {
+        order: 1 !important;
+    }
+
+    .recorded-detail-page .ldp-right {
+        order: 2 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        position: static !important;
+    }
+
+    .recorded-detail-page .ldp-details-section {
+        order: 3 !important;
+    }
+
+    .recorded-detail-page .ldp-instructor-section {
+        order: 4 !important;
+    }
+}
