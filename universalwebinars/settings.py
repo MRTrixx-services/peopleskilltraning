@@ -37,8 +37,8 @@ ALLOWED_HOSTS = [
 
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://peopleskilltraning.com",
-    "https://www.peopleskilltraing.com",
+    "https://peopleskilltraining.com",
+    "https://www.peopleskilltraining.com",
 ]
 
 
@@ -348,7 +348,7 @@ else:
     CSRF_COOKIE_SECURE = True
     CSRF_COOKIE_HTTPONLY = False
     CSRF_COOKIE_SAMESITE = "Lax"
-    CSRF_COOKIE_DOMAIN = ".propleskilltraning.com"
+    CSRF_COOKIE_DOMAIN = ".peopleskilltraining.com"
 
     # HTTPS is enforced by Nginx/Cloudflare.
     # Keep Django redirect disabled to avoid proxy redirect loops.
