@@ -146,6 +146,18 @@
                         {% endif %}
                     </div>
 
+                    <button
+                        type="button"
+                        class="lw-mobile-filter-btn"
+                        id="lwMobileFilterToggle"
+                        aria-expanded="false"
+                        aria-controls="lwFilterSection"
+                    >
+                        <i class="fas fa-sliders"></i>
+                        Filters
+                        <i class="fas fa-chevron-down filter-chevron"></i>
+                    </button>
+
                     <div class="lw-toolbar-center">
 
                         {% if page_obj.has_previous %}
@@ -512,19 +524,19 @@
                 </section>
 
                 <!-- FILTERS -->
-                <section class="lw-sidebar-section">
+                <section class="lw-sidebar-section lw-filter-section" id="lwFilterSection">
+    <h2 class="lw-sidebar-heading related-heading">
+        FILTER WEBINARS
+    </h2>
 
-                    <h2 class="lw-sidebar-heading related-heading">
-                        RELATED POSTS
-                    </h2>
-
-                    <!-- Compatibility with existing page JavaScript -->
-                    <button
-                        type="button"
-                        id="filterToggleBtn"
-                        hidden
-                        aria-hidden="true"
-                    ></button>
+    <button
+        type="button"
+        class="lw-filter-close"
+        id="lwFilterClose"
+        aria-label="Close filters"
+    >
+        <i class="fas fa-times"></i>
+    </button>
 
                     <form
                         method="get"
@@ -714,12 +726,7 @@
                                 Reset
                             </a>
 
-                            <button
-                                type="submit"
-                                class="lw-filter-apply"
-                            >
-                                Apply Filters
-                            </button>
+                            
 
                         </div>
 
@@ -781,6 +788,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setupAllCheckbox('category_all', 'category');
     setupAllCheckbox('instructor_all', 'instructor');
+
+    // Automatically apply filters when an option changes
+    const filterForm = document.getElementById('filterForm');
+
+    if (filterForm) {
+        filterForm.querySelectorAll(
+            'input[name="category"], input[name="instructor"], input[name="month"]'
+        ).forEach(input => {
+            input.addEventListener('change', function () {
+                filterForm.requestSubmit();
+            });
+        });
+    }
 
 
     // Sidebar filter sections collapse independently.

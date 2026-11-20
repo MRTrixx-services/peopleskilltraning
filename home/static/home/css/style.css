@@ -2661,3 +2661,738 @@ h1, h2, h3, h4, h5, h6 {
         transition: none;
     }
 }
+
+
+/* ==========================================================
+   PEOPLE SKILL TRAINING - FINAL RESPONSIVE FIX
+   Desktop | Laptop | Tablet | Mobile
+   Add this block at the END of style.css
+========================================================== */
+
+/* GLOBAL RESPONSIVE SAFETY */
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.hp-features *,
+.hp-upcoming *,
+.sw-features *,
+.sw-topics *,
+.sw-hero *,
+.pst-learning-paths *,
+.pst-why-section * {
+    box-sizing: border-box;
+}
+
+/* ==========================================================
+   HERO SECTION
+========================================================== */
+
+.sw-hero {
+    width: 100%;
+    overflow: hidden;
+}
+
+.sw-hero-container {
+    width: 100%;
+    min-width: 0;
+}
+
+.sw-hero-content {
+    min-width: 0;
+}
+
+.sw-hero-title {
+    overflow-wrap: break-word;
+}
+
+.sw-hero-description {
+    overflow-wrap: anywhere;
+}
+
+.sw-hero-visual {
+    min-width: 0;
+}
+
+.sw-hero-girl {
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+}
+
+.sw-hero-buttons a {
+    max-width: 100%;
+}
+
+/* ==========================================================
+   FEATURES STRIP
+========================================================== */
+
+.sw-features-grid {
+    width: 100%;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+.sw-feature-item {
+    min-width: 0;
+}
+
+.sw-feature-content {
+    min-width: 0;
+}
+
+.sw-feature-content h5,
+.sw-feature-content p {
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================================
+   TRAINING TOPICS
+========================================================== */
+
+.sw-topics-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.sw-topic-card {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================================
+   UPCOMING WEBINARS
+========================================================== */
+
+.sw-upcoming {
+    width: 100%;
+    min-width: 0;
+}
+
+.sw-upcoming-grid {
+    width: 100%;
+    min-width: 0;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+}
+
+.sw-webinar-card {
+    min-width: 0;
+    flex: 0 0 560px;
+    max-width: 560px;
+    height: auto;
+    scroll-snap-align: start;
+}
+
+.sw-card-header {
+    height: auto !important;
+    min-height: 145px !important;
+    max-height: none !important;
+    overflow: hidden;
+}
+
+.sw-card-title {
+    max-width: calc(100% - 92px);
+    overflow-wrap: anywhere;
+}
+
+.sw-card-information {
+    min-width: 0;
+}
+
+.sw-card-instructor,
+.sw-card-meta {
+    min-width: 0;
+}
+
+.sw-card-footer {
+    min-width: 0;
+}
+
+.sw-card-price-content,
+.sw-card-enroll {
+    min-width: 0;
+}
+
+/* ==========================================================
+   LEARNING PATHS
+========================================================== */
+
+.pst-learning-paths {
+    width: 100%;
+    overflow: hidden;
+}
+
+.pst-paths-grid-three {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pst-paths-grid-three .pst-path-card {
+    min-width: 0;
+    height: auto;
+}
+
+.pst-path-card h3,
+.pst-path-card p {
+    overflow-wrap: anywhere;
+}
+
+.pst-card-visual {
+    min-width: 0;
+}
+
+.pst-card-visual img {
+    max-width: 100%;
+}
+
+.pst-paths-footer {
+    min-width: 0;
+}
+
+.pst-footer-message {
+    min-width: 0;
+}
+
+/* ==========================================================
+   WHY CHOOSE US
+========================================================== */
+
+.pst-why-section {
+    width: 100%;
+}
+
+.pst-why-grid {
+    width: 100%;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.pst-why-card {
+    min-width: 0;
+    height: auto;
+}
+
+.pst-why-card h3,
+.pst-why-card p {
+    overflow-wrap: anywhere;
+}
+
+.pst-why-footer {
+    min-width: 0;
+}
+
+/* ==========================================================
+   LAPTOP - 1200px
+========================================================== */
+
+@media (max-width: 1200px) {
+
+    .sw-webinar-card {
+        flex-basis: 480px;
+        max-width: 480px;
+    }
+
+    .pst-paths-grid-three {
+        gap: 18px;
+    }
+
+    .pst-paths-grid-three .pst-path-card {
+        padding: 24px;
+    }
+
+    .pst-why-grid {
+        gap: 16px;
+    }
+
+}
+
+/* ==========================================================
+   TABLET - 992px
+========================================================== */
+
+@media (max-width: 991px) {
+
+    /* HERO */
+
+    .sw-hero-container {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .sw-hero-content {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .sw-hero-title,
+    .sw-hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sw-hero-buttons,
+    .sw-hero-benefits {
+        justify-content: center;
+    }
+
+    .sw-hero-visual {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* FEATURES */
+
+    .sw-features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .sw-feature-item {
+        justify-content: flex-start;
+    }
+
+    .sw-feature-item:nth-child(2) {
+        border-right: none !important;
+    }
+
+    .sw-feature-item:nth-child(3),
+    .sw-feature-item:nth-child(4) {
+        border-top: 1px solid #edf1ee;
+    }
+
+    /* TOPICS */
+
+    .sw-topics-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    /* WEBINARS */
+
+    .sw-webinar-card {
+        flex-basis: 440px;
+        max-width: 440px;
+    }
+
+    /* LEARNING PATHS */
+
+    .pst-learning-paths {
+        padding: 55px 0;
+    }
+
+    .pst-paths-grid-three {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pst-paths-grid-three .pst-path-card {
+        min-height: 420px;
+    }
+
+    /* WHY CHOOSE US */
+
+    .pst-why-section {
+        padding: 55px 0;
+    }
+
+    .pst-why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+/* ==========================================================
+   MOBILE - 767px
+========================================================== */
+
+@media (max-width: 767px) {
+
+    /* HERO */
+
+    .sw-hero-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .sw-hero-content {
+        padding: 40px 0 10px;
+    }
+
+    .sw-hero-title {
+        font-size: clamp(29px, 7vw, 38px);
+        line-height: 1.2;
+        letter-spacing: -0.8px;
+    }
+
+    .sw-hero-description {
+        font-size: 14px;
+    }
+
+    .sw-hero-buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .sw-btn-primary,
+    .sw-btn-outline {
+        width: 100%;
+    }
+
+    .sw-hero-benefits {
+        gap: 12px;
+    }
+
+    .sw-hero-visual {
+        min-height: 310px;
+    }
+
+    .sw-hero-girl {
+        width: 100%;
+        max-height: 330px;
+    }
+
+    .sw-live-card {
+        left: 0;
+        top: 15px;
+        width: 150px;
+    }
+
+    /* TOPICS */
+
+    .sw-topics-header h2 {
+        font-size: 19px;
+    }
+
+    .sw-topics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    /* WEBINARS */
+
+    .sw-upcoming {
+        padding: 35px 0 !important;
+    }
+
+    .sw-upcoming-header {
+        margin-bottom: 25px;
+        padding: 0 12px;
+    }
+
+    .sw-upcoming-header h2 {
+        font-size: clamp(25px, 6vw, 32px);
+        line-height: 1.25;
+    }
+
+    .sw-upcoming-header p {
+        font-size: 13px;
+    }
+
+    .sw-upcoming-grid {
+        gap: 14px !important;
+        padding: 10px 16px 22px;
+    }
+
+    .sw-webinar-card {
+        flex: 0 0 calc(100vw - 48px);
+        max-width: calc(100vw - 48px);
+    }
+
+    .sw-card-header {
+        min-height: 145px !important;
+        padding: 14px 15px 10px !important;
+    }
+
+    .sw-card-title {
+        font-size: 15px !important;
+    }
+
+    .sw-card-information {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .sw-card-instructor {
+        align-items: center;
+    }
+
+    .sw-card-instructor-photo {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+    }
+
+    .sw-card-separator {
+        width: 100%;
+        height: 1px;
+    }
+
+    .sw-card-meta {
+        gap: 10px !important;
+    }
+
+    .sw-card-meta-item {
+        font-size: 12px !important;
+    }
+
+    .sw-card-footer {
+        min-height: 75px;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .sw-card-price-content strong {
+        font-size: 19px;
+    }
+
+    .sw-card-enroll {
+        min-height: 40px;
+        padding: 0 12px;
+        font-size: 11px;
+    }
+
+    .sw-card-view-all {
+        margin-top: 22px !important;
+    }
+
+    /* LEARNING PATHS */
+
+    .pst-learning-paths {
+        padding: 40px 0;
+    }
+
+    .pst-paths-heading {
+        margin-bottom: 30px;
+        padding: 0 12px;
+    }
+
+    .pst-paths-heading h2 {
+        font-size: 30px;
+    }
+
+    .pst-paths-heading p {
+        font-size: 13px;
+    }
+
+    .pst-paths-grid-three {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .pst-paths-grid-three .pst-path-card {
+        min-height: 0;
+        padding: 24px;
+    }
+
+    .pst-card-visual {
+        height: 175px;
+    }
+
+    .pst-paths-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 22px;
+    }
+
+    .pst-paths-button {
+        width: 100%;
+    }
+
+    /* WHY CHOOSE US */
+
+    .pst-why-section {
+        padding: 40px 0;
+    }
+
+    .pst-why-heading {
+        margin-bottom: 30px;
+        padding: 0 12px;
+    }
+
+    .pst-why-heading h2 {
+        font-size: 30px;
+    }
+
+    .pst-why-heading p {
+        font-size: 13px;
+    }
+
+    .pst-why-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .pst-why-card {
+        min-height: 0;
+        padding: 25px 22px;
+    }
+
+    .pst-why-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        margin-top: 28px;
+        padding: 24px 22px;
+    }
+
+    .pst-why-footer a {
+        width: 100%;
+    }
+
+}
+
+/* ==========================================================
+   SMALL MOBILE - 575px
+========================================================== */
+
+@media (max-width: 575px) {
+
+    .sw-features {
+        padding: 10px 0 !important;
+    }
+
+    .sw-features-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .sw-feature-item {
+        padding: 12px 8px !important;
+        border-right: none !important;
+        border-bottom: 1px solid #edf1ee !important;
+        border-top: none !important;
+    }
+
+    .sw-feature-item:last-child {
+        border-bottom: none !important;
+    }
+
+    .sw-feature-content h5 {
+        font-size: 12px;
+    }
+
+    .sw-feature-content p {
+        font-size: 10px;
+    }
+
+    .sw-upcoming-badge {
+        font-size: 11px;
+        padding: 7px 14px;
+    }
+
+    .sw-card-price > i {
+        font-size: 20px;
+    }
+
+    .sw-card-enroll {
+        gap: 5px;
+        padding: 0 9px;
+    }
+
+    .pst-paths-heading h2,
+    .pst-why-heading h2 {
+        font-size: 27px;
+    }
+
+}
+
+/* ==========================================================
+   EXTRA SMALL MOBILE - 420px
+========================================================== */
+
+@media (max-width: 420px) {
+
+    .sw-hero-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .sw-hero-title {
+        font-size: 29px;
+    }
+
+    .sw-hero-visual {
+        min-height: 270px;
+    }
+
+    .sw-hero-girl {
+        max-height: 290px;
+    }
+
+    .sw-live-card {
+        width: 135px;
+        padding: 9px;
+    }
+
+    .sw-benefit {
+        font-size: 10px;
+    }
+
+    .sw-webinar-card {
+        flex-basis: calc(100vw - 36px);
+        max-width: calc(100vw - 36px);
+    }
+
+    .sw-card-title {
+        font-size: 14px !important;
+    }
+
+    .sw-card-footer {
+        flex-wrap: wrap;
+    }
+
+    .sw-card-price-content strong {
+        font-size: 17px;
+    }
+
+    .sw-card-enroll {
+        font-size: 10px;
+    }
+
+    .pst-paths-grid-three .pst-path-card {
+        padding: 20px;
+    }
+
+    .pst-why-card {
+        padding: 22px 19px;
+    }
+
+}
+
+/* ==========================================================
+   ACCESSIBILITY
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .sw-hero *,
+    .sw-features *,
+    .sw-topic-card,
+    .sw-webinar-card,
+    .pst-path-card,
+    .pst-why-card,
+    .pst-card-visual img {
+        animation: none !important;
+        transition: none !important;
+    }
+
+}

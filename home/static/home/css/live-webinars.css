@@ -1596,3 +1596,243 @@
         height: 115px;
     }
 }
+
+/* ==========================================
+   RESPONSIVE FILTER DRAWER
+========================================== */
+
+/* Desktop: Filters always visible */
+.lw-mobile-filter-btn,
+.lw-filter-close {
+    display: none;
+}
+
+/* Filter button styling */
+.lw-mobile-filter-btn {
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 10px 16px;
+    border: 1px solid var(--lw-green);
+    border-radius: 9px;
+    background: var(--lw-green);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.lw-mobile-filter-btn:hover {
+    background: var(--lw-dark);
+}
+
+.lw-mobile-filter-btn .filter-chevron {
+    transition: transform .25s ease;
+}
+
+.lw-mobile-filter-btn[aria-expanded="true"] .filter-chevron {
+    transform: rotate(180deg);
+}
+
+/* Small laptop, tablet and mobile */
+@media (max-width: 1100px) {
+
+    .lw-mobile-filter-btn {
+        display: inline-flex;
+    }
+
+    /* Hide filter section until opened */
+    .lw-filter-section {
+        display: none !important;
+    }
+
+    /* Backdrop */
+    .lw-page.lw-filter-open::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 9998;
+        background: rgba(0, 0, 0, .55);
+        backdrop-filter: blur(2px);
+    }
+
+    /* Drawer */
+    .lw-page.lw-filter-open {
+        overflow: visible;
+    }
+
+    .lw-page.lw-filter-open .lw-filter-section {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+
+        width: min(420px, 92vw);
+        height: 100vh;
+        height: 100dvh;
+        max-height: 100dvh;
+
+        margin: 0;
+        padding: 28px 20px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+
+        background: #fff;
+        box-shadow: -10px 0 35px rgba(0, 0, 0, .15);
+
+        animation: lwFilterSlideIn .3s ease;
+    }
+
+    .lw-filter-section .related-heading {
+        margin: 0 45px 20px 0;
+        font-size: 20px;
+    }
+
+    /* Close button */
+    .lw-filter-close {
+        position: absolute;
+        top: 20px;
+        right: 18px;
+
+        width: 36px;
+        height: 36px;
+
+        display: grid;
+        place-items: center;
+
+        border: none;
+        border-radius: 50%;
+
+        color: #fff;
+        background: var(--lw-green);
+
+        font-size: 17px;
+        cursor: pointer;
+    }
+
+    .lw-filter-close:hover {
+        background: var(--lw-dark);
+    }
+
+    .lw-filter-section .lw-sidebar-filters {
+        width: 100%;
+    }
+
+    body.lw-filter-lock {
+        overflow: hidden;
+    }
+}
+
+@keyframes lwFilterSlideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+
+    .lw-mobile-filter-btn {
+        width: 100%;
+    }
+
+    .lw-page.lw-filter-open .lw-filter-section {
+        width: 94vw;
+        padding: 24px 16px;
+    }
+}
+
+/* COMPACT MOBILE HERO */
+@media (max-width: 650px) {
+
+    .lw-hero {
+        min-height: auto;
+        padding: 20px 14px 12px;
+    }
+
+    .lw-hero-inner {
+        min-height: auto;
+        padding: 0;
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .lw-hero-content {
+        padding: 0;
+    }
+
+    .lw-hero-badge {
+        padding: 6px 11px;
+        margin-bottom: 9px;
+        font-size: 11px;
+    }
+
+    .lw-hero-live-dot {
+        width: 9px;
+        height: 9px;
+    }
+
+    .lw-hero-title {
+        font-size: 27px;
+        line-height: 1.2;
+        letter-spacing: -.7px;
+        margin-bottom: 7px;
+    }
+
+    .lw-hero-description {
+        font-size: 12px;
+        line-height: 1.45;
+        max-width: 100%;
+    }
+
+    .lw-hero-features {
+        margin-top: 12px;
+        gap: 8px 13px;
+    }
+
+    .lw-hero-feature {
+        font-size: 10px;
+        gap: 6px;
+    }
+
+    .lw-hero-feature i {
+        font-size: 14px;
+    }
+
+    .lw-hero-visual {
+        min-height: 125px;
+        height: 125px;
+    }
+
+    .lw-hero-instructor {
+        height: 145px;
+        max-width: 210px;
+    }
+
+    .lw-hero-circle {
+        width: 165px;
+        height: 165px;
+        bottom: -75px;
+    }
+
+    .lw-hero-session {
+        top: 8px;
+        right: 5px;
+        padding: 7px 9px;
+        font-size: 10px;
+    }
+
+    .lw-hero-session i {
+        font-size: 14px;
+    }
+
+    .lw-hero-play,
+    .lw-hero-dots {
+        display: none;
+    }
+}
