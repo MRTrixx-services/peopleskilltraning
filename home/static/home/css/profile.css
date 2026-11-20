@@ -243,3 +243,26 @@
         flex-direction: column;
     }
 }
+
+/* PROFILE SIDEBAR - GREEN THEME */
+
+.sidebar-link:hover {
+    background: #eaf7f0 !important;
+    color: #087a50 !important;
+    border-color: #dcece2 !important;
+}
+
+.sidebar-link:hover i {
+    color: #087a50 !important;
+}
+
+.sidebar-link.active {
+    background: linear-gradient(135deg, #087a50, #064b35) !important;
+    color: #ffffff !important;
+    border-color: #087a50 !important;
+    box-shadow: 0 4px 12px rgba(8, 122, 80, 0.3) !important;
+}
+
+.sidebar-link.active i {
+    color: #ffffff !important;
+}
