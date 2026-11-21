@@ -905,3 +905,271 @@
     }
 
 }
+
+
+/* ==========================================
+   PEOPLE SKILL LOGIN - RESPONSIVE FINAL FIX
+========================================== */
+
+/* Tablet */
+@media (max-width: 900px) {
+
+    .webinar-login-page {
+        min-height: auto;
+        padding: 24px 18px;
+    }
+
+    .webinar-login-wrapper {
+        width: 100%;
+        max-width: 650px;
+        min-height: 0;
+        height: auto;
+
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .webinar-visual {
+        width: 100%;
+        min-height: 250px;
+        height: 250px;
+    }
+
+    .webinar-visual .webinar-laptop {
+        width: 75%;
+        max-width: 350px;
+        max-height: 230px;
+    }
+
+    .webinar-login-panel {
+        width: 100%;
+        padding: 35px 45px;
+    }
+
+    .login-brand {
+        margin-bottom: 22px;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 650px) {
+
+    .webinar-login-page {
+        width: 100%;
+        min-height: auto;
+        padding: 12px 10px;
+    }
+
+    .webinar-login-wrapper {
+        width: 100%;
+        max-width: 430px;
+        min-height: 0;
+        height: auto;
+
+        grid-template-columns: minmax(0, 1fr);
+        border-radius: 16px;
+    }
+
+    .webinar-visual {
+        min-height: 185px;
+        height: 185px;
+    }
+
+    .webinar-visual .webinar-laptop {
+        width: 75%;
+        max-width: 260px;
+        max-height: 175px;
+    }
+
+    .laptop-orbit {
+        width: 85%;
+        height: 55%;
+    }
+
+    .orbit-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+        border-radius: 9px;
+    }
+
+    .chart-icon {
+        top: 12%;
+        left: 8%;
+    }
+
+    .users-icon {
+        top: 48%;
+        left: 5%;
+    }
+
+    .cap-icon {
+        top: 12%;
+        right: 8%;
+    }
+
+    .calendar-icon {
+        top: 58%;
+        right: 5%;
+    }
+
+    .webinar-login-panel {
+        width: 100%;
+        padding: 27px 20px;
+    }
+
+    .login-brand {
+        gap: 9px;
+        margin-bottom: 22px;
+    }
+
+    .brand-logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .login-brand strong {
+        font-size: 19px;
+    }
+
+    .login-heading {
+        margin-bottom: 22px;
+    }
+
+    .login-heading h2 {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    .login-heading p {
+        font-size: 12px;
+    }
+
+    .webinar-input-group {
+        margin-bottom: 16px;
+    }
+
+    .webinar-input-group label {
+        font-size: 12px;
+    }
+
+    .webinar-input {
+        width: 100%;
+        height: 47px;
+        padding: 0 12px;
+        gap: 10px;
+    }
+
+    .webinar-input input {
+        min-width: 0;
+        font-size: 13px;
+    }
+
+    .webinar-form-options {
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 5px 0 20px;
+    }
+
+    .remember-option {
+        font-size: 11px;
+    }
+
+    .webinar-form-options a {
+        font-size: 11px;
+    }
+
+    .login-action-buttons {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 11px;
+        margin-top: 8px;
+    }
+
+    .login-action-buttons .webinar-login-btn,
+    .login-action-buttons .create-account-btn {
+        width: 100%;
+        height: 47px;
+        font-size: 13px;
+    }
+
+    .login-security {
+        margin-top: 22px;
+        font-size: 11px;
+    }
+
+    .login-alert {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+
+/* Small Mobile */
+@media (max-width: 380px) {
+
+    .webinar-login-page {
+        padding: 8px;
+    }
+
+    .webinar-login-panel {
+        padding: 23px 15px;
+    }
+
+    .webinar-visual {
+        min-height: 160px;
+        height: 160px;
+    }
+
+    .webinar-visual .webinar-laptop {
+        max-height: 150px;
+    }
+
+    .login-brand strong {
+        font-size: 17px;
+    }
+
+    .login-heading h2 {
+        font-size: 22px;
+    }
+
+    .webinar-form-options {
+        align-items: flex-start;
+    }
+
+    .remember-option,
+    .webinar-form-options a {
+        font-size: 10px;
+    }
+}
+
+
+/* Prevent horizontal overflow */
+.webinar-login-page,
+.webinar-login-wrapper,
+.webinar-login-panel,
+.webinar-form,
+.webinar-input-group {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    .webinar-login-wrapper,
+    .webinar-laptop,
+    .webinar-visual::before,
+    .laptop-orbit,
+    .orbit-icon,
+    .laptop-glow,
+    .login-brand,
+    .brand-logo,
+    .login-heading,
+    .webinar-form,
+    .login-security,
+    .login-security i {
+        animation: none !important;
+        transition: none !important;
+    }
+}

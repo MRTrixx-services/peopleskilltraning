@@ -1486,3 +1486,231 @@
         grid-template-columns: 1fr;
     }
 }
+
+
+/* ==========================================
+   REGISTER PAGE - RESPONSIVE FINAL FIX
+========================================== */
+
+/* Tablet */
+@media (max-width: 1050px) {
+
+    .webinar-register-page {
+        min-height: auto;
+        padding: 24px 18px;
+    }
+
+    .webinar-register-wrapper {
+        width: 100%;
+        max-width: 850px !important;
+        height: auto !important;
+        min-height: 0 !important;
+
+        grid-template-columns: 1fr;
+        margin: 0 auto;
+    }
+
+    .register-visual {
+        width: 100%;
+        min-height: 230px;
+    }
+
+    .register-illustration {
+        width: 100%;
+        max-width: 340px;
+        max-height: 230px;
+        padding: 10px;
+    }
+
+    .register-form-panel {
+        width: 100%;
+        height: auto !important;
+        max-height: none !important;
+
+        padding: 30px 35px;
+
+        overflow: visible !important;
+    }
+
+    .register-fields-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 650px) {
+
+    .webinar-register-page {
+        width: 100%;
+        min-height: auto;
+        padding: 12px 10px;
+    }
+
+    .webinar-register-wrapper {
+        width: 100%;
+        height: auto !important;
+        min-height: 0 !important;
+
+        grid-template-columns: minmax(0, 1fr);
+        border-radius: 16px;
+    }
+
+    .register-visual {
+        min-height: 170px;
+    }
+
+    .register-illustration {
+        width: 100%;
+        max-width: 250px;
+        max-height: 170px;
+        padding: 8px;
+    }
+
+    .register-floating-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
+        border-radius: 9px;
+    }
+
+    .register-form-panel {
+        width: 100%;
+        height: auto !important;
+        max-height: none !important;
+
+        padding: 25px 18px;
+
+        overflow: visible !important;
+    }
+
+    .register-brand {
+        gap: 9px;
+        margin-bottom: 14px;
+    }
+
+    .register-brand-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .register-brand h2 {
+        font-size: 18px;
+    }
+
+    .register-heading {
+        margin-bottom: 22px;
+    }
+
+    .register-heading h1 {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    .register-heading p {
+        font-size: 12px;
+    }
+
+    .register-fields-grid {
+        grid-template-columns: minmax(0, 1fr);
+        column-gap: 0;
+        row-gap: 15px;
+    }
+
+    .register-field {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .register-label {
+        font-size: 12px;
+        margin-bottom: 7px;
+    }
+
+    .register-input,
+    .country-input,
+    .phone-input {
+        width: 100%;
+        height: 46px !important;
+        min-height: 46px !important;
+    }
+
+    .register-input input,
+    .phone-input .iti input {
+        font-size: 13px !important;
+    }
+
+    .country-input .select2-container,
+    .country-input .select2-selection--single {
+        height: 44px !important;
+    }
+
+    .register-terms {
+        align-items: flex-start;
+        gap: 9px;
+        margin: 20px 0 16px;
+    }
+
+    .register-terms input {
+        margin-top: 2px;
+    }
+
+    .register-terms label {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+    .register-action-buttons {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 16px;
+    }
+
+    .register-submit-btn,
+    .register-signin-btn {
+        width: 100%;
+        height: 47px;
+        font-size: 13px;
+    }
+}
+
+
+/* Small Mobile */
+@media (max-width: 380px) {
+
+    .webinar-register-page {
+        padding: 8px;
+    }
+
+    .register-form-panel {
+        padding: 22px 14px;
+    }
+
+    .register-heading h1 {
+        font-size: 21px;
+    }
+
+    .register-heading p {
+        font-size: 11px;
+    }
+
+    .register-brand h2 {
+        font-size: 16px;
+    }
+
+    .register-terms label {
+        font-size: 10px;
+    }
+}
+
+
+/* Prevent horizontal overflow */
+.webinar-register-page,
+.webinar-register-wrapper,
+.register-form-panel,
+.register-fields-grid,
+.register-field {
+    min-width: 0;
+    box-sizing: border-box;
+}
