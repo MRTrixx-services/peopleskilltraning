@@ -14,13 +14,17 @@ from rest_framework.response import Response
 from integrations.services import create_zoom_meeting_for_webinar
 
 
+
 def live_webinar_list(request):
     now = timezone.now()
 
+    # Per Page
     per_page = request.GET.get("per_page", 12)
     try:
         per_page = int(per_page)
-    except ValueError:
+        if per_page < 1:
+            per_page = 12
+    except (ValueError, TypeError):
         per_page = 12
 
     webinars = (
@@ -34,34 +38,59 @@ def live_webinar_list(request):
         .order_by("-is_test", "start_datetime")
     )
 
-    search_query = request.GET.get("search")
+    # Search Filter
+    search_query = request.GET.get("search", "").strip()
+
     if search_query:
         webinars = webinars.filter(
             Q(title__icontains=search_query) |
             Q(instructor__name__icontains=search_query)
         )
 
+    # Category Filter
     category_ids = request.GET.getlist("category")
+    category_ids = [
+        value for value in category_ids
+        if value.isdigit()
+    ]
+
     if category_ids:
         webinars = webinars.filter(category_id__in=category_ids)
 
+    # Instructor Filter
     instructor_ids = request.GET.getlist("instructor")
+    instructor_ids = [
+        value for value in instructor_ids
+        if value.isdigit()
+    ]
+
     if instructor_ids:
         webinars = webinars.filter(instructor_id__in=instructor_ids)
 
-    month = request.GET.get("month")
+    # Month Filter
+    month = request.GET.get("month", "").strip()
+
     if month:
         try:
-            webinars = webinars.filter(start_datetime__month=int(month))
-        except ValueError:
+            month_number = int(month)
+
+            if 1 <= month_number <= 12:
+                webinars = webinars.filter(
+                    start_datetime__month=month_number
+                )
+        except (ValueError, TypeError):
             pass
 
+    # Cache Webinar IDs
     query_string = request.GET.urlencode()
     cache_key = f"live_webinars_ids:{query_string}"
+
     webinar_ids = cache.get(cache_key)
 
     if webinar_ids is None:
-        webinar_ids = list(webinars.values_list("id", flat=True))
+        webinar_ids = list(
+            webinars.values_list("id", flat=True)
+        )
         cache.set(cache_key, webinar_ids, 120)
 
     webinars = (
@@ -75,52 +104,68 @@ def live_webinar_list(request):
         .order_by("-is_test", "start_datetime")
     )
 
+    # Available Months
     available_months = cache.get("live_months")
+
     if not available_months:
         available_months = list(
-            LiveWebinar.objects.only("start_datetime")
+            LiveWebinar.objects
+            .only("start_datetime")
             .dates("start_datetime", "month")
         )
         cache.set("live_months", available_months, 600)
 
-    filters_active = any([search_query, category_ids, instructor_ids, month])
+    # Active Filters
+    filters_active = any([
+        search_query,
+        category_ids,
+        instructor_ids,
+        month
+    ])
 
+    # Pagination
     paginator = Paginator(webinars, per_page)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
+    # Subscription Status
     is_subscribed = False
+
     if request.user.is_authenticated:
         sub_key = f"user_sub:{request.user.id}"
         is_subscribed = cache.get(sub_key)
+
         if is_subscribed is None:
             is_subscribed = has_active_subscription(request.user)
             cache.set(sub_key, is_subscribed, 60)
 
-    # Categories with webinar count
+    # Categories with Webinar Count
     categories = cache.get("categories_with_count")
+
     if not categories:
         categories = list(
             WebinarCategory.objects
-            .annotate(webinar_count=Count('webinars'))
+            .annotate(webinar_count=Count("webinars"))
             .filter(webinar_count__gt=0)
             .only("id", "name")
             .order_by("name")
         )
         cache.set("categories_with_count", categories, 600)
 
-    # Instructors with webinar count
+    # Instructors with Webinar Count
     instructors = cache.get("instructors_with_count")
+
     if not instructors:
         instructors = list(
             Instructor.objects
-            .annotate(webinar_count=Count('livewebinar'))
+            .annotate(webinar_count=Count("livewebinar"))
             .filter(webinar_count__gt=0)
             .only("id", "name")
             .order_by("name")
         )
         cache.set("instructors_with_count", instructors, 600)
 
+    # Context
     context = {
         "page_obj": page_obj,
         "webinars": page_obj.object_list,
@@ -136,8 +181,11 @@ def live_webinar_list(request):
         "is_subscribed": is_subscribed,
     }
 
-    return render(request, "live_webinars/list.html", context)
-
+    return render(
+        request,
+        "live_webinars/list.html",
+        context
+    )
 
 def live_webinar_detail(request, webinar_id, slug):
 

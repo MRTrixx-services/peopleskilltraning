@@ -7,15 +7,19 @@ from django.db.models import Q, Count
 from django.core.cache import cache
 
 
+
 def recorded_webinar_list(request):
 
+    # Per Page
     per_page = request.GET.get("per_page", 12)
     try:
         per_page = int(per_page)
-    except ValueError:
+        if per_page < 1:
+            per_page = 12
+    except (ValueError, TypeError):
         per_page = 12
 
-    # Base queryset
+    # Base Queryset
     queryset = (
         RecordedWebinar.objects
         .select_related("instructor", "category", "pricing")
@@ -23,43 +27,57 @@ def recorded_webinar_list(request):
         .order_by("-created_at")
     )
 
-    # -----------------------
-    # 🔍 Search
-    # -----------------------
-    search_query = request.GET.get("search")
+    # Search
+    search_query = request.GET.get("search", "").strip()
+
     if search_query:
         queryset = queryset.filter(
             Q(title__icontains=search_query) |
             Q(instructor__name__icontains=search_query)
         )
 
-    # -----------------------
-    # 📂 Category Filter
-    # -----------------------
+    # Category Filter
     category_ids = request.GET.getlist("category")
+    category_ids = [
+        value for value in category_ids
+        if value.isdigit()
+    ]
+
     if category_ids:
         queryset = queryset.filter(category_id__in=category_ids)
 
-    # -----------------------
-    # 👨🏫 Instructor Filter
-    # -----------------------
+    # Instructor Filter
     instructor_ids = request.GET.getlist("instructor")
+    instructor_ids = [
+        value for value in instructor_ids
+        if value.isdigit()
+    ]
+
     if instructor_ids:
         queryset = queryset.filter(instructor_id__in=instructor_ids)
 
-    # -----------------------
-    # 📅 Month Filter
-    # -----------------------
-    month = request.GET.get("month")
+    # Month Filter
+    month = request.GET.get("month", "").strip()
+
     if month:
         try:
-            queryset = queryset.filter(created_at__month=int(month))
-        except ValueError:
+            month_number = int(month)
+
+            if 1 <= month_number <= 12:
+                queryset = queryset.filter(
+                    created_at__month=month_number
+                )
+        except (ValueError, TypeError):
             pass
 
-    available_months = queryset.dates("created_at", "month")
+    # Available Months
+    available_months = (
+        RecordedWebinar.objects
+        .filter(is_published=True)
+        .dates("created_at", "month")
+    )
 
-    # 🔥 Detect active filters
+    # Active Filters
     filters_active = any([
         search_query,
         category_ids,
@@ -72,12 +90,34 @@ def recorded_webinar_list(request):
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
+    # Categories
+    categories = (
+        WebinarCategory.objects
+        .annotate(
+            webinar_count=Count(
+                "recorded_webinars",
+                filter=Q(recorded_webinars__is_published=True)
+            )
+        )
+    )
+
+    # Instructors
+    instructors = (
+        Instructor.objects
+        .annotate(
+            webinar_count=Count(
+                "recorded_webinars",
+                filter=Q(recorded_webinars__is_published=True)
+            )
+        )
+    )
+
     context = {
         "webinars": page_obj.object_list,
         "page_obj": page_obj,
         "per_page": per_page,
-        "categories": WebinarCategory.objects.annotate(webinar_count=Count("recorded_webinars", filter=Q(recorded_webinars__is_published=True))),
-        "instructors": Instructor.objects.annotate(webinar_count=Count("recorded_webinars", filter=Q(recorded_webinars__is_published=True))),
+        "categories": categories,
+        "instructors": instructors,
         "selected_categories": category_ids,
         "selected_instructors": instructor_ids,
         "selected_month": month,
@@ -91,7 +131,6 @@ def recorded_webinar_list(request):
         "recorded_webinars/recorded_list.html",
         context
     )
-
 
 def recorded_webinar_detail(request, webinar_id):
 
