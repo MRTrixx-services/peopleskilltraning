@@ -75,7 +75,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const diff = startTime - now;
 
             if (diff <= 0) {
-                el.innerHTML = "<span style='color:white;font-weight:800;'>LIVE NOW</span>";
+                el.innerHTML = `<span class="countdown-live-badge">
+                <span class="live-dot"></span>
+                                LIVE NOW
+                            </span>
+                        `;
 
                 const timeLeftDiv = el.closest(".time-left");
 
